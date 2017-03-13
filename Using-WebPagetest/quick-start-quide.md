@@ -19,6 +19,8 @@ class activityController extends \library\controller\Web {
 }
 ```
 
+`文字高亮`
+
 | 左对齐 | 居中  | 右对齐 |
 | :------------ |:---------------:| -----:|
 | col 3 is      | some wordy text | $1600 |
