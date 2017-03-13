@@ -13,7 +13,7 @@ common.const = {
 };
 ```
 
-```php
+```javascript
 <?php
 class activityController extends \library\controller\Web {
 }
