@@ -1,6 +1,31 @@
 # 快速入门指南
 WebPagetest的核心是用于测量和分析网页的性能。有很多选项，看着很吓人，但其实做快速测试是很简单的。
-本指南将引导您完成提交测试和解释结果。
+本指南将引导您提交测试和结果解释。
+
+##1 Running a Performance Test
+###1.1 Enter The Page URL:
+###1.2 Select a Location:
+###1.3 Select a Browser:
+###1.4 Submit the Test
+##2 Interpreting the Results
+###2.1 Optimization Grades:
+####2.1.1 Keep-alive Enabled:
+####2.1.2 Compress Text:
+####2.1.3 Compress Images:
+####2.1.4 Cache Static Content:
+####2.1.5 Combine JS/CSS Files:
+####2.1.6 Use of CDN:
+###2.2 High-level Metrics:
+####2.2.1 Repeat View:
+####2.2.2 Document Complete:
+####2.2.3 Fully Loaded:
+####2.2.4 Load Time:
+####2.2.5 First Byte:
+####2.2.6 Start Render:
+####2.2.7 DOM Elements:
+####2.2.8 The DOM Elements metric is the count of the DOM elements on the tested page as measured at the end of the test.
+####2.2.9 Requests:
+####2.2.10 Bytes In:
 
 ```javascript
 common.const = {
