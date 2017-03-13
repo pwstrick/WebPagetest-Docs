@@ -29,6 +29,9 @@ class activityController extends \library\controller\Web {
 * “迪米特”法则
 * 单一职责原则
 
+横线
+---
+
 | 左对齐 | 居中  | 右对齐 |
 | :------------ |:---------------:| -----:|
 | col 3 is      | some wordy text | $1600 |
