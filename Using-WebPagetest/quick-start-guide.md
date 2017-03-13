@@ -2,12 +2,12 @@
 WebPagetest的核心是用于测量和分析网页的性能。有很多选项，看着很吓人，但其实做快速测试是很简单的。
 本指南将引导您提交测试和结果解释。
 
-##1 Running a Performance Test
+##一、 Running a Performance Test
 ###1.1 Enter The Page URL:
 ###1.2 Select a Location:
 ###1.3 Select a Browser:
 ###1.4 Submit the Test
-##2 Interpreting the Results
+##二、 Interpreting the Results
 ###2.1 Optimization Grades:
 ####2.1.1 Keep-alive Enabled:
 ####2.1.2 Compress Text:
