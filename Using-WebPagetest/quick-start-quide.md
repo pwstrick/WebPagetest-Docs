@@ -13,4 +13,10 @@ common.const = {
 };
 ```
 
+```php
+<?php
+class activityController extends \library\controller\Web {
+}
+```
+
 ![](/assets/img/using/guide/url.png)
