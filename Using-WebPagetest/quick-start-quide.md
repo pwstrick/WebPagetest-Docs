@@ -1,3 +1,3 @@
 # 快速开始
 
-![](/assets/img/using/url.png)
+![](/assets/img/using/guide/url.png)
