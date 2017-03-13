@@ -2,30 +2,30 @@
 WebPagetest的核心是用于测量和分析网页的性能。有很多选项，看着很吓人，但其实做快速测试是很简单的。
 本指南将引导您提交测试和结果解释。
 
-##一、 Running a Performance Test
-###1.1 Enter The Page URL:
-###1.2 Select a Location:
-###1.3 Select a Browser:
-###1.4 Submit the Test
-##二、 Interpreting the Results
-###2.1 Optimization Grades:
-####2.1.1 Keep-alive Enabled:
-####2.1.2 Compress Text:
-####2.1.3 Compress Images:
-####2.1.4 Cache Static Content:
-####2.1.5 Combine JS/CSS Files:
-####2.1.6 Use of CDN:
-###2.2 High-level Metrics:
-####2.2.1 Repeat View:
-####2.2.2 Document Complete:
-####2.2.3 Fully Loaded:
-####2.2.4 Load Time:
-####2.2.5 First Byte:
-####2.2.6 Start Render:
-####2.2.7 DOM Elements:
-####2.2.8 The DOM Elements metric is the count of the DOM elements on the tested page as measured at the end of the test.
-####2.2.9 Requests:
-####2.2.10 Bytes In:
+##一、运行性能测试(Running a Performance Test)
+###1.1 输入网页网址(Enter The Page URL)
+###1.2 选择位置(Select a Location)
+###1.3 选择浏览器(Select a Browser)
+###1.4 提交测试(Submit the Test)
+##二、解释结果(Interpreting the Results)
+###2.1 优化等级(Optimization Grades)
+####2.1.1 长连接已启动(Keep-alive Enabled)
+####2.1.2 压缩文本(Compress Text)
+####2.1.3 压缩图片(Compress Images)
+####2.1.4 缓存静态内容(Cache Static Content)
+####2.1.5 合并JS/CSS文件(Combine JS/CSS Files)
+####2.1.6 使用CDN(Use of CDN)
+###2.2 高级度量(High-level Metrics)
+####2.2.1 重复视图(Repeat View)
+####2.2.2 document.onload事件触发时间(Document Complete)
+####2.2.3 页面所有元素加载花费时间(Fully Loaded)
+####2.2.4 整页加载时间(Load Time)
+####2.2.5 第一个字节加载所需时间(First Byte)
+####2.2.6 页面渲染时间(Start Render)
+####2.2.7 DOM元素数量(DOM Elements)
+####2.2.8 DOM元素度量标准是在测试结束时测量的测试页面上的DOM元素的计数(The DOM Elements metric is the count of the DOM elements on the tested page as measured at the end of the test)
+####2.2.9 HTTP请求数(Requests)
+####2.2.10 字节输入(Bytes In)
 
 ```javascript
 common.const = {
