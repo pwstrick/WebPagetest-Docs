@@ -5,10 +5,9 @@ WebPagetest的核心是用于测量和分析网页的性能。有很多选项，
 ##一、运行性能测试(Running a Performance Test)
 ###1.1 输入网页网址(Enter The Page URL)
 
-你需要做的第一件事是决定一个页面来测试。 大多数人从他们的网站的主页开始（但不要忽视人们访问的其他页面）。 确定要测试的页面后，转到WebPagetest并为其指定要测试的页面的URL：
+你需要做的第一件事是决定一个页面来测试。大多数人从他们的网站的主页开始（但不要忽视人们访问的其他页面）。确定要测试的页面后，转到WebPagetest并为其指定要测试的页面的URL：
 
 ![](/assets/img/using/guide/url.png)
-
 ###1.2 选择位置(Select a Location)
 ###1.3 选择浏览器(Select a Browser)
 ###1.4 提交测试(Submit the Test)
