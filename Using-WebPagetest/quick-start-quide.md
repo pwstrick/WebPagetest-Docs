@@ -13,10 +13,16 @@ common.const = {
 };
 ```
 
-```javascript
+```php
 <?php
 class activityController extends \library\controller\Web {
 }
 ```
+
+| 左对齐 | 居中  | 右对齐 |
+| :------------ |:---------------:| -----:|
+| col 3 is      | some wordy text | $1600 |
+| col 2 is      | centered        |   $12 |
+| zebra stripes | are neat        |    $1 |
 
 ![](/assets/img/using/guide/url.png)
