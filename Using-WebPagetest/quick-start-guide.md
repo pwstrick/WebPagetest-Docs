@@ -17,8 +17,15 @@ WebPagetest的核心是用于测量和分析网页的性能。有很多选项，
 
 ![](/assets/img/using/guide/browser.png)
 ###1.4 提交测试(Submit the Test)
+一切配置完成后，点击`START TEST`按钮，请求将发送到测试位置进行测试。测试可能需要一段时间才能运行，具体取决于有多少次测试（在测试之前至少有一分钟的测试时间，但是它的时间甚至更长）。一旦测试完成，你将得到结果。
+
 ##二、解释结果(Interpreting the Results)
+第一次看到结果信息可能有点吓人，信息量有点大，但首先可以先查看一些关键信息。
+
 ###2.1 优化等级(Optimization Grades)
+在结果页面的顶部是一组最关键的性能优化等级。涵盖了适用于所有网站的基本优化，任何不是A或B的都需要进行进一步的优化。
+
+![](/assets/img/using/guide/grade.png)
 ####2.1.1 长连接已启动(Keep-alive Enabled)
 ####2.1.2 压缩文本(Compress Text)
 ####2.1.3 压缩图片(Compress Images)
