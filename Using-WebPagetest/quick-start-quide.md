@@ -21,6 +21,14 @@ class activityController extends \library\controller\Web {
 
 `文字高亮`
 
+1. 开闭原则
+* 里氏转换原则
+* 依赖倒转原则
+* 接口隔离原则
+* 组合/聚合复用原则
+* “迪米特”法则
+* 单一职责原则
+
 | 左对齐 | 居中  | 右对齐 |
 | :------------ |:---------------:| -----:|
 | col 3 is      | some wordy text | $1600 |
