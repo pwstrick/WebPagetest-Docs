@@ -6,11 +6,10 @@ WebPagetest的核心是用于测量和分析网页的性能。有很多选项，
 ###1.1 输入网页网址(Enter The Page URL)
 
 你需要做的第一件事是决定一个页面来测试。大多数人从他们的网站的主页开始（但不要忽视人们访问的其他页面）。确定要测试的页面后，转到WebPagetest并为其指定要测试的页面的URL：
-
 ![](/assets/img/using/guide/url.png)
 ###1.2 选择位置(Select a Location)
-接下来，应该决定从哪里运行测试。WebPagetest具有位于世界各地的测试机器，你应该从接近用户访问的位置进行测试，从列表中选择一个位置，或者如果单击`Select from Map`按钮，可以从地图视图中选择一个位置（只需单击气球，然后确定）。如果将指针放在气泡上，它们将显示一条消息，告诉你位置在哪里：
-
+接下来，应该决定从哪里运行测试。WebPagetest具有位于世界各地的测试机器，你应该从接近用户访问的位置进行测试，从列表中选择一个位置，或者单击`Select from Map`按钮，从地图视图中选择一个位置（只需单击气球，然后确定）。如果将指针放在气泡上，它们将显示一条消息，提示位置信息：
+![](/assets/img/using/guide/map.png)
 ###1.3 选择浏览器(Select a Browser)
 ###1.4 提交测试(Submit the Test)
 ##二、解释结果(Interpreting the Results)
