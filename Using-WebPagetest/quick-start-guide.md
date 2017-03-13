@@ -1,5 +1,5 @@
 # 快速入门指南
-> At its core, WebPagetest is used for measuring and analyzing the performance of web pages.  There are a lot of options that may seem intimidating at first but doing quick testing is pretty simple.  This guide will walk you through submitting a test and interpreting the results.
+WebPagetest的核心是用于测量和分析网页的性能。有很多选项，看着很吓人，但其实做快速测试是很简单的。本指南将帮助您提交测试和解释结果。
 
 ```javascript
 common.const = {
