@@ -212,3 +212,26 @@ example: setABM	0
 
 <mode> - ABM mode to use
 ```
+
+#### 2.2.3 setActivityTimeout
+覆盖在完成测试之前的，最后一次网络活动之后的，超时值（默认为2000秒，即2秒）。  
+浏览器支持：IE, Chrome, Firefox, Safari
+```bash
+usage: setActivityTimeout	<timeout in milliseconds>
+example: setActivityTimeout	5000
+
+<timeout in milliseconds> - Number of milliseconds after the last network activity (after onload) before calling a test done.
+```
+
+#### 2.2.4 setDOMElement
+设置下一个事件成功完成所需的DOM元素的属性。直到DOM元素出现或动作超时，测量才完成。此外，DOM元素出现的时间将记录在结果中。  
+浏览器支持：IE, Chrome, Firefox
+```bash
+usage: setDOMElement	<attribute=value>
+example: setDOMElement	name=loginId
+
+<attribute=value> - DOM element to wait for
+```
+
+#### 2.2.5 setDOMRequest
+
