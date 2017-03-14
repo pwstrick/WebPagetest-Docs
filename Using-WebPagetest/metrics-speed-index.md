@@ -87,3 +87,5 @@ Completeness是该帧的完成百分比，Interval是该视频帧以毫秒为单
 ## 四、参考Speed Index结果
 ### 1. 5Mbps电缆
 Alexa排名前30万来自[HTTP Archive](http://httparchive.org/)的测试：
+
+![](/assets/img/using/metrics/si-cable.png)
