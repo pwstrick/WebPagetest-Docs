@@ -51,13 +51,153 @@ submitForm	name=AOLLoginForm
 
 ## 二、命令参考（Command Reference）
 ### 2.1 导航/ DOM互动（Navigation/DOM Interaction）
-#### 2.1.1 导航（navigate）
+#### 2.1.1 navigate
 将浏览器导航到所提供的URL，并等待其完成。
 
-浏览器支持：IE，Chrome，Firefox，Safari。
+浏览器支持：IE，Chrome，Firefox，Safari
 ```bash
 usage: navigate	<url>
 example: navigate	http://webmail.aol.com
 
 <url> - URL to provide the browser for navigation (same as you would enter into the address bar)
 ```
+
+#### 2.1.2 click
+触发标识的DOM元素的点击事件。此版本没有暗示的等待，脚本将在事件提交后继续运行（请参阅clickAndWait等待版本）。
+
+浏览器支持：IE, Chrome, Firefox
+```bash
+usage: click	<attribute=value>
+example: click	title=Delete (del)
+
+<attribute'value> - DOM element to click on
+```
+
+#### 2.1.3 clickAndWait
+触发标识的DOM元素的点击事件，然后等待浏览器活动完成。
+
+浏览器支持：IE, Chrome, Firefox
+```bash
+usage: clickAndWait	<attribute=value>
+example: clickAndWait	innerText=Send
+
+<attribute'value> - DOM element to click on
+```
+
+#### 2.1.4 selectValue
+从给定DOM元素的下拉列表中选择一个值。
+
+浏览器支持：IE
+```bash
+usage: selectValue	<attribute=value>	<value>
+example: selectValue	id=country	usa
+
+<attribute=value> - DOM element to select the value of
+<value> - value to use
+```
+
+#### 2.1.5 sendClick / sendClickAndWait
+创建JavaScript OnClick事件并将其发送到指定的元素。
+
+浏览器支持：IE
+```bash
+usage: sendClickAndWait	<attribute=value>
+example: sendClickAndWait	innerText=Send
+
+<attribute=value> - DOM element to send the click event to
+```
+
+#### 2.1.6 sendKeyDown / sendKeyUp / sendKeyPress (AndWait)
+创建一个创建JavaScript键盘事件（OnKeyDown，OnKeyUp，OnKeyPress），并将其发送到指定的元素。
+
+浏览器支持：IE
+```bash
+usage: sendKeyDownAndWait	<attribute=value>    <key>
+example: sendKeyDownAndWait	name=user    x
+
+<attribute=value> - DOM element to send the click event to
+<key> - Key command to send (special values are ENTER, DEL, DELETE, BACKSPACE, TAB, ESCAPE, PAGEUP, PAGEDOWN)
+```
+
+#### 2.1.7 setInnerHTML
+将给定DOM元素的innerHTML设置为所提供的值。这通常用于填充类似可编辑的HTML面板（如webmail中的消息正文）。 如果要包括HTML格式，请使用此选项。
+
+浏览器支持：IE, Chrome, Firefox
+```bash
+usage: setInnerHTML	<attribute=value>	<value>
+example: setInnerHTML	contentEditable=true	%MSG%
+
+<attribute=value> - DOM element to set the innerText of
+<value> - value to use
+```
+
+#### 2.1.8 setInnerText
+将给定DOM元素的innerText设置为所提供的值。这通常用于填充类似可编辑的HTML面板（如webmail中的消息正文）。 如果您不想包括任何HTML格式，请使用此选项。
+
+浏览器支持：IE, Chrome, Firefox
+```bash
+usage: setInnerText	<attribute=value>	<value>
+example: setInnerText	contentEditable=true	%MSG%
+
+<attribute=value> - DOM element to set the innerText of
+<value> - value to use
+```
+
+#### 2.1.9 setValue
+将给定DOM元素的值属性设置为所提供的值。这通常用于填充页面上的文本元素（表单或其他形式）。当前只支持“input”和“textArea”元素类型。
+
+浏览器支持：IE, Chrome, Firefox
+```bash
+usage: setValue	<attribute=value>	<value>
+example: setValue	name=loginId	userName
+
+<attribute=value> - DOM element to set the value of
+<value> - value to use
+```
+
+#### 2.1.10 submitForm
+触发标识窗体的提交事件。
+
+浏览器支持：IE, Chrome, Firefox
+```bash
+usage: submitForm	<attribute=value>
+example: submitForm	name=AOLLoginForm
+
+<attribute=value> - Form element to submit
+```
+
+#### 2.1.11 exec
+执行JavaScript。
+
+浏览器支持：IE, Chrome, Firefox
+```bash
+usage: exec	<javascript code>
+example: exec	window.setInterval('window.scrollBy(0,600)', 1000);
+```
+
+#### 2.1.12 execAndWait
+执行JavaScript并等待浏览器完成从操作生成的任何活动。
+
+浏览器支持：IE, Chrome, Firefox
+```bash
+usage: execAndWait	<javascript code>
+example: execAndWait	window.setInterval('window.scrollBy(0,600)', 1000);
+```
+
+#### 2.1.13 fileDialog
+单击标识的按钮以操作本地文件，指定所提供的文件，然后关闭本地文件浏览对话框。 这主要用于上传本地文件（附加到邮件，上传图片等）。
+
+浏览器支持：IE
+```bash
+usage: fileDialog	<attribute=value>	<file>
+example: fileDialog	type=file	msg.gif
+
+<attribute=value> - DOM element to click on.
+<file> - file to attach/upload.
+```
+
+除非一个页面具有多个用于附加文件的按钮（极不可能），否则应该能够始终对DOM元素使用`type=file`。
+
+文件的路径搜索顺序是首先检查脚本运行所在的同一目录，然后检查WebPagetest安装到的目录，然后最终将该文件作为绝对路径。
+
+
