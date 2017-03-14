@@ -4,8 +4,8 @@
 + 使用WebPagetest(Using WebPagetest)
 	+ [快速入门指南(Quick Start Guide)](/Using-WebPagetest/quick-start-guide.md)
 	+ [指标(Metrics)](/Using-WebPagetest/metrics.md)
-		+ [Speed Index](/Using-WebPagetest/metrics-speed-index.md)
-	+ [Result Codes](/Using-WebPagetest/result-codes.md)
+		+ [首屏展现平均值(Speed Index)](/Using-WebPagetest/metrics-speed-index.md)
+	+ [结果代码(Result Codes)](/Using-WebPagetest/result-codes.md)
 	+ [Scripting](/Using-WebPagetest/scripting.md)
 	+ [Custom Metrics](/Using-WebPagetest/custom-metrics.md)
 + Developer Interfaces
