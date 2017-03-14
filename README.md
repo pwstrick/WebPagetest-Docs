@@ -1,17 +1,17 @@
 # WebPageTest 中文文档
 英文文档请参考[WebPageTest Documentation](https://sites.google.com/a/webpagetest.org/docs/)
 
-+ 使用WebPagetest(Using WebPagetest)
-	+ [快速入门指南(Quick Start Guide)](/Using-WebPagetest/quick-start-guide.md)
-	+ [指标(Metrics)](/Using-WebPagetest/metrics.md)
-		+ [首屏展现平均值(Speed Index)](/Using-WebPagetest/metrics-speed-index.md)
-	+ [结果代码(Result Codes)](/Using-WebPagetest/result-codes.md)
-	+ [Scripting](/Using-WebPagetest/scripting.md)
-	+ [Custom Metrics](/Using-WebPagetest/custom-metrics.md)
++ 使用WebPagetest（Using WebPagetest）
+	+ [快速入门指南（Quick Start Guide）](/Using-WebPagetest/quick-start-guide.md)
+	+ [指标（Metrics）](/Using-WebPagetest/metrics.md)
+		+ [首屏展现平均值（Speed Index）](/Using-WebPagetest/metrics-speed-index.md)
+	+ [结果代码（Result Codes）](/Using-WebPagetest/result-codes.md)
+	+ [脚本（Scripting）](/Using-WebPagetest/scripting.md)
+	+ [自定义指标（Custom Metrics）](/Using-WebPagetest/custom-metrics.md)
 + Developer Interfaces
-	+ [RESTful APIs](/Developer-Interfaces/restful-apis.md)
-	+ [Batch Library](/Developer-Interfaces/batch-library.md)
-	+ [Batch Processing Command-line tool](/Developer-Interfaces/batch-processing-command-line-tool.md)
+	+ [RESTful API（RESTful APIs）](/Developer-Interfaces/restful-apis.md)
+	+ [批量库（Batch Library）](/Developer-Interfaces/batch-library.md)
+	+ [批处理命令行工具（Batch Processing Command-line tool）](/Developer-Interfaces/batch-processing-command-line-tool.md)
 	+ [Raw Test Results](/Developer-Interfaces/raw-test-tesults.md)
 + Private Instances
 	+ [Locations](/Private-Instances/locations.md)
