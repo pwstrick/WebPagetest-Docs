@@ -3,7 +3,7 @@
 
 + 使用WebPagetest(Using WebPagetest)
 	+ [快速入门指南(Quick Start Guide)](/Using-WebPagetest/quick-start-guide.md)
-	+ [Metrics](/Using-WebPagetest/metrics.md)
+	+ [指标(Metrics)](/Using-WebPagetest/metrics.md)
 		+ [Speed Index](/Using-WebPagetest/metrics-speed-index.md)
 	+ [Result Codes](/Using-WebPagetest/result-codes.md)
 	+ [Scripting](/Using-WebPagetest/scripting.md)
@@ -35,6 +35,6 @@
 	+ [Async JS](/Developer-Information/async-js.md)
 
 # 联系方式
-任何关于翻译的错误，或者探探性能，大家都可以在QQ群（156140744）中探讨。
+翻译错误、理解有误、或者探讨性能等，大家都可以在QQ群（156140744）中交流。
 
 <img src="/assets/img/qrcode.png" width="200"/>
