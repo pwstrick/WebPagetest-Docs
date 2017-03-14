@@ -7,8 +7,7 @@ WebPagetest具有脚本功能，可自动执行多步测试（例如，登录网
 
 以//开头的空行和行将被忽略，因此您可以在脚本中嵌入注释。
 
-对DOM元素操作的脚本命令标识具有`attribute = value`格式的DOM元素，其中该属性标识要作用的DOM元素的唯一属性。例如，如果您正在填写表单，您想填充的元素看起来像这样：
-
+对DOM元素操作的脚本命令标识具有`attribute = value`格式的DOM元素，其中该属性标识要作用的DOM元素的唯一属性。例如，如果正在填写表单，填充的元素看起来像这样：
 ```html
 <input type="text" class="tabInputFields" id="lgnId1" value="" tabindex="1" maxlength="97" name="loginId"/>
 ```
