@@ -77,44 +77,11 @@ WebPagetest的核心是用于测量和分析网页的性能。有很多选项，
 >The Start Render time is the first point in time that something was displayed to the screen.  Before this point in time the user was staring at a blank page.  This does not necessarily mean the user saw the page content, it could just be something as simple as a background color but it is the first indication of something happening for the user.
 
 ####2.2.8 DOM元素数量(DOM Elements)
-####2.2.9 DOM元素度量标准是在测试结束时测量的测试页面上的DOM元素的计数(The DOM Elements metric is the count of the DOM elements on the tested page as measured at the end of the test)
+在测试结束时测试页面上的DOM元素的计数。
+
 ####2.2.10 HTTP请求数(Requests)
-####2.2.11 字节输入(Bytes In)
+浏览器针对页面上的内容（图片，javascript，css等）发出的请求数。
 
-```javascript
-common.const = {
-  COOKIE_APP_NAME: 'chelun_appName', //车轮APP名称，比如 查违章，车轮社区
-  COOKIE_APP_VERSION: 'chelun_appVersion', //APP版本号
-  COOKIE_APP_TOKEN: 'chelun_acToken', //车轮统一登录态，去服务端校验
-  COOKIE_DEVICE: 'chelun_device', //机型，主要针对安卓，读取系统设备信息来做兼容性判断和数据统计
-  COOKIE_OS_TYPE: 'chelun_osType', //操作系统 ios android
-  COOKIE_OS_VERSION: 'chelun_osVersion', //IOS版本号   安卓版本号
-  COOKIE_IS_LOGIN: 'chelun_isLogin', //是否登录
-};
-```
-
-```php
-<?php
-class activityController extends \library\controller\Web {
-}
-```
-
-`文字高亮`
-
-1. 开闭原则
-* 里氏转换原则
-* 依赖倒转原则
-* 接口隔离原则
-* 组合/聚合复用原则
-* “迪米特”法则
-* 单一职责原则
-
-横线
----
-
-| 左对齐 | 居中  | 右对齐 |
-| :------------ |:---------------:| -----:|
-| col 3 is      | some wordy text | $1600 |
-| col 2 is      | centered        |   $12 |
-| zebra stripes | are neat        |    $1 |
+####2.2.11 传输的字节量(Bytes In)
+浏览器加载页面下载的数据量。它通常也被称为“页面大小”。
 
