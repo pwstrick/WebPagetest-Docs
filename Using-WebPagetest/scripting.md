@@ -182,8 +182,7 @@ example: fileDialog	type=file	msg.gif
 
 ### 2.2 结束条件（End Conditions）
 #### 2.2.1 requiredRequest
-强制测试在完成之前等待给定的请求。
-
+强制测试在完成之前等待给定的请求。  
 浏览器支持：IE
 ```bash
 usage: requiredRequest	<url substring>
@@ -200,5 +199,9 @@ navigate	www.google.com
 ```
 
 #### 2.2.2 setABM
-设置“基于活动的测量（Activity Based Measurement）”模式。 有效值为：
-
+设置“基于活动的测量（Activity Based Measurement）”模式。 有效值为：  
++ 0 - 禁用（Web 1.0 - 基于文档完成的测量）
++ 1 - 启用（Web 2.0 - 测量直到活动停止）
++ 2 - 自动（测量直到活动停止，但记录是否应使用文档完成或完全加载数字）  
+如果在脚本中未指定，则默认值为2（自动）  
+浏览器支持：IE
