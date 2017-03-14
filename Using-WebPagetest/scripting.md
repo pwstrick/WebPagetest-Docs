@@ -23,3 +23,14 @@
 托管版本的WebPagetest支持执行上传的脚本，但有一些限制：
 + 托管的脚本只能有一个步骤产生数据（见下面的例子，如何抑制中间步骤的结果）
 + 不允许使用使用外部文件的命令（loadFile，loadVariables，fileDialog）
+
+为了抑制中间步骤，您需要确保对于要记录的步骤，禁用数据记录。例如：
+```bash
+logData    0
+// put any urls you want to navigate
+navigate    www.aol.com
+navigate    news.aol.com
+logData    1
+// this step will get recorded
+navigate    news.aol.com/world
+```
