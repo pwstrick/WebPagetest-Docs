@@ -234,4 +234,47 @@ example: setDOMElement	name=loginId
 ```
 
 #### 2.2.5 setDOMRequest
+设置下一个事件成功完成所需的Http请求的子字符串。在特定Http请求完成或操作超时之前，测量将不会完成。  
+此外，Http请求发生的时间将记录在结果中。  
+浏览器支持：IE
+```bash
+usage: setDOMRequest	<target>	<value>
+example: setDOMRequest	www.google.com/images
 
+<target> - Http Request to wait for
+<value> - It is optional. It can be TTFB or START. If it is not present, the time till the END of the Http Request will be recorded in the results 
+```
+
+#### 2.2.6 setTimeout
+覆盖单个脚本步骤的超时值。  
+浏览器支持：IE, Chrome, Firefox, Safari
+```bash
+usage: setTimeout	<timeout in seconds>
+example: setTimeout	240
+
+<timeout in seconds> - Number of seconds to allow for the navigation/step to complete.
+```
+
+#### 2.2.7 waitForComplete
+等待当前活动的测量完成。这通常不需要，因为启动活动的大多数命令隐式等待或具有包括等待的命令的版本。这应该只在没有一个适合于被测量的动作时使用。  
+浏览器支持：IE
+```bash
+usage: waitforComplete
+example: waitforComplete
+```
+
+#### 2.2.8 waitForJSDone
+等待页面上的代码通过调用`window.webpagetest.done（）`来显式地指示它已完成。  
+浏览器支持：IE
+```bash
+usage: waitForJSDone
+example: waitForJSDone
+```
+页面上的JavaScript看起来像：
+
+```JavaScript
+if( window.webpagetest )
+    window.webpagetest.done();
+```
+
+#### 2.2.9 waitForJSDone
