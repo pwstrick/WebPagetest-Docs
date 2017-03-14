@@ -196,8 +196,8 @@ example: fileDialog	type=file	msg.gif
 <file> - file to attach/upload.
 ```
 
-+除非一个页面具有多个用于附加文件的按钮（极不可能），否则应该能够始终对DOM元素使用`type=file`。
-+文件的路径搜索顺序是首先检查脚本运行所在的同一目录，然后检查WebPagetest安装到的目录，然后最终将该文件作为绝对路径。
++ 除非一个页面具有多个用于附加文件的按钮（极不可能），否则应该能够始终对DOM元素使用`type=file`。
++ 文件的路径搜索顺序是首先检查脚本运行所在的同一目录，然后检查WebPagetest安装到的目录，然后最终将该文件作为绝对路径。
 
 ### 2.2 结束条件（End Conditions）
 #### 2.2.1 requiredRequest
