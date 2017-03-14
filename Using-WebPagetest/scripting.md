@@ -19,7 +19,7 @@
 ```
 可以通过`innerText = Delete`来标识。 匹配区分大小写，并匹配完整字符串。
 
-## 一、托管脚本（WebPagetest）
+## 一、托管脚本（Hosted Scripting）
 托管版本的WebPagetest支持执行上传的脚本，但有一些限制：
 + 托管的脚本只能有一个步骤产生数据（见下面的例子，如何抑制中间步骤的结果）
 + 不允许使用使用外部文件的命令（loadFile，loadVariables，fileDialog）
@@ -33,4 +33,31 @@ navigate    news.aol.com
 logData    1
 // this step will get recorded
 navigate    news.aol.com/world
+```
+上面的脚本将导航到主要的aol门户，然后到新闻页面，最后到世界新闻特定页面（仅记录世界新闻页面的记录结果）。 这样就可以测试给定路径对网站的性能（例如，共享css和js缓存）的影响。
+
+另一个重要的用例是，如果你想测试一个需要验证的网站。以下是验证脚本：
+```bash
+logData	0
+// bring up the login screen
+navigate	http://webmail.aol.com
+logData	1
+// log in
+setValue	name=loginId	someuser@aol.com
+setValue	name=password	somepassword
+submitForm	name=AOLLoginForm
+```
+你不会得到很多关于脚本失败的反馈，所以请确保在桌面版本的WebPagetest（File->Run Script）中测试脚本，然后再上传它们进行托管测试。
+
+## 二、命令参考（Command Reference）
+### 2.1 导航/ DOM互动（Navigation/DOM Interaction）
+#### 2.1.1 导航（navigate）
+将浏览器导航到所提供的URL，并等待其完成。
+
+浏览器支持：IE，Chrome，Firefox，Safari。
+```bash
+usage: navigate	<url>
+example: navigate	http://webmail.aol.com
+
+<url> - URL to provide the browser for navigation (same as you would enter into the address bar)
 ```
