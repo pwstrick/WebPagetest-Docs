@@ -18,4 +18,5 @@
 
 然后，我们可以通过计算曲线下的面积将进度转换为数字：
 
+![](/assets/img/using/metrics/chart-progress-a-small.png)
 ![](/assets/img/using/metrics/chart-progress-b-small.png)
