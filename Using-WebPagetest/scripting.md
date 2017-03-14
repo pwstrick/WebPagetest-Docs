@@ -406,3 +406,115 @@ example: setHeader	UA-CPU: none-ya
 usage: resetHeaders
 example: resetHeaders
 ```
+
+### 2.4 杂项（Misc）
+#### 2.4.1 combineSteps
+使多个脚本步骤在结果中合并为单个“步骤”  
+浏览器支持：IE，Chrome，Firefox，Safari
+```bash
+usage: combineSteps	[count]
+example: combineSteps
+
+[count] - Number of script steps to merge (optional, defaults to 0 which is ALL)
+```
+
+示例脚本：
+```bash
+combineSteps
+navigate	www.google.com
+navigate	www.yahoo.com
+navigate	www.aol.com
+```
+
+#### 2.4.2 if/else/endif
+根据测试的运行编号或缓存状态有条件地执行一个脚本代码块。  
+条件块可以嵌套。  
+浏览器支持：IE，Chrome，Firefox，Safari
+```bash
+usage:  if	[cached|run]    <value>
+        else
+        endif
+
+example:    if    run    1
+            if    cached    0
+            <do something for first view of first run>
+            endif
+            else
+            <do something else for everything but first run>
+            endif
+
+[cached|run] - Compare against run number or cached state
+<value> - matching run number or cached state to execute block
+```
+
+#### 2.4.3 ignoreErrors
+继续运行脚本，而不考虑任何错误。如果你希望脚本的某些部分间歇性失败，但仍希望继续执行脚本，这将非常有用。默认值是禁用它，处理脚本中的任何错误都将停止测试。  
+浏览器支持：IE
+```bash
+usage: ignoreErrors	<ignore>
+example: ignoreErrors	1
+
+<ignore> - set to 1 to turn on error ignoring and 0 to disable it
+```
+
+#### 2.4.4 logErrors
+启用或禁用错误日志。默认值为启用。
+浏览器支持：IE
+```bash
+usage: logErrors	<log>
+example: logErrors	0
+
+<log> - set to 0 to turn off error logging and 1 to re-enable it
+```
+
+#### 2.4.5 loadFile
+用提供的文件的内容填充提供的变量（内容预期为文本，而不是二进制）。  
+脚本引擎将自动替换值参数字段（第3个参数）中任何变量的所有出现。对变量如何命名没有限制，但强烈建议您使用％variable％或$ variable $或类似的约定，以便不会意外替换您不希望发生的变量。  
+对可以使用的变量数量或可以加载的文件数量没有限制。每个新文件只是添加到现有变量列表。如果两个文件之间的变量名存在冲突，则最后装入的文件将替换所有先前的版本。
+浏览器支持：IE
+```bash
+usage: loadFile	<file>	<variable>
+example: loadFile	msg.txt	%MSG%
+
+<file> - file contents that are to be loaded into the provided variable name.
+<variable> - variable name to associate with the file contents.
+```
+文件的路径搜索顺序是首先检查脚本运行所在的同一目录，然后检查WebPagetest安装到的目录，然后最终将该文件作为绝对路径。
+
+#### 2.4.6 loadVariables
+从提供的文件填充一组变量。 该文件应该是一个平面文本文件，每行上的变量格式为“`variable = value`”。  
+浏览器支持：IE
+```bash
+%AOLSN%=username
+%AOLPW%=password
+{noformat}
+
+The script engine will automatically replace all occurrences of any variable in the value parameter field (3rd parameter).  There is no restriction on how the variables are named but it is strongly recommended that you use a convention of %variable% or $variable$ or something similar so that you don't accidentally substitute variables where you did not expect it to happen.
+
+There is no limit on the number of variables you can use or the number of variable files you can load.  Each new variable file just adds to the existing variable list.  If there is a collision in variable names between two files, the one that is loaded last replaces all previous versions.
+
+<code><pre>
+usage: loadVariables	<variable file>
+example: loadVariables	accounts.txt
+
+<variable file> - file that includes the variable/value pairs (see format above).
+```
+
+#### 2.4.7 minInterval
+指定脚本的以下部分可以运行的最小时间间隔（以分钟为单位）。例如，如果只想测试邮件发送的频率不要超过每60分钟（在单个机器上），那么将在脚本中要发送邮件的位置插入一个minInterval命令。如果间隔尚未过期，则脚本将退出。还可以使用它来确保多个浏览器不会同时执行同一操作，通过指定间隔0（这将允许运行测试，但会暂停第二个脚本，直到第一个脚本完成为止）。  
+浏览器支持：IE
+```bash
+usage: minInterval	<key>	<interval>
+example: minInterval	AOLSendMail	60
+
+<key> - Unique event name that will be restricted to the interval
+<interval> - Minimum time in minutes to allow between allowing the event to run
+```
+
+#### 2.4.8 endInterval
+结束由minInterval块保护的代码块。如果要使用间隔保护的脚本部分位于脚本中间，并且总是想要执行脚本的其余部分（例如注销），这将非常有用。  
+浏览器支持：IE
+```bash
+usage: endInterval
+example: endInterval
+```
