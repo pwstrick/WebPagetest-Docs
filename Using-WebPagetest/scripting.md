@@ -518,3 +518,59 @@ example: minInterval	AOLSendMail	60
 usage: endInterval
 example: endInterval
 ```
+
+#### 2.4.9 expireCache
+在指定秒数内过期缓存。可以模拟在一定时间（例如，第二天浏览页面）之后访问页面。它不会帮助模拟内容更改，但是任何具有短期到期的资源，都会与if-modified-since比对。  
+浏览器支持：IE
+```bash
+usage: expireCache	<seconds>
+example: expireCache	86400
+
+<seconds> - Any resources with a cache lifetime less than this amount of time will be forced to expire.
+```
+
+#### 2.4.10 firefoxPref
+指定将在启动浏览器之前配置的任意首选项。  
+浏览器支持：Firefox
+```bash
+usage: firefoxPref	<pref>    <value>
+examples:
+firefoxPref    network.http.pipelining    false
+firefoxPref    network.http.pipelining.maxrequests    5
+firefoxPref    general.useragent.override    "Some User Agent String"
+
+<pref> - The preference that is to be modified
+<value> - The value to use.  String values should be enclosed in quotes like the example.
+```
+
+#### 2.4.11 setEventName
+设置下一个可测量操作的事件名称。重要的是，只有在生成要测量的活动的操作之前设置此权限，以便不会无意中测量其他页面活动。没有显式事件名称，每个步骤将自动命名为Step_1，Step_2等。  
+浏览器支持：IE
+```bash
+usage: setEventName	<event name>
+example: setEventName	loadWebmail
+
+<event name> - Name to use for the event about to occur (in resulting log files)
+```
+
+#### 2.4.12 setViewportSize
+更改可见浏览器窗口的大小，以便页面视口匹配给定的尺寸。如果你的屏幕截图上有黑色区域，那么视口比桌面大。  
+浏览器支持：IE，Chrome，Firefox，Safari
+```bash
+usage: setViewportSize	<width>    <height>
+example: setViewportSize    320    365
+
+<width> - Viewport Width
+<height> - Viewport Height
+```
+
+#### 2.4.13 sleep
+暂停脚本操作达到给定的秒数。  
+浏览器支持：IE，Chrome，Firefox，Safari
+```bash
+usage: sleep	<seconds to sleep>
+example: sleep	5
+
+<seconds to sleep> - An integer indicating how long to sleep.  The allowable range is 1-30.
+```
+
