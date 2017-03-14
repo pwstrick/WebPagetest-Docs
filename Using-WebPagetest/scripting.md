@@ -196,9 +196,28 @@ example: fileDialog	type=file	msg.gif
 <file> - file to attach/upload.
 ```
 
-+ 除非一个页面具有多个用于附加文件的按钮（极不可能），否则应该能够始终对DOM元素使用`type=file`。
-+ 文件的路径搜索顺序是首先检查脚本运行所在的同一目录，然后检查WebPagetest安装到的目录，然后最终将该文件作为绝对路径。
+除非一个页面具有多个用于附加文件的按钮（极不可能），否则应该能够始终对DOM元素使用`type=file`。  
+文件的路径搜索顺序是首先检查脚本运行所在的同一目录，然后检查WebPagetest安装到的目录，然后最终将该文件作为绝对路径。
 
 ### 2.2 结束条件（End Conditions）
 #### 2.2.1 requiredRequest
+强制测试在完成之前等待给定的请求。
+
+浏览器支持：IE
+```bash
+usage: requiredRequest	<url substring>
+example: requiredRequest	adsWrapper.js
+
+<url substring> - Part of the request URL to match (case-sensitive substring match)
+```
+你可以通过为每个新请求重复此命令来指定多个请求：
+
+```bash
+requiredRequest	www.aol.com
+requiredRequest	www.google.com
+navigate	www.google.com
+```
+
+#### 2.2.2 setABM
+设置“基于活动的测量（Activity Based Measurement）”模式。 有效值为：
 
