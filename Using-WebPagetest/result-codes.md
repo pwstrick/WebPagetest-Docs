@@ -3,16 +3,10 @@
 
 | 结果代码 | 描述  |
 | :------------ |:---------------|
-| 0      | some wordy text |
-| 4xx-5xx      | centered        |
-| 99996 | are neat        |
-| 99997 | are neat        |
-| 99998 | are neat        |
-| 99999 | are neat        |
+| 0         | 成功的测试                           |
+| 4xx-5xx   | HTTP结果（基页错误）                  |
+| 99996     | 测试失败等待指定的DOM元素/结束条件     |
+| 99997     | 测试超时（无内容错误）        |
+| 99998     | 测试超时（内容错误）        |
+| 99999     | 测试成功完成但个别请求失败（内容错误）        |
 
-0	Successful Test
-4xx-5xx	HTTP Result (Base Page Error)
-99996	Test Failed waiting for specified DOM element/End condition
-99997	Test Timed Out (no content errors)
-99998	Test Timed Out (content errors)
-99999	Test Completed successfully but individual requests failed (content errors)
