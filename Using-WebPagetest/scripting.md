@@ -409,7 +409,7 @@ example: resetHeaders
 
 ### 2.4 杂项（Misc）
 #### 2.4.1 combineSteps
-使多个脚本步骤在结果中合并为单个“步骤”  
+使多个脚本步骤在结果中合并为单个“步骤”。  
 浏览器支持：IE，Chrome，Firefox，Safari
 ```bash
 usage: combineSteps	[count]
@@ -574,3 +574,103 @@ example: sleep	5
 <seconds to sleep> - An integer indicating how long to sleep.  The allowable range is 1-30.
 ```
 
+## 三、示例脚本
+### 1. Mail test
+```bash
+// load the account name and password
+loadVariables	accounts.txt
+
+// bring up the login screen
+setEventName	launch
+setDOMElement	name=loginId
+navigate	http://webmail.aol.com
+
+// ignore any errors from here on (in case the mailbox is empty or we get image challenged)
+ignoreErrors	1
+
+// log in
+setValue	name=loginId	%AOLSN%
+setValue	name=password	%AOLPW%
+setDOMElement	className=turbogrid-row
+setEventName	load
+submitForm	name=AOLLoginForm
+
+// only read and send a mail once an hour
+minInterval	AOLMail	60
+
+// close the today curtain
+click	className=backdrop
+sleep	5
+
+// Open the first message with a subject of "test"
+setDOMElement	className=msgBody
+setEventName	read
+clickAndWait	innerText=test
+
+// delete the message
+click	title=Delete (del)
+sleep	5
+
+// open the compose mail form
+setDOMElement	contentEditable=true
+setEventName	compose
+clickAndWait	title=Write mail (Alt + w)
+
+// send a test message to myself
+sleep	1
+setValue	tabindex=100	%AOLSN%
+setValue	name=Subject	test
+loadFile	msg.txt	%MSG%
+setInnerText	contentEditable=true	%MSG%
+fileDialog	type=file	msg.gif
+sleep	1
+setDOMElement	className=confirmMessage
+setEventName	send
+clickAndWait	innerText=Send
+
+endInterval
+
+// sign off
+setEventName	logout
+clickAndWait	className=signOutLink
+```
+
+### 2. MyAOL Authenticated profile
+```bash
+// load the account name and password
+loadVariables	accounts.txt
+
+// bring up the login screen
+setDOMElement	name=loginId
+navigate	https://my.screenname.aol.com/_cqr/login/login.psp?mcState=initialized&sitedomain=my.aol.com&authLev=0&siteState=OrigUrl%3Dhttp%3A%2F%2Fmy.aol.com%2F
+
+// log in
+setValue	name=loginId	%AOLSN%
+setValue	name=password	%AOLPW%
+setDOMElement	className=more_pics
+submitForm	name=AOLLoginForm
+```
+
+### 3. DNS Override
+此脚本步骤如下：
++ 为www1.aol.com创建一个假的DNS条目，并让它查找www.aol.com
++ 强制www.aol.com解析为127.0.0.1
++ 在www.aol.com域中设置“zip”cookie
++ 跳转并测量加载www.aol.com的时间
+```bash
+setDnsName	www1.aol.com	www.aol.com
+setDns	www.aol.com	127.0.0.1
+setCookie	http://www.aol.com	zip=20166
+navigate	http://www.aol.com
+```
+
+### 4. iPhone Spoofing
+此脚本步骤如下：
++ 使用iPhone用户代理字符串
++ 更改浏览器尺寸以匹配iPhone
++ 跳转到www.aol.com
+```bash
+setUserAgent	Mozilla/5.0 (iPhone; CPU iPhone OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5376e Safari/8536.25
+setViewportSize    320    356
+navigate	http://www.aol.com
+```
