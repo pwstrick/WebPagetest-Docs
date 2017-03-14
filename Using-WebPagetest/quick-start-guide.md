@@ -48,16 +48,28 @@ WebPagetest的核心是用于测量和分析网页的性能。有很多选项，
 结果页顶部的数据表提供了有关已加载页面的一些高级信息：
 
 ![](/assets/img/using/guide/WebPagetest_example.jpeg)
-####2.2.1 重复视图(Repeat View)
-####2.2.2 document.onload事件触发时间(Document Complete)
-####2.2.3 页面所有元素加载花费时间(Fully Loaded)
-####2.2.4 整页加载时间(Load Time)
-####2.2.5 第一个字节加载所需时间(First Byte)
-####2.2.6 页面渲染时间(Start Render)
-####2.2.7 DOM元素数量(DOM Elements)
-####2.2.8 DOM元素度量标准是在测试结束时测量的测试页面上的DOM元素的计数(The DOM Elements metric is the count of the DOM elements on the tested page as measured at the end of the test)
-####2.2.9 HTTP请求数(Requests)
-####2.2.10 字节输入(Bytes In)
+####2.2.1 首次视图(First View)
+首次视图的测试，将会把浏览器的缓存和Cookie清除，表示访问者第一次访问该网页，将体验到的情况。
+
+####2.2.2 重复视图(Repeat View)
+重复视图会在首次视图测试后立即执行，不会清除任何内容。浏览器窗口在`First View`测试后关闭，然后启动新浏览器以执行`Repeat View`测试。重复视图测试模拟的是用户离开页面后，马上再进入此页面的场景。
+
+####2.2.3 document.onload事件触发时间(Document Complete)
+在DOM准备就绪时调用，在加载图像和其他外部内容之前的时间。
+
+![](/assets/img/using/guide/dom.jpg)
+
+>原文不是很理解，就自己在网上查了相关信息
+>The metrics grouped together under the Document Complete heading are the metrics collected up until the browser considered the page loaded (onLoad event for those familiar with the javascript events).  This usually happens after all of the images content have loaded but may not include content that is triggered by javascript execution.
+
+####2.2.4 页面所有元素加载花费时间(Fully Loaded)
+####2.2.5 整页加载时间(Load Time)
+####2.2.6 第一个字节加载所需时间(First Byte)
+####2.2.7 页面渲染时间(Start Render)
+####2.2.8 DOM元素数量(DOM Elements)
+####2.2.9 DOM元素度量标准是在测试结束时测量的测试页面上的DOM元素的计数(The DOM Elements metric is the count of the DOM elements on the tested page as measured at the end of the test)
+####2.2.10 HTTP请求数(Requests)
+####2.2.11 字节输入(Bytes In)
 
 ```javascript
 common.const = {
