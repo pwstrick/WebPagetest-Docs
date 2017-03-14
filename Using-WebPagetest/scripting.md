@@ -277,4 +277,67 @@ if( window.webpagetest )
     window.webpagetest.done();
 ```
 
-#### 2.2.9 waitForJSDone
+### 2.3 请求操作（Request Manipulation）
+#### 2.3.1 block
+阻止个别请求加载（可用于阻止像广告等内容）。该命令匹配要阻止的事物列表与每个请求的完整URL（包括主机名）。  
+浏览器支持：IE, Chrome, Firefox
+```bash
+usage: block    <block strings>
+example: block    adswrapper.js addthis.com
+
+<block strings> - space-delimited list of substrings to block
+```
+
+#### 2.3.2 blockDomains
+阻止来自指定网域的所有请求加载（可用于阻止像广告等内容）。使用以空格分隔的完整域的列表进行阻止。  
+浏览器支持：桌面（wptdriver 300+）
+```bash
+usage: blockDomains    <block domains>
+example: blockDomains    adswrapper.js addthis.com
+
+<block domains> - space-delimited list of domains to block
+```
+
+#### 2.3.3 blockDomainsExecpt
+阻止不是来自某个指定网域的所有请求加载（可用于阻止像广告等内容）。以允许的完整域的空格分隔列表。  
+浏览器支持：桌面（wptdriver 300+）
+```bash
+usage: blockDomainsExcept    <allow domains>
+example: blockDomainsExcept    www.example.com cdn.example.com
+
+<allow domains> - space-delimited list of domains to allow
+```
+
+#### 2.3.4 setCookie
+存储浏览时要使用的浏览器Cookie。  
+浏览器支持：IE，Chrome，Firefox
+```bash
+usage: setCookie	<path>	<value>
+example: setCookie	http://www.aol.com	zip=20166
+example: setCookie	http://www.aol.com	TestData = Test; expires = Sat,01-Jan-2000 00:00:00 GMT
+
+<path> - Path where the cookie should be used/stored
+<value> - Cookie value (if expiration information isn't included it will be stored as a session cookie)
+```
+
+#### 2.3.5 setDns
+允许覆盖用于主机名的IP地址。仍将查找原始名称，以便记录准确的时间，但地址将被指定的替换。  
+浏览器支持：IE, Chrome, Firefox, Safari
+```bash
+usage: setDns	<host name>	<IP Address>
+example: setDns	www.aol.com	127.0.0.1
+
+<host name> - Host name for the DNS entry to override
+<IP Address> - IP Address for the host name to resolve to
+```
+
+#### 2.3.6 setDNSName
+允许覆盖主机名（创建假CNAME）。  
+浏览器支持：IE, Chrome, Firefox, Safari
+```bash
+usage: setDnsName	<name to override>	<real name>
+example: setDnsName	pat.aol.com	www.aol.com
+
+<name to override> - Host name to replace
+<real name> - Real name to lookup instead
+```
