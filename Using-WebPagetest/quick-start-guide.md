@@ -60,7 +60,7 @@ WebPagetest的核心是用于测量和分析网页的性能。有很多选项，
 ![](/assets/img/using/guide/dom.jpg)
 >The metrics grouped together under the Document Complete heading are the metrics collected up until the browser considered the page loaded (onLoad event for those familiar with the javascript events).  This usually happens after all of the images content have loaded but may not include content that is triggered by javascript execution.
 
-####2.2.4 页面所有元素加载花费时间(Fully Loaded)
+####2.2.4 页面所有元素加载时间(Fully Loaded)
 在图像和其他资源（css，scripts，flash等）都已经加载进来后的时间，`我的理解是window.onload`。原文如下：
 >The metrics grouped together under the Fully Loaded heading are the metrics collected up until there was 2 seconds of no network activity after Document Complete.  This will usually include any activity that is triggered by javascript after the main page loads.
 
@@ -68,7 +68,7 @@ WebPagetest的核心是用于测量和分析网页的性能。有很多选项，
 与`Document Complete`中的时间属性相同。原文如下：
 >The Load Time is the time from when the user started navigating to the page until the Document Complete event (usually when all of the page content has loaded).
 
-####2.2.6 第一个字节加载所需时间(First Byte)
+####2.2.6 第一个字节加载时间(First Byte)
 这个时间表示浏览器发起请求到服务器响应后，接收到第一个字节的时间。此时的大部分时间通常称为“后端时间”，服务器为用户构建页面的时间量。原文如下：
 >The First Byte time is the time from when the user started navigating to the page until the first bit of the server response arrived.  The bulk of this time is usually referred to the "back-end time" and is the amount of time the server spent building the page for the user.
 
