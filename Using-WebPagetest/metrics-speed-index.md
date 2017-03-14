@@ -11,3 +11,11 @@
 >The speed index takes the visual progress of the visible page loading and computes an overall score for how quickly the content painted.  To do this, first it needs to be able to calculate how "complete" the page is at various points in time during the page load.  In WebPagetest this is done by capturing a video of the page loading in the browser and inspecting each video frame (10 frames per second in the current implementation and only works for tests where video capture is enabled).  The current algorithm for calculating the completeness of each frame is described below, but for now assume we can assign each video frame a % complete (numbers displayed under each frame):
 
 ![](/assets/img/using/metrics/compare_progress.png)
+
+如果我们绘制一个页面的完整性与时间的折线图，我们将最终得到如下所示的东西：
+
+![](/assets/img/using/metrics/chart-line-small.png)
+
+然后，我们可以通过计算曲线下的面积将进度转换为数字：
+
+![](/assets/img/using/metrics/chart-progress-b-small.png)
