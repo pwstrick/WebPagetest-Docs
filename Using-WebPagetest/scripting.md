@@ -13,8 +13,13 @@
 ```
 你可以将它标识为`id = lgnId1`，`name = loginId`或`tabindex = 1`
 
-对于表单字段，通常最好使用名称属性，这些将被上传到服务器。类属性是特殊的，并且被引用为`className`而不是类。除了DOM元素属性匹配之外，还有两个特殊属性可用于匹配内容。 innerText和innerHtml，它们都将匹配DOM元素的内容，而不是它的属性。例如：
+&emsp;&emsp;对于表单字段，通常最好使用名称属性，这些将被上传到服务器。类属性是特殊的，并且被引用为`className`而不是类。除了DOM元素属性匹配之外，还有两个特殊属性可用于匹配内容。 innerText和innerHtml，它们都将匹配DOM元素的内容，而不是它的属性。例如：
 ```html
 <div dojoattachpoint="containerNode" class="label">Delete</div>
 ```
 可以通过`innerText = Delete`来标识。 匹配区分大小写，并匹配完整字符串。
+
+## 一、托管脚本（WebPagetest）
+托管版本的WebPagetest支持执行上传的脚本，但有一些限制：
++ 托管的脚本只能有一个步骤产生数据（见下面的例子，如何抑制中间步骤的结果）
++ 不允许使用使用外部文件的命令（loadFile，loadVariables，fileDialog）
