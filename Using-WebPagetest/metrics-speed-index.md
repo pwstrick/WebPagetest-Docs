@@ -30,6 +30,7 @@
 
 `Speed Index`是以“ms”为单位计算的“曲线上方区域”，在视觉完成范围内使用0.0-1.0。间隔分数计算公式如下：
 > IntervalScore = Interval * (1.0 - (Completeness / 100)) 
+
 Completeness是该帧的完成百分比，Interval是该视频帧以毫秒为单位的经过时间（这里为100）。总分是各个间隔的总和：SUM（IntervalScore），原文如下：
 >The Speed Index is the "area above the curve" calculated in ms and using 0.0-1.0 for the range of visually complete.  The calculation looks at each 0.1s interval and calculates IntervalScore = Interval * (1.0 - (Completeness/100)) where Completeness is the % Visually complete for that frame and Interval is the elapsed time for that video frame in ms (100 in this case).  The overall score is just a sum of the individual intervals: SUM(IntervalScore)
 
