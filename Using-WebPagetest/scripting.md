@@ -202,6 +202,13 @@ navigate	www.google.com
 设置“基于活动的测量（Activity Based Measurement）”模式。 有效值为：  
 + 0 - 禁用（Web 1.0 - 基于文档完成的测量）
 + 1 - 启用（Web 2.0 - 测量直到活动停止）
-+ 2 - 自动（测量直到活动停止，但记录是否应使用文档完成或完全加载数字）  
++ 2 - 自动（测量直到活动停止，但记录是否应使用文档完成或完全加载数字）
+
 如果在脚本中未指定，则默认值为2（自动）  
 浏览器支持：IE
+```bash
+usage: setABM	<mode>
+example: setABM	0
+
+<mode> - ABM mode to use
+```
