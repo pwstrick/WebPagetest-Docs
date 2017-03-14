@@ -1,6 +1,6 @@
 #首屏展现平均值
 
-&emsp;&emsp;`Speed Index`是显示页面的可见部分的平均时间。它以毫秒为单位表示，会受视图端口大小的影响。
+`Speed Index`是显示页面的可见部分的平均时间。它以毫秒为单位表示，会受视图端口大小的影响。
 
 &emsp;&emsp;`Speed Index`已于2012年4月添加到WebPagetest，衡量页面内容填充的速度（越低越好）。它特别适用于比较不同页面之间的差别（在优化之前/之后，我的网站与竞争对手等），与其它指标（`Load Time`，`Start Render`等）结合使用，可以更好地了解网站的性能 。
 
@@ -71,6 +71,7 @@ Completeness是该帧的完成百分比，Interval是该视频帧以毫秒为单
 	+ 具有4个`Paint`事件的矩形将为每个`Paint`事件贡献其区域的25％。
 + 任何给定`Paint`事件的结束时间用于该`Paint`事件的时间。
 + 通过将每个`Paint`事件的贡献添加到运行总计中，接近总体（100％）来计算视觉进展。
+
 >+ In the case of Webkit-based browsers, we collect the timeline data which includes paint rects as well as other useful events.
 >+ We filter out any paint events that occur before the first layout that happens after the first response data is received.
 >   + ResourceReceiveResponse -> Layout -> Paint events.
