@@ -83,3 +83,7 @@ Completeness是该帧的完成百分比，Interval是该视频帧以毫秒为单
 >   + A rectangle with 4 paint events will contribute 25% of it's area for each paint event.
 >+ The endTime for any given paint event is used for the time of that paint event.
 >+ The visual progress is calculated by adding each paint event's contribution to a running total, approaching the overall total (100%).
+
+## 四、参考Speed Index结果
+### 1. 5Mbps电缆
+Alexa排名前30万来自[HTTP Archive](http://httparchive.org/)的测试：
