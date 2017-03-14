@@ -27,3 +27,20 @@
 ![](/assets/img/using/metrics/chart-index-a-small.png)
 ![](/assets/img/using/metrics/chart-index-b-small.png)
 ![](/assets/img/using/metrics/speedindexformula.png)
+
+`Speed Index`是以“ms”为单位计算的“曲线上方区域”，在视觉完成范围内使用0.0-1.0。间隔分数计算公式如下：
+> IntervalScore = Interval * (1.0 - (Completeness / 100)) 
+Completeness是该帧的完成百分比，Interval是该视频帧以毫秒为单位的经过时间（这里为100）。总分是各个间隔的总和：SUM（IntervalScore），原文如下：
+>The Speed Index is the "area above the curve" calculated in ms and using 0.0-1.0 for the range of visually complete.  The calculation looks at each 0.1s interval and calculates IntervalScore = Interval * (1.0 - (Completeness/100)) where Completeness is the % Visually complete for that frame and Interval is the elapsed time for that video frame in ms (100 in this case).  The overall score is just a sum of the individual intervals: SUM(IntervalScore)
+
+为了比较，下面是两页的视频帧（上面是“A”，下面是“B”）：
+
+![](/assets/img/using/metrics/compare_trimmed.png)
+
+##三、测量视觉进展(Measuring Visual Progress)
+我用手挥舞着如何计算每个视频帧的“完整性（completeness）” ，`Speed Index`本身的计算是独立的技术，用于确定完整性（可以与不同的计算完整性的方法一起使用）。目前使用两种方法：
+###1. 视频捕获的可视进度(Visual Progress from Video Capture)
+简单的方法将图像的每个像素与最终图像比较，然后计算每个帧匹配的像素百分比（也可能忽略开始和结束帧之间匹配的任何像素）。这种方法的主要问题是，网页是流动的，像广告加载这样的东西可以导致页面的其余部分移动。在像素比较模式下，屏幕上的每个像素的移动都会改变比对结果，即使实际内容只是向下移动一个像素。
+
+###2. 从绘画事件的可视进展(Visual Progress from Paint Events)
+
