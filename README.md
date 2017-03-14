@@ -32,4 +32,9 @@
 	+ [Code Review](/Developer-Information/code-review.md)
 	+ [Design Docs](/Developer-Information/design-docs.md)
 		+ [Benchmarks](/Developer-Information/benchmarks.md)
-	+ [Async JS](/Developer-Information/async-js.md)	
+	+ [Async JS](/Developer-Information/async-js.md)
+
+# 联系方式
+任何关于翻译的错误，或者探探性能，大家都可以在QQ群（156140744）中探讨。
+
+![](/assets/img/qrcode.png)
