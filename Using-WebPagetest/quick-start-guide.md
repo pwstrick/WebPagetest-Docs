@@ -27,6 +27,8 @@ WebPagetest的核心是用于测量和分析网页的性能。有很多选项，
 
 ![](/assets/img/using/guide/grades.png)
 ####2.1.1 长连接已启动(Keep-alive Enabled)
+请求网页上的内容（图像、JavaScript、CSS、Flash等）需要与Web服务器建立连接。每次都重新连接会耗费一些时间，所以最好复用连接，`keep-alive`实现了这个方法。默认情况下，在配置中已启用，而且是HTTP 1.1标准的一部分，但有时它们将被破坏（可能是无意的）。启用`keep-alive`通常只是服务器上的配置更改，不需要对页面本身进行任何更改，通常可以将加载页面的时间减少40-50％。
+
 ####2.1.2 压缩文本(Compress Text)
 ####2.1.3 压缩图片(Compress Images)
 ####2.1.4 缓存静态内容(Cache Static Content)
