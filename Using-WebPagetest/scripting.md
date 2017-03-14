@@ -11,3 +11,4 @@ WebPagetest具有脚本功能，可自动执行多步测试（例如，登录网
 ```html
 <input type="text" class="tabInputFields" id="lgnId1" value="" tabindex="1" maxlength="97" name="loginId"/>
 ```
+你可以将它标识为`id = lgnId1`，`name = loginId`或`tabindex = 1`
