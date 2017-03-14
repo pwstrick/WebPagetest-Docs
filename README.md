@@ -37,4 +37,4 @@
 # 联系方式
 任何关于翻译的错误，或者探探性能，大家都可以在QQ群（156140744）中探讨。
 
-![](/assets/img/qrcode.png =100x100)
+<img src="/assets/img/qrcode.png" width="100"/>
