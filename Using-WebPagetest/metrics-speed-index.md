@@ -89,3 +89,8 @@ Completeness是该帧的完成百分比，Interval是该视频帧以毫秒为单
 Alexa排名前30万来自[HTTP Archive](http://httparchive.org/)的测试：
 
 ![](/assets/img/using/metrics/si-cable.png)
+
+### 2. 1.5Mbps DSL
+Alexa排名前10万来自[HTTP Archive](http://httparchive.org/)的测试：
+
+![](/assets/img/using/metrics/distribution.png)
