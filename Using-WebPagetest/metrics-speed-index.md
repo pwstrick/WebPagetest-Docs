@@ -20,3 +20,10 @@
 
 ![](/assets/img/using/metrics/chart-progress-a-small.png)
 ![](/assets/img/using/metrics/chart-progress-b-small.png)
+
+如果页面在达到视觉上完成后旋转10秒，分数将继续增加。涂色的是渲染部分，面积越小，页面载入速度越快。原文如下：
+>This would be great except for one little detail, it is unbounded.  If a page spins for 10 seconds after reaching visually complete the score would keep increasing.  Using the "area above the graph" and calculating the unrendered portion of the page over time instead gives us a nicely bounded area that ends when the page is 100% complete and approaches 0 as the page gets faster:
+
+![](/assets/img/using/metrics/chart-index-a-small.png)
+![](/assets/img/using/metrics/chart-index-b-small.png)
+![](/assets/img/using/metrics/speedindexformula.png)
