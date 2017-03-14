@@ -341,3 +341,68 @@ example: setDnsName	pat.aol.com	www.aol.com
 <name to override> - Host name to replace
 <real name> - Real name to lookup instead
 ```
+
+#### 2.3.7 setUserAgent
+覆盖由浏览器发送的用户代理字符串。  
+浏览器支持：IE, Chrome, Firefox, Safari  
+小心：你仍然使用相同的浏览器引擎，因此仍然受到该浏览器的功能和行为的限制，即使欺骗了另一个浏览器。
+```bash
+usage: setUserAgent    <user agent string>
+example: setUserAgent    Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420+ (KHTML, like Gecko) Version/3.0 Mobile/1A543 Safari/419.3
+
+<user agent string> - User agent string to use.
+```
+
+#### 2.3.8 overrideHost
+使用提供的值，替换给定主机的Host：HTTP头的值。它还添加了一个带有原始值的新标题（x-Host :)。  
+浏览器支持：IE，Chrome，Firefox，Safari（无SSL）
+```bash
+usage: overrideHost	<host>    <new host>
+example: overrideHost	www.aol.com    www.notaol.com
+
+<host> - host for which you want to override the Host: HTTP header
+<new host> - value to set for the Host header
+```
+
+#### 2.3.9 overrideHostUrl
+对于给定主机的所有请求，重写请求以转到其他服务器，并将原始主机包含在新URI中。  
+浏览器支持：IE
+```bash
+usage: overrideHostUrl	<host>    <new host>
+example: overrideHostUrl	www.webpagetest.org    staging.webpagetest.org
+
+<host> - host for which you want to redirect requests
+<new host> - target server to receive the redirected requests
+
+In this example, http://www.webpagetest.org/index.php will get rewritten to actually request http://staging.webpagetest.org/www.webpagetest.org/index.php
+```
+
+#### 2.3.10 addHeader
+将指定的标头添加到每个http请求（除了存在的标头之外，不覆盖现有标头）。  
+浏览器支持：IE，Chrome，Firefox，Safari（无SSL）
+```bash
+usage: addHeader	<header>    {filter}
+example: addHeader	Pragma: akamai-x-cache-on
+
+<header> - Full header entry to add (including label)
+{filter} - (optional) regex match for host names where the header should be added
+```
+
+#### 2.3.11 setHeader
+将指定的标头添加到每个http请求，覆盖标头（如果标头已存在）。  
+浏览器支持：IE，Chrome，Firefox，Safari（无SSL）
+```bash
+usage: setHeader	<header>    {filter}
+example: setHeader	UA-CPU: none-ya
+
+<header> - Full header entry to set (including label)
+{filter} - (optional) regex match for host names where the header should be set
+```
+
+#### 2.3.12 resetHeaders
+清除通过addHeader或setHeader指定的任何标头（以防只想覆盖部分脚本的标头）。  
+浏览器支持：IE，Chrome，Firefox，Safari
+```bash
+usage: resetHeaders
+example: resetHeaders
+```
