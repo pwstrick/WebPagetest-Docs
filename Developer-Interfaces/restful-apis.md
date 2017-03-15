@@ -101,8 +101,42 @@ XML响应遵循REST API的格式。你将获得一个200的HTTP响应，结果�
     </data>
 </response>
 ```
++ statusCode - 200表示成功提交。任何其他的都是一个错误（并将回到400与描述性文本）
++ statusText - 故障的错误信息
++ requestId - 请求ID来自于前面的`r参数`。如果未指定，将不存在。requestId使跟踪异步请求更容易。
++ testId - 分配给测试请求的ID（在所有网址中使用）
++ xmlUrl - 用于以XML格式获取结果的URL
++ userUrl - 将用户定向到结果页面的网址（如果不使用XML界面，通常会被重定向到的网址）
++ summaryCSV - 以CSV格式（页面级数据和时间）的摘要结果的网址。 如果测试尚未完成，将返回404。
++ detailCSV - URL格式的完整详细结果（请求级数据和时间）。 如果测试尚未完成，将返回404。
 
 ### 1.4 Sample
+测试`www.aol.com`并重定向到结果页面：
+```html
+http://www.webpagetest.org/runtest.php?url=www.aol.com
+```
+
+测试`www.aol.com` 10次，首先查看并重定向到结果页面：
+```html
+http://www.webpagetest.org/runtest.php?url=www.aol.com&runs=10&fvonly=1
+```
+
+测试`www.aol.com` 2次，得到响应为xml，请求ID为“12345”嵌入响应：
+```xml
+http://www.webpagetest.org/runtest.php?url=www.aol.com&runs=2&f=xml&r=12345
+
+<response>
+	<statusCode>200</statusCode>
+	<statusText>Ok</statusText>
+	<requestId>12345</requestId>
+	<data>
+		<testId>091111_2XFH</testId>
+		<xmlUrl>http://www.webpagetest.org/xmlResult/091111_2XFH/</xmlUrl>
+		<userUrl>http://www.webpagetest.org/result/091111_2XFH/</userUrl>
+	</data>
+</response>
+```
+
 
 ## 二、检查测试状态
 ## 三、获取测试结果
