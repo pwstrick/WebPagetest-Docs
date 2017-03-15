@@ -32,3 +32,23 @@ return viewport;
 [metric-2-name]
 <metric 2 code>
 ```
+
+下面是一个收集3个不同指标的示例（2个数字和一个字符串）：
+```bash
+[iframe-count]
+return document.getElementsByTagName("iframe").length;
+
+[script-tag-count]
+return document.getElementsByTagName("script").length;
+
+[meta-viewport]
+var viewport = undefined;
+var metaTags=document.getElementsByTagName("meta");
+for (var i = 0; i < metaTags.length; i++) {
+    if (metaTags[i].getAttribute("name") == "viewport") {
+        viewport = metaTags[i].getAttribute("content");
+        break;
+    }
+}
+return viewport;
+```
