@@ -73,6 +73,16 @@ Frankfurt.Dial
 China.custom
 Dulles:Chrome.DSL
 ```
+公共实例支持的配置文件有：
++ DSL - 1.5 Mbps下行，384 Kbps上行，50 ms第一跳RTT，0％分组丢失
++ Cable - 5 Mbps下行，1 Mbps上行，28ms第一跳RTT，0％丢包
++ FIOS - 20 Mbps下行，5 Mbps上行，4 ms第一跳RTT，0％丢包（不是所有位置都将获得全带宽）
++ Dial - 49 Kbps下行，30 Kbps上行，120 ms第一跳RTT，0％分组丢失
++ 3G - 1.6 Mbps下行，768 Kbps上行，300 ms第一跳RTT，0％丢包
++ 3GFast - 1.6 Mbps下行，768 Kbps上行，150 ms第一跳RTT，0％丢包
++ Native - No synthetic traffic shaping applied
++ custom - 自定义配置文件，带宽和延迟必须使用指定的bwIn，bwOut，latency和plr参数
+浏览器只需在Chrome、Firefox安装，在多个浏览器中配置wptdriver。
 
 ### 1.3 XML响应
 ### 1.4 Sample
