@@ -34,7 +34,7 @@ return viewport;
 ```
 
 下面是一个收集3个不同指标的示例（2个数字和一个字符串）：
-```bash
+```javascript
 [iframe-count]
 return document.getElementsByTagName("iframe").length;
 
