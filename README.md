@@ -8,7 +8,7 @@
 	+ [结果代码（Result Codes）](/Using-WebPagetest/result-codes.md)
 	+ [脚本（Scripting）](/Using-WebPagetest/scripting.md)
 	+ [自定义指标（Custom Metrics）](/Using-WebPagetest/custom-metrics.md)
-+ Developer Interfaces
++ 开发者界面（Developer Interfaces）
 	+ [RESTful API（RESTful APIs）](/Developer-Interfaces/restful-apis.md)
 	+ [批量库（Batch Library）](/Developer-Interfaces/batch-library.md)
 	+ [批处理命令行工具（Batch Processing Command-line tool）](/Developer-Interfaces/batch-processing-command-line-tool.md)
