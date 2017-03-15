@@ -239,5 +239,307 @@ http://www.webpagetest.org/testStatus.php?f=xml&test=your_test_id
 + rawData - 标题和制表符分隔结果文件的URL
 
 ### 3.1 Sample
+使用前面的测试请求样例（并添加一个requestId），我们将得到：
+```javascript
+http://www.webpagetest.org/xmlResult/091111_2XFH/?r=12345
+```
+
+```xml
+<?xml version="1.0" encoding="UTF-8" ?> 
+<response>
+	<statusCode>200</statusCode> 
+	<statusText>Ok</statusText> 
+	<requestId>12345</requestId> 
+	<data>
+		<runs>2</runs> 
+		<average>
+			<firstView>
+				<loadTime>4495</loadTime> 
+				<TTFB>315</TTFB> 
+				<bytesIn>392645</bytesIn> 
+				<bytesInDoc>392645</bytesInDoc> 
+				<requests>44</requests> 
+				<requestsDoc>44</requestsDoc> 
+				<render>1904</render> 
+				<fullyLoaded>4495</fullyLoaded> 
+				<docTime>4495</docTime> 
+				<domTime>0</domTime> 
+				<avgRun>1</avgRun> 
+			</firstView>
+			<repeatView>
+				<loadTime>3266</loadTime> 
+				<TTFB>359</TTFB> 
+				<bytesIn>102151</bytesIn> 
+				<bytesInDoc>102151</bytesInDoc> 
+				<requests>13</requests> 
+				<requestsDoc>13</requestsDoc> 
+				<render>682</render> 
+				<fullyLoaded>3266</fullyLoaded> 
+				<docTime>3266</docTime> 
+				<domTime>0</domTime> 
+				<avgRun>1</avgRun> 
+			</repeatView>
+		</average>
+		<run>
+			<id>1</id> 
+			<firstView>
+				<results>
+					<URL>http://www.aol.com</URL> 
+					<loadTime>4467</loadTime> 
+					<TTFB>346</TTFB> 
+					<bytesOut>22403</bytesOut> 
+					<bytesOutDoc>22403</bytesOutDoc> 
+					<bytesIn>386528</bytesIn> 
+					<bytesInDoc>386528</bytesInDoc> 
+					<requests>43</requests> 
+					<requestsDoc>43</requestsDoc> 
+					<result>0</result> 
+					<render>1963</render> 
+					<fullyLoaded>4467</fullyLoaded> 
+					<cached>0</cached> 
+					<web>1</web> 
+					<docTime>4467</docTime> 
+					<domTime>0</domTime> 
+					<score_cache>48</score_cache> 
+					<score_cdn>96</score_cdn> 
+					<score_gzip>100</score_gzip> 
+					<score_cookies>87</score_cookies> 
+					<score_keep-alive>94</score_keep-alive> 
+					<score_minify>91</score_minify> 
+					<score_combine>75</score_combine> 
+					<score_compress>99</score_compress> 
+					<score_etags>93</score_etags> 
+					<date>1257974116</date> 
+				</results>
+				<pages>
+					<details>http://www.webpagetest.org/result/091111_2XFH/1/details/</details> 
+					<checklist>http://www.webpagetest.org/result/091111_2XFH/1/performance_optimization/</checklist> 
+					<report>http://www.webpagetest.org/result/091111_2XFH/1/optimization_report/</report> 
+					<breakdown>http://www.webpagetest.org/result/091111_2XFH/1/breakdown/</breakdown> 
+					<domains>http://www.webpagetest.org/result/091111_2XFH/1/domains/</domains> 
+					<screenShot>http://www.webpagetest.org/result/091111_2XFH/1/screen_shot/</screenShot> 
+				</pages>
+				<thumbnails>
+					<waterfall>http://www.webpagetest.org/result/091111_2XFH/1_waterfall_thumb.png</waterfall> 
+					<checklist>http://www.webpagetest.org/result/091111_2XFH/1_optimization_thumb.png</checklist> 
+					<screenShot>http://www.webpagetest.org/result/091111_2XFH/1_screen_thumb.jpg</screenShot> 
+				</thumbnails>
+				<images>
+					<waterfall>http://www.webpagetest.org/results/09/11/11/2XFH/1_waterfall.png</waterfall> 
+					<checklist>http://www.webpagetest.org/results/09/11/11/2XFH/1_optimization.png</checklist> 
+					<screenShot>http://www.webpagetest.org/results/09/11/11/2XFH/1_screen.jpg</screenShot> 
+				</images>
+				<rawData>
+					<headers>http://www.webpagetest.org/results/09/11/11/2XFH/1_report.txt</headers> 
+					<pageData>http://www.webpagetest.org/results/09/11/11/2XFH/1_IEWPG.txt</pageData> 
+					<requestsData>http://www.webpagetest.org/results/09/11/11/2XFH/1_IEWTR.txt</requestsData> 
+				</rawData>
+			</firstView>
+			<repeatView>
+				<results>
+					<URL>http://www.aol.com</URL> 
+					<loadTime>3418</loadTime> 
+					<TTFB>357</TTFB> 
+					<bytesOut>8762</bytesOut> 
+					<bytesOutDoc>8762</bytesOutDoc> 
+					<bytesIn>108138</bytesIn> 
+					<bytesInDoc>108138</bytesInDoc> 
+					<requests>14</requests> 
+					<requestsDoc>14</requestsDoc> 
+					<result>0</result> 
+					<render>682</render> 
+					<fullyLoaded>3418</fullyLoaded> 
+					<cached>1</cached> 
+					<web>1</web> 
+					<docTime>3418</docTime> 
+					<domTime>0</domTime> 
+					<score_cache>35</score_cache> 
+					<score_cdn>83</score_cdn> 
+					<score_gzip>100</score_gzip> 
+					<score_cookies>66</score_cookies> 
+					<score_keep-alive>83</score_keep-alive> 
+					<score_minify>100</score_minify> 
+					<score_combine>100</score_combine> 
+					<score_compress>100</score_compress> 
+					<score_etags>93</score_etags> 
+					<date>1257974129</date> 
+				</results>
+				<pages>
+					<details>http://www.webpagetest.org/result/091111_2XFH/1/details/cached/</details> 
+					<checklist>http://www.webpagetest.org/result/091111_2XFH/1/performance_optimization/cached/</checklist> 
+					<report>http://www.webpagetest.org/result/091111_2XFH/1/optimization_report/cached/</report> 
+					<breakdown>http://www.webpagetest.org/result/091111_2XFH/1/breakdown/</breakdown> 
+					<domains>http://www.webpagetest.org/result/091111_2XFH/1/domains/</domains> 
+					<screenShot>http://www.webpagetest.org/result/091111_2XFH/1/screen_shot/cached/</screenShot> 
+				</pages>
+				<thumbnails>
+					<waterfall>http://www.webpagetest.org/result/091111_2XFH/1_Cached_waterfall_thumb.png</waterfall> 
+					<checklist>http://www.webpagetest.org/result/091111_2XFH/1_Cached_optimization_thumb.png</checklist> 
+					<screenShot>http://www.webpagetest.org/result/091111_2XFH/1_Cached_screen_thumb.jpg</screenShot> 
+				</thumbnails>
+				<images>
+					<waterfall>http://www.webpagetest.org/results/09/11/11/2XFH/1_Cached_waterfall.png</waterfall> 
+					<checklist>http://www.webpagetest.org/results/09/11/11/2XFH/1_Cached_optimization.png</checklist> 
+					<screenShot>http://www.webpagetest.org/results/09/11/11/2XFH/1_Cached_screen.jpg</screenShot> 
+				</images>
+				<rawData>
+					<headers>http://www.webpagetest.org/results/09/11/11/2XFH/1_Cached_report.txt</headers> 
+					<pageData>http://www.webpagetest.org/results/09/11/11/2XFH/1_Cached_IEWPG.txt</pageData> 
+					<requestsData>http://www.webpagetest.org/results/09/11/11/2XFH/1_Cached_IEWTR.txt</requestsData> 
+				</rawData>
+			</repeatView>
+		</run>
+		<run>
+			<id>2</id> 
+			<firstView>
+				<results>
+					<URL>http://www.aol.com</URL> 
+					<loadTime>4523</loadTime> 
+					<TTFB>283</TTFB> 
+					<bytesOut>22772</bytesOut> 
+					<bytesOutDoc>22772</bytesOutDoc> 
+					<bytesIn>398762</bytesIn> 
+					<bytesInDoc>398762</bytesInDoc> 
+					<requests>44</requests> 
+					<requestsDoc>44</requestsDoc> 
+					<result>0</result> 
+					<render>1845</render> 
+					<fullyLoaded>4523</fullyLoaded> 
+					<cached>0</cached> 
+					<web>1</web> 
+					<docTime>4523</docTime> 
+					<domTime>0</domTime> 
+					<score_cache>48</score_cache> 
+					<score_cdn>96</score_cdn> 
+					<score_gzip>100</score_gzip> 
+					<score_cookies>88</score_cookies> 
+					<score_keep-alive>97</score_keep-alive> 
+					<score_minify>91</score_minify> 
+					<score_combine>75</score_combine> 
+					<score_compress>98</score_compress> 
+					<score_etags>93</score_etags> 
+					<date>1257974140</date> 
+				</results>
+				<pages>
+					<details>http://www.webpagetest.org/result/091111_2XFH/2/details/</details> 
+					<checklist>http://www.webpagetest.org/result/091111_2XFH/2/performance_optimization/</checklist> 
+					<report>http://www.webpagetest.org/result/091111_2XFH/2/optimization_report/</report> 
+					<breakdown>http://www.webpagetest.org/result/091111_2XFH/2/breakdown/</breakdown> 
+					<domains>http://www.webpagetest.org/result/091111_2XFH/2/domains/</domains> 
+					<screenShot>http://www.webpagetest.org/result/091111_2XFH/2/screen_shot/</screenShot> 
+				</pages>
+				<thumbnails>
+					<waterfall>http://www.webpagetest.org/result/091111_2XFH/2_waterfall_thumb.png</waterfall> 
+					<checklist>http://www.webpagetest.org/result/091111_2XFH/2_optimization_thumb.png</checklist> 
+					<screenShot>http://www.webpagetest.org/result/091111_2XFH/2_screen_thumb.jpg</screenShot> 
+				</thumbnails>
+				<images>
+					<waterfall>http://www.webpagetest.org/results/09/11/11/2XFH/2_waterfall.png</waterfall> 
+					<checklist>http://www.webpagetest.org/results/09/11/11/2XFH/2_optimization.png</checklist> 
+					<screenShot>http://www.webpagetest.org/results/09/11/11/2XFH/2_screen.jpg</screenShot> 
+				</images>
+				<rawData>
+					<headers>http://www.webpagetest.org/results/09/11/11/2XFH/2_report.txt</headers> 
+					<pageData>http://www.webpagetest.org/results/09/11/11/2XFH/2_IEWPG.txt</pageData> 
+					<requestsData>http://www.webpagetest.org/results/09/11/11/2XFH/2_IEWTR.txt</requestsData> 
+				</rawData>
+			</firstView>
+			<repeatView>
+				<results>
+					<URL>http://www.aol.com</URL> 
+					<loadTime>3113</loadTime> 
+					<TTFB>360</TTFB> 
+					<bytesOut>7426</bytesOut> 
+					<bytesOutDoc>7426</bytesOutDoc> 
+					<bytesIn>96163</bytesIn> 
+					<bytesInDoc>96163</bytesInDoc> 
+					<requests>11</requests> 
+					<requestsDoc>11</requestsDoc> 
+					<result>0</result> 
+					<render>682</render> 
+					<fullyLoaded>3113</fullyLoaded> 
+					<cached>1</cached> 
+					<web>1</web> 
+					<docTime>3113</docTime> 
+					<domTime>0</domTime> 
+					<score_cache>25</score_cache> 
+					<score_cdn>66</score_cdn> 
+					<score_gzip>100</score_gzip> 
+					<score_cookies>58</score_cookies> 
+					<score_keep-alive>77</score_keep-alive> 
+					<score_minify>100</score_minify> 
+					<score_combine>100</score_combine> 
+					<score_compress>100</score_compress> 
+					<score_etags>91</score_etags> 
+					<date>1257974152</date> 
+				</results>
+				<pages>
+					<details>http://www.webpagetest.org/result/091111_2XFH/2/details/cached/</details> 
+					<checklist>http://www.webpagetest.org/result/091111_2XFH/2/performance_optimization/cached/</checklist> 
+					<report>http://www.webpagetest.org/result/091111_2XFH/2/optimization_report/cached/</report> 
+					<breakdown>http://www.webpagetest.org/result/091111_2XFH/2/breakdown/</breakdown> 
+					<domains>http://www.webpagetest.org/result/091111_2XFH/2/domains/</domains> 
+					<screenShot>http://www.webpagetest.org/result/091111_2XFH/2/screen_shot/cached/</screenShot> 
+				</pages>
+				<thumbnails>
+					<waterfall>http://www.webpagetest.org/result/091111_2XFH/2_Cached_waterfall_thumb.png</waterfall> 
+					<checklist>http://www.webpagetest.org/result/091111_2XFH/2_Cached_optimization_thumb.png</checklist> 
+					<screenShot>http://www.webpagetest.org/result/091111_2XFH/2_Cached_screen_thumb.jpg</screenShot> 
+				</thumbnails>
+				<images>
+					<waterfall>http://www.webpagetest.org/results/09/11/11/2XFH/2_Cached_waterfall.png</waterfall> 
+					<checklist>http://www.webpagetest.org/results/09/11/11/2XFH/2_Cached_optimization.png</checklist> 
+					<screenShot>http://www.webpagetest.org/results/09/11/11/2XFH/2_Cached_screen.jpg</screenShot> 
+				</images>
+				<rawData>
+					<headers>http://www.webpagetest.org/results/09/11/11/2XFH/2_Cached_report.txt</headers> 
+					<pageData>http://www.webpagetest.org/results/09/11/11/2XFH/2_Cached_IEWPG.txt</pageData> 
+					<requestsData>http://www.webpagetest.org/results/09/11/11/2XFH/2_Cached_IEWTR.txt</requestsData> 
+				</rawData>
+			</repeatView>
+		</run>
+	</data>
+</response>
+```
+
 ## 四、取消测试
+使用测试ID（如果需要API密钥），如果它没有开始运行，你可以取消测试，。
+```javascript
+http://www.webpagetest.org/cancelTest.php?test=<testId>&k=<API key>
+```
+
 ## 五、地点信息
+可以使用getLocations.php接口请求位置列表以及每个位置的待处理测试数量：
+```javascript
+http://www.webpagetest.org/getLocations.php?f=xml
+```
+
+```xml
+<response>
+	<statusCode>200</statusCode>
+	<statusText>Ok</statusText>
+	<data>
+		<location>
+			<id>Dulles_IE7</id>
+			<Label>Dulles, VA USA</Label>
+			<Browser>IE 7</Browser>
+			<default>1</default>
+			<PendingTests>
+				<Total>0</Total>
+				<HighPriority>0</HighPriority>
+				<LowPriority>0</LowPriority>
+			</PendingTests>
+		</location>
+		<location>
+			<id>Dulles_IE8</id>
+			<Label>Dulles, VA USA</Label>
+			<Browser>IE 8</Browser>
+			<PendingTests>
+				<Total>0</Total>
+				<HighPriority>0</HighPriority>
+				<LowPriority>0</LowPriority>
+			</PendingTests>
+		</location>
+	</data>
+</response>
+```
