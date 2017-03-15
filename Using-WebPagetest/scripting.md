@@ -1,6 +1,6 @@
 # 脚本
 &emsp;&emsp;WebPagetest具有脚本功能，可自动执行多步测试（例如，登录网站或发送电子邮件）。脚本包含在文件中，其中单个文件构成浏览器会话（浏览器将在脚本完成后关闭）。文件是纯文本文件，可以由任何文本编辑器编辑。  
-你可以通过从“文件”菜单中选择“Run Script”来测试桌面版本中的脚本。  
+你可以通过从“文件”菜单中选择“`Run Script`”来测试桌面版本中的脚本。  
 &emsp;&emsp;脚本文件的每一行包含一个命令和任何必要的参数，并且以制表符分隔（即命令之后是一个制表符，然后是第一个参数，然后是一个制表符和第二个参数等，直到该行结束）。 参数的数量及其控制取决于命令。  
 以//开头的空行和行将被忽略，因此您可以在脚本中嵌入注释。  
 &emsp;&emsp;对DOM元素操作的脚本命令标识具有`attribute = value`格式的DOM元素，其中该属性标识要作用的DOM元素的唯一属性。例如，如果正在填写表单，填充的元素看起来像这样：
@@ -8,7 +8,7 @@
 <input type="text" class="tabInputFields" id="lgnId1" value="" tabindex="1" maxlength="97" name="loginId"/>
 ```
 你可以将它标识为`id = lgnId1`，`name = loginId`或`tabindex = 1`  
-&emsp;&emsp;对于表单字段，通常最好使用名称属性，这些将被上传到服务器。类属性是特殊的，并且被引用为`className`而不是类。除了DOM元素属性匹配之外，还有两个特殊属性可用于匹配内容。 innerText和innerHtml，它们都将匹配DOM元素的内容，而不是它的属性。例如：
+&emsp;&emsp;对于表单字段，通常最好使用名称属性，这些将被上传到服务器。类属性是特殊的，并且被引用为`className`而不是类。除了DOM元素属性匹配之外，还有两个特殊属性可用于匹配内容。 `innerText`和`innerHtml`，它们都将匹配DOM元素的内容，而不是它的属性。例如：
 ```html
 <div dojoattachpoint="containerNode" class="label">Delete</div>
 ```
@@ -41,7 +41,7 @@ setValue	name=loginId	someuser@aol.com
 setValue	name=password	somepassword
 submitForm	name=AOLLoginForm
 ```
-你不会得到很多关于脚本失败的反馈，所以请确保在桌面版本的WebPagetest（File->Run Script）中测试脚本，然后再上传它们进行托管测试。
+你不会得到很多关于脚本失败的反馈，所以请确保在桌面版本的WebPagetest（`File`->`Run Script`）中测试脚本，然后再上传它们进行托管测试。
 
 ## 二、命令参考（Command Reference）
 ### 2.1 导航/ DOM互动（Navigation/DOM Interaction）
@@ -87,7 +87,7 @@ example: selectValue	id=country	usa
 ```
 
 #### 2.1.5 sendClick / sendClickAndWait
-创建JavaScript OnClick事件并将其发送到指定的元素。  
+创建JavaScript `OnClick`事件并将其发送到指定的元素。  
 浏览器支持：IE
 ```bash
 usage: sendClickAndWait	<attribute=value>
@@ -97,7 +97,7 @@ example: sendClickAndWait	innerText=Send
 ```
 
 #### 2.1.6 sendKeyDown / sendKeyUp / sendKeyPress (AndWait)
-创建一个创建JavaScript键盘事件（OnKeyDown，OnKeyUp，OnKeyPress），并将其发送到指定的元素。  
+创建一个创建JavaScript键盘事件（`OnKeyDown`，`OnKeyUp`，`OnKeyPress`），并将其发送到指定的元素。  
 浏览器支持：IE
 ```bash
 usage: sendKeyDownAndWait	<attribute=value>    <key>
@@ -108,7 +108,7 @@ example: sendKeyDownAndWait	name=user    x
 ```
 
 #### 2.1.7 setInnerHTML
-将给定DOM元素的innerHTML设置为所提供的值。这通常用于填充类似可编辑的HTML面板（如webmail中的消息正文）。 如果要包括HTML格式，请使用此选项。  
+将给定DOM元素的`innerHTML`设置为所提供的值。这通常用于填充类似可编辑的HTML面板（如webmail中的消息正文）。 如果要包括HTML格式，请使用此选项。  
 浏览器支持：IE, Chrome, Firefox
 ```bash
 usage: setInnerHTML	<attribute=value>	<value>
@@ -119,7 +119,7 @@ example: setInnerHTML	contentEditable=true	%MSG%
 ```
 
 #### 2.1.8 setInnerText
-将给定DOM元素的innerText设置为所提供的值。这通常用于填充类似可编辑的HTML面板（如webmail中的消息正文）。 如果您不想包括任何HTML格式，请使用此选项。  
+将给定DOM元素的`innerText`设置为所提供的值。这通常用于填充类似可编辑的HTML面板（如webmail中的消息正文）。 如果您不想包括任何HTML格式，请使用此选项。  
 浏览器支持：IE, Chrome, Firefox
 ```bash
 usage: setInnerText	<attribute=value>	<value>
@@ -130,7 +130,7 @@ example: setInnerText	contentEditable=true	%MSG%
 ```
 
 #### 2.1.9 setValue
-将给定DOM元素的值属性设置为所提供的值。这通常用于填充页面上的文本元素（表单或其他形式）。当前只支持“input”和“textArea”元素类型。  
+将给定DOM元素的值属性设置为所提供的值。这通常用于填充页面上的文本元素（表单或其他形式）。当前只支持“`input`”和“`textArea`”元素类型。  
 浏览器支持：IE, Chrome, Firefox
 ```bash
 usage: setValue	<attribute=value>	<value>
@@ -264,7 +264,7 @@ example: waitforComplete
 ```
 
 #### 2.2.8 waitForJSDone
-等待页面上的代码通过调用`window.webpagetest.done（）`来显式地指示它已完成。  
+等待页面上的代码通过调用`window.webpagetest.done()`来显式地指示它已完成。  
 浏览器支持：IE
 ```bash
 usage: waitForJSDone
@@ -354,7 +354,7 @@ example: setUserAgent    Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWeb
 ```
 
 #### 2.3.8 overrideHost
-使用提供的值，替换给定主机的Host：HTTP头的值。它还添加了一个带有原始值的新标题（x-Host :)。  
+使用提供的值，替换给定主机的`Host:HTTP`头的值。它还添加了一个带有原始值的新标题（`x-Host:`)。  
 浏览器支持：IE，Chrome，Firefox，Safari（无SSL）
 ```bash
 usage: overrideHost	<host>    <new host>
@@ -400,7 +400,7 @@ example: setHeader	UA-CPU: none-ya
 ```
 
 #### 2.3.12 resetHeaders
-清除通过addHeader或setHeader指定的任何标头（以防只想覆盖部分脚本的标头）。  
+清除通过`addHeader`或`setHeader`指定的任何标头（以防只想覆盖部分脚本的标头）。  
 浏览器支持：IE，Chrome，Firefox，Safari
 ```bash
 usage: resetHeaders
@@ -501,7 +501,7 @@ example: loadVariables	accounts.txt
 ```
 
 #### 2.4.7 minInterval
-指定脚本的以下部分可以运行的最小时间间隔（以分钟为单位）。例如，如果只想测试邮件发送的频率不要超过每60分钟（在单个机器上），那么将在脚本中要发送邮件的位置插入一个minInterval命令。如果间隔尚未过期，则脚本将退出。还可以使用它来确保多个浏览器不会同时执行同一操作，通过指定间隔0（这将允许运行测试，但会暂停第二个脚本，直到第一个脚本完成为止）。  
+指定脚本的以下部分可以运行的最小时间间隔（以分钟为单位）。例如，如果只想测试邮件发送的频率不要超过每60分钟（在单个机器上），那么将在脚本中要发送邮件的位置插入一个`minInterval`命令。如果间隔尚未过期，则脚本将退出。还可以使用它来确保多个浏览器不会同时执行同一操作，通过指定间隔0（这将允许运行测试，但会暂停第二个脚本，直到第一个脚本完成为止）。  
 浏览器支持：IE
 ```bash
 usage: minInterval	<key>	<interval>
@@ -512,7 +512,7 @@ example: minInterval	AOLSendMail	60
 ```
 
 #### 2.4.8 endInterval
-结束由minInterval块保护的代码块。如果要使用间隔保护的脚本部分位于脚本中间，并且总是想要执行脚本的其余部分（例如注销），这将非常有用。  
+结束由`minInterval`块保护的代码块。如果要使用间隔保护的脚本部分位于脚本中间，并且总是想要执行脚本的其余部分（例如注销），这将非常有用。  
 浏览器支持：IE
 ```bash
 usage: endInterval
