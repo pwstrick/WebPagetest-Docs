@@ -25,7 +25,7 @@ return viewport;
 
 ## 三、在测试时指定自定义指标
 为了简单起见，度量的文本输入框以ini文件的形式定义：
-```bash
+```javascript
 [metric-name]
 <code>
 
