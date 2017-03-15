@@ -140,9 +140,36 @@ http://www.webpagetest.org/runtest.php?url=www.aol.com&runs=2&f=xml&r=12345
 ```
 
 ## 二、检查测试状态
+可以通过使用测试ID对`http://www.webpagetest.org/testStatus.php`执行GET请求，来检查测试的状态。
+```javascript
+http://www.webpagetest.org/testStatus.php?f=xml&test=your_test_id
+```
 
+```xml
+<?xml version="1.0" encoding="UTF-8"?> 
+<response> 
+        <statusCode>100</statusCode> 
+        <statusText>Test Started</statusText> 
+        <data> 
+                <statusCode>100</statusCode> 
+                <statusText>Test Started</statusText> 
+                <testId>your_test_id</testId> 
+                <runs>9</runs> 
+                <fvonly>1</fvonly> 
+                <location>Dulles_IE8</location> 
+                <startTime>02/12/11 1:06:16</startTime> 
+                <fvRunsCompleted>1</fvRunsCompleted> 
+                <rvRunsCompleted>0</rvRunsCompleted> 
+        </data> 
+</response> 
+```
++ statusCode - 200表示测试完成。 1XX表示测试仍在进行中。 和4XX表示一些错误。
++ statusText - 状态的说明
++ data - 一些测试信息包括测试ID，所请求测试的运行次数，开始时间等（非xml）
 
 ## 三、获取测试结果
+在正常使用（非xml）下，将被重定向到结果页面。当使用XML API时，应该使用响应测试请求时提供的xmlUrl。 XML url也可以采用一些可选参数：
+
 ### 3.1 Sample
 ## 四、取消测试
 ## 五、地点信息
