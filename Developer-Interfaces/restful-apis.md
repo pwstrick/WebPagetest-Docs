@@ -82,9 +82,26 @@ Dulles:Chrome.DSL
 + 3GFast - 1.6 Mbps下行，768 Kbps上行，150 ms第一跳RTT，0％丢包
 + Native - No synthetic traffic shaping applied
 + custom - 自定义配置文件，带宽和延迟必须使用指定的bwIn，bwOut，latency和plr参数
+
 浏览器只需在Chrome、Firefox安装，在多个浏览器中配置wptdriver。
 
 ### 1.3 XML响应
+XML响应遵循REST API的格式。你将获得一个200的HTTP响应，结果是一个XML格式的信息。有关完整示例XML响应的示例，请参阅示例。
+```xml
+<response>
+    <statusCode></statusCode>
+    <statusText></statusText>
+    <requestId></requestId>
+    <data>
+        <testId></testId>
+        <xmlUrl></xmlUrl>
+        <userUrl></userUrl>
+        <summaryCSV></summaryCSV>
+        <detailCSV></detailCSV>
+    </data>
+</response>
+```
+
 ### 1.4 Sample
 
 ## 二、检查测试状态
