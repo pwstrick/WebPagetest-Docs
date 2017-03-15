@@ -112,19 +112,21 @@ XML响应遵循REST API的格式。你将获得一个200的HTTP响应，结果�
 
 ### 1.4 Sample
 测试`www.aol.com`并重定向到结果页面：
-```html
+```javascript
 http://www.webpagetest.org/runtest.php?url=www.aol.com
 ```
 
 测试`www.aol.com` 10次，首先查看并重定向到结果页面：
-```html
+```javascript
 http://www.webpagetest.org/runtest.php?url=www.aol.com&runs=10&fvonly=1
 ```
 
 测试`www.aol.com` 2次，得到响应为xml，请求ID为“12345”嵌入响应：
-```xml
+```javascript
 http://www.webpagetest.org/runtest.php?url=www.aol.com&runs=2&f=xml&r=12345
+```
 
+```xml
 <response>
 	<statusCode>200</statusCode>
 	<statusText>Ok</statusText>
@@ -137,8 +139,9 @@ http://www.webpagetest.org/runtest.php?url=www.aol.com&runs=2&f=xml&r=12345
 </response>
 ```
 
-
 ## 二、检查测试状态
+
+
 ## 三、获取测试结果
 ### 3.1 Sample
 ## 四、取消测试
