@@ -58,7 +58,7 @@
 |timelineStack |     | 设置为1到5之间，以使Chrome包含JavaScript调用堆栈。必须与“时间轴”结合使用。   | 0 |
 | ignoreSSL    |     | 设置为1以忽略SSL证书错误，例如 名称不匹配，自签名证书等。   | 0 |
 | mobileDevice |     | 来自mobile_devices.ini的设备名称，用于移动模拟（仅当指定mobile = 1才能启用模拟功能且仅适用于Chrome）   |  |
-| appendua     |     | 要附加到用户代理字符串的字符串。 这是默认的`PTST/ver`字符串之外的。如果还指定了“keepua”，它将仍然附加。允许替换一些测试参数：  %TESTID% - 替换当前测试的测试ID  %RUN% - 用当前运行编号替换  %CACHED% - 用1代替重复视图测试，用0代替初始视图  %VERSION% - 使用当前wptdriver版本号替换|  |
+| appendua     |     | 要附加到用户代理字符串的字符串。 这是默认的`PTST/ver`字符串之外的。如果还指定了“keepua”，它将仍然附加。允许替换一些测试参数：<br>%TESTID% - 替换当前测试的测试ID<br>%RUN% - 用当前运行编号替换<br>%CACHED% - 用1代替重复视图测试，用0代替初始视图<br>%VERSION% - 使用当前wptdriver版本号替换|  |
 
 ### 1.2 指定连接
 ### 1.3 XML响应
