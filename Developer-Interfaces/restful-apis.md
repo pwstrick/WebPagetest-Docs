@@ -62,8 +62,17 @@
 
 ### 1.2 指定连接
 如果未指定连接，则默认情况下将获取电缆（5/1 Mbps，28ms RTT）配置文件。格式如下：
-> location:browser.connectivity
+```bash
+location:browser.connectivity
+```
+
 示例：
+```bash
+Dulles_IE7.DSL
+Frankfurt.Dial
+China.custom
+Dulles:Chrome.DSL
+```
 
 ### 1.3 XML响应
 ### 1.4 Sample
