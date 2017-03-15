@@ -653,10 +653,10 @@ submitForm	name=AOLLoginForm
 
 ### 3. DNS Override
 此脚本步骤如下：
-+ 为www1.aol.com创建一个假的DNS条目，并让它查找www.aol.com
-+ 强制www.aol.com解析为127.0.0.1
-+ 在www.aol.com域中设置“zip”cookie
-+ 跳转并测量加载www.aol.com的时间
++ 为`www1.aol.com`创建一个假的DNS条目，并让它查找`www.aol.com`
++ 强制`www.aol.com`解析为`127.0.0.1`
++ 在`www.aol.com`域中设置“zip”cookie
++ 跳转并测量加载`www.aol.com`的时间
 ```bash
 setDnsName	www1.aol.com	www.aol.com
 setDns	www.aol.com	127.0.0.1
@@ -668,7 +668,7 @@ navigate	http://www.aol.com
 此脚本步骤如下：
 + 使用iPhone用户代理字符串
 + 更改浏览器尺寸以匹配iPhone
-+ 跳转到www.aol.com
++ 跳转到`www.aol.com`
 ```bash
 setUserAgent	Mozilla/5.0 (iPhone; CPU iPhone OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5376e Safari/8536.25
 setViewportSize    320    356
