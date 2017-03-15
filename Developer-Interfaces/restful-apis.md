@@ -169,6 +169,74 @@ http://www.webpagetest.org/testStatus.php?f=xml&test=your_test_id
 
 ## 三、获取测试结果
 在正常使用（非xml）下，将被重定向到结果页面。当使用XML API时，应该使用响应测试请求时提供的xmlUrl。 XML url也可以采用一些可选参数：
+| 参数名        | 描述 |
+| :------------|:-------------|
+| r         | 请求ID将会在响应中显示 |
+| requests  | requests = 1将请求数据包含在XML中（更慢，导致更大的响应） |
+| pagespeed | pagespeed = 1在响应中包含PageSpeed分数（可能更慢） |
+| domains   | domains = 1包括请求和字节的细分 |
+| breakdown | breakdown = 1包括按MIME类型的请求和字节的细分 |
+
+测试详细信息的响应与提交请求（使用不同的数据）的格式相同。所有时间均以`ms`为单位。
+```xml
+<response>
+	<statusCode></statusCode>
+	<statusText></statusText>
+	<requestId></requestId>
+	<data>
+		<runs></runs>
+		<average>
+			<firstView>
+			</firstView>
+			<repeatView>
+			</repeatView>
+		</average>
+		<run>
+			<id></id>
+			<firstView>
+				<results>
+				</results>
+				<pages>
+				</pages>
+				<thumbnails>
+				</thumbnails>
+				<images>
+				</images>
+				<rawData>
+				</rawData>
+			</firstView>
+			<repeatView>
+				<results>
+				</results>
+				<pages>
+				</pages>
+				<thumbnails>
+				</thumbnails>
+				<images>
+				</images>
+				<rawData>
+				</rawData>
+			</repeatView>
+		</run>
+		<run>
+		...
+		</run>
+	</data>
+</response>
+```
++ statusCode - 200表示测试完成并且结果可用。1xx表示测试仍然待处理（在合理的时间内再次尝试- 5-10秒）。 400表示无效的测试ID。
++ statusText - 失败说明
++ requestId - requestId来自于请求
++ runs - 响应中的运行数
++ average - 所有成功运行的平均测试结果（第一和重复视图数据的块）
++ run - 每个测试运行的块以及该运行的结果
++ id - 运行编号（从1开始按顺序递增）
++ firstView/repeatView - 每个用于First和Repeat视图数据的结果块
++ results - 测试结果（所有时间均以`ms`为单位）
++ pages - 到用户页面的URL
++ thumbnails - 各种图像的缩略图的URL（瀑布，清单，屏幕截图）
++ images - 全尺寸图片的URL（瀑布，清单，屏幕截图）
++ rawData - 标题和制表符分隔结果文件的URL
 
 ### 3.1 Sample
 ## 四、取消测试
