@@ -25,7 +25,7 @@ return viewport;
 
 ## 三、在测试时指定自定义指标
 为了简单起见，度量的文本输入框以ini文件的形式定义：
-```javascript
+```bash
 [metric-name]
 <code>
 
@@ -42,6 +42,22 @@ return document.getElementsByTagName("iframe").length;
 return document.getElementsByTagName("script").length;
 
 [meta-viewport]
+var viewport = undefined;
+var metaTags=document.getElementsByTagName("meta");
+for (var i = 0; i < metaTags.length; i++) {
+    if (metaTags[i].getAttribute("name") == "viewport") {
+        viewport = metaTags[i].getAttribute("content");
+        break;
+    }
+}
+return viewport;
+```
+如果使用API，自定义指标的表单字段为“custom” - 只需确保正确编码内容（如果使用GET，则为url encode，如果POST，则为form encode）。
+
+## 四、静态指定自定义指标（私有实例）
+每个指标在`settings/custom_metrics`下以`.js`扩展名作为单独文件存在。文件名将是度量的记录名称，执行代后返回一个值。  
+例如，`settings/custom_metrics/meta-viewport.js`将定义一个自定义变量`meta-viewport` ，内容将如下所示：
+```javascript
 var viewport = undefined;
 var metaTags=document.getElementsByTagName("meta");
 for (var i = 0; i < metaTags.length; i++) {
