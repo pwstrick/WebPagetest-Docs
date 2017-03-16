@@ -91,7 +91,7 @@
     87. Base Page CDN - 用于提供基本HTML网页的CDN的名称（如果有）
     88. Adult Site Flag - 0不可能是成人网站，1可能是成人内容
     89. Fixed Viewport - 1的页面定义了一个元视口
-    90. Progressive JPEG Score - 1为N / A，否则为渐进式JPEG的JPEG字节的百分比
+    90. Progressive JPEG Score - -1为N / A，否则为渐进式JPEG的JPEG字节的百分比
     91. First Paint - 浏览器报告的第一个绘制时间（IE特定属性 - window.performance.timing.msFirstPaint）
     92. Peak Memory across browser processes (deprecated)
     93. Peak browser process count (deprecated)
@@ -110,6 +110,101 @@
     106. SpeedIndex - 计算速度指数
     107. Certificate Bytes - 服务器提供的TLS证书中的总字节数
 ## 二、请求数据字段
+这些是对象级（摘要）结果文件中，从“Raw Object data”链接导出的CSV文件中列。
 
+    1. Date
+    2. Time
+    3. Event Name
+    4. IP Address
+    5. Action
+    6. Host
+    7. URL
+    8. Response Code
+    9. Time to Load (ms)
+    10. Time to First Byte (ms)
+    11. Start Time (ms)
+    12. Bytes Out
+    13. Bytes In
+    14. Object Size
+    15. Cookie Size (out)
+    16. Cookie Count(out)
+    17. Expires
+    18. Cache Control
+    19. Content Type
+    20. Content Encoding
+    21. Transaction Type
+    22. Socket ID
+    23. Document ID
+    24. End Time (ms)
+    25. Descriptor
+    26. Lab ID
+    27. Dialer ID
+    28. Connection Type
+    29. Cached
+    30. Event URL
+    31. IEWatch Build
+    32. Measurement Type - （DWORD - 1表示Web 1.0，2表示Web 2.0）
+    33. Experimental (DWORD)
+    34. Event GUID - （与对象数据中的事件GUID匹配） - Added in build 42
+    35. Sequence Number - 对于给定页面的对象数据中的每个记录标识（从0开始）
+    36. Cache Score - -1：N / A，0：失败，50：被警告，100：通过（有符号字节） Added in build 51
+    37. Static CDN Score - -1 if N/A, 0 if it failed, 100 if it passed (signed byte). Added in build 51
+    38. GZIP Score - -1 if N/A, 0 if it failed, 100 if it passed (signed byte). Added in build 51
+    39. Cookie Score - -1 if N/A, 0 if it failed, 100 if it passed (signed byte). Added in build 51
+    40. Keep-Alive Score - -1 if N/A, 0 if it failed, 100 if it passed (signed byte). Added in build 51
+    41. DOCTYPE Score - -1 if N/A, 0 if it failed, 100 if it passed (signed byte). Added in build 51
+    42. Minify Score - -1 if N/A, 0 if it failed, 100 if it passed (signed byte). Added in build 51
+    43. Combine Score - -1 if N/A, 0 if it failed, 100 if it passed (signed byte). Added in build 51
+    44. Compression Score - -1 if N/A, 0 if it failed, 50 if it was warned, 100 if it passed (signed byte). Added in build 54
+    45. ETag Score - -1 if N/A, 0 if it failed, 100 if it passed (signed byte). Added in build 170
+    46. Flagged - 这是一个标记的请求（0 - 否，1 - 是） - Added in build 179
+    47. Secure - 这是一个安全的https请求（0 - 否，1 - 是） - Added in build 179
+    48. DNS Time (ms) - DNS查找时间（如果N / A，则为-1） - Added in build 179
+    49. Socket Connect time (ms) - Socket连接时间（如果N / A，则为-1） - Added in build 179
+    50. SSL time (ms) - SSL握手时间（如果N / A，则为-1） - Added in build 179
+    51. Gzip Total Bytes - Gzip压缩的适用资源总大小 - Added in build 179
+    52. Gzip Savings - 通过Gzip压缩保存的字节数 - Added in build 179
+    53. Minify Total Bytes - 缩小的适用资源总大小 - Added in build 179
+    54. Minify Savings - 通过缩小保存的字节数 - Added in build 179
+    55. Image Compression Total Bytes - 图像压缩的适用资源总大小 - Added in build 179
+    56. Image Compression Savings - 通过图像优化保存的字节 - Added in build 179
+    57. Cache Time (sec) - 缓存对象的时间（以s为单位）（如果不存在，则为-1）
+    58. Real Start Time (ms) - 这是请求开始时的偏移时间（dns查找或Socket连接） - Added in build 205
+    59. Full Time to Load (ms) - 这是给定请求的完整时间，包括任何DNS或Socket连接时间 - Added in build 205
+    60. Optimization Checked - 1：请求被检查优化，0：不是 - Added in build 209
+    61. CDN Provider - 提供请求的CDN提供商 - Added in build 260
+    62. DNS Lookup Start - DNS查找的起始偏移量（从测试开始），如果不存在，则为<= 0
+    63. DNS Lookup End - DNS查找的结束偏移量（从测试开始），如果不存在，则为<= 0
+    64. Socket Connect Start - Socket连接的起始偏移量（从测试开始），如果不存在，则为<= 0开始偏移
+    65. Socket Connect End - Socket连接的结束偏移量（从测试开始），如果不存在，则为<= 0开始偏移
+    66. SSL Negotiation Start - SSL Negotiation的起始偏移量（从测试开始），如果不存在，则为<= 0开始偏移
+    67. SSL Negotiation End - SSL Negotiation的结束偏移量（从测试开始），如果不存在，则为<= 0开始偏移
+    68. Initiator - 引发此请求的资源URL，如果不可用，则为空
+    69. Initiator Line - 启动程序文件中的行号，如果不可用，则为空
+    70. Initiator Column - 启动程序文件中的列偏移，如果不可用，则为空
+    71. Server Count - 为给定域的DNS查找返回的IP地址数
+    72. Server RTT - 服务器的往返时间（从最快的Socket连接时间到该IP），如果不可用则为空
+    73. Local Port - 客户端上用于请求的TCP端口
+    74. JPEG Scan Count - JPEG图像中的图像扫描数量（0表示N / A）
+    75. Request Priority - 请求的初始优先级（仅限Chrome）
+    76. Request ID - 请求的唯一标识符
+    77. Server Pushed - 标志，1 =推送
+    78. Initiator Type
+    79. Initiator Function
+    80. Initiator Detail
+    81. Protocol  - 当前为空白或“HTTP / 2”
+    82. HTTP/2 Stream ID
+    83. HTTP/2 Priority Parent Stream (depends on)
+    84. HTTP/2 Priority Weight
+    85. HTTP/2 Exclusive Flag
+    86. Certificate Bytes - 任何服务器提供的TLS证书的大小
+    87. Uncompressed Object Size - 以字节为单位
 
 ## 三、聚合结果（批量测试）
+批量测试仅适用于私有实例。在批量测试结果的底部是一个链接来下载一个csv的聚合结果（假设多次运行，每个测试的平均值和中值）。聚合csv每行具有一个测试，并且各种不同的度量被聚合到各列中。csv中的第一行具有包括视图（第一个/重复）以及聚合方法的列描述：
+
+> FV - 第一个视图（缓存清除）
+> RV - 重复查看（浏览器关闭，重新打开，页面再次测试）
+> Median - 给定测试的所有运行中的给定度量（the given metric across all of the runs for the given test）的`中间值`
+> Average - 给定测试的所有运行中的给定度量的`平均值`
+> Std. Dev - 给定测试的所有运行中的给定度量的`值的标准偏差`
