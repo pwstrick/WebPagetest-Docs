@@ -7,7 +7,8 @@
 测量的时间是从开始浏览页面，到DOM加载事件（document.onload）执行的这段时间。
 
 ### 3. 页面所有元素加载时间(Fully Loaded)
-测量的时间是从开始浏览页面，到Document Complete后，2秒内没有网络活动的时间，`我的理解是window.onload`。
+从开始浏览页面，到Document Complete后，2秒内没有网络活动的时间，通常还会包括主页面加载完后等待载入事件，延迟加载其他不是特别重要的内容，`我理解的window.onload并不准确`。
+> The Fully Loaded time is measured as the time from the start of the initial navigation until there was 2 seconds of no network activity after Document Complete.  This will usually include any activity that is triggered by javascript after the main page loads.
 
 ### 4. 第一个字节加载时间(First Byte)
 第一个字节时间（通常缩写为TTFB）被测量为从开始浏览页面，到服务器响应的第一个字节，被浏览器接收的时间。
