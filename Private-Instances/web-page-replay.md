@@ -12,7 +12,7 @@
 ## 三、服务器步骤
 1. 检查服务器上的代码
 2. 创建供服务器使用的wpr存档
-3. 在服务器模式下启动WPR（连接到端口80/53所需的root权限）。 我建议用nohup，screen或supervisord启动它。
+3. 在服务器模式下启动WPR（连接到端口80/53所需的root权限）。 我建议用nohup，screen或[supervisord](http://supervisord.org/running.html#adding-a-program)启动它。
 
 ```bash
 $ git clone https://github.com/chromium/web-page-replay.git
@@ -63,8 +63,8 @@ exe="C:\Program Files\Internet Explorer\iexplore.exe"
     2014-07-07 18:11:12,885 DEBUG Served: GET http://XXX.XXX.XXX.XXX/web-page-replay-command-record [('cache-control', 'no-cache'), ('host', 'XXX.XXX.XXX.XXX')] (0ms)
     2014-07-07 18:11:32,055 DEBUG Served: GET http://XXX.XXX.XXX.XXX/web-page-replay-command-replay [('cache-control', 'no-cache'), ('host', 'XXX.XXX.XXX.XXX')] (0ms)
 
-## 五、FAQ
-1. Can multiple agents be used with one WPR server?
-2. Performance requirements for this server?
-3. Does WPR emulate the traffic of the recording?
-4. How can recordings be archived and reused?
+## 五、常问问题
+1. 一个WPR服务器可以使用多个代理吗？
+2. 此服务器的性能要求？
+3. WPR是否模拟录音的流量？
+4. 如何存档和重复使用录音？
