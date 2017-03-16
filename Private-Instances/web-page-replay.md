@@ -25,7 +25,7 @@ $ sudo screen
 ## 四、浏览器步骤
 现在我们有一个工作的WPR服务器，让我们设置一个浏览器代理使用它。幸运的是，WPT已经与WPR具有良好的集成性。测试代理将服务器设置为记录模式，加载网页，然后将WPR置于重放模式并对其运行测试。这都可以从WPR服务器上的控制台查看。
 
-### 4.1 在`wptdriver.ini`中指定网页显示`IP ADDRESS`
+#### 4.1 在`wptdriver.ini`中指定网页显示`IP ADDRESS`
 我没有在IE8 / IE9 URL Blast测试。
     web_page_replay_host=XXX.XXX.XXX.XXX
 
@@ -59,6 +59,8 @@ exe="%PROGRAM_FILES%\Safari\Safari.exe"
 exe="C:\Program Files\Internet Explorer\iexplore.exe"
 ```
 
-### 4.2 这应该是所有必要的。现在，当您对此代理运行测试时，它将通过webpagereplay服务器发送流量。立即运行测试，并确保这两行显示在WPR服务器上的控制台/日志中。
+#### 4.2 这应该是所有必要的。现在，当您对此代理运行测试时，它将通过webpagereplay服务器发送流量。立即运行测试，并确保这两行显示在WPR服务器上的控制台/日志中。
+    2014-07-07 18:11:12,885 DEBUG Served: GET http://XXX.XXX.XXX.XXX/web-page-replay-command-record [('cache-control', 'no-cache'), ('host', 'XXX.XXX.XXX.XXX')] (0ms)
+    2014-07-07 18:11:32,055 DEBUG Served: GET http://XXX.XXX.XXX.XXX/web-page-replay-command-replay [('cache-control', 'no-cache'), ('host', 'XXX.XXX.XXX.XXX')] (0ms)
 
 ## 五、FAQ
