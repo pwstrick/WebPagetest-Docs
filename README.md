@@ -14,7 +14,7 @@
 	+ [批处理命令行工具（Batch Processing Command-line tool）](/Developer-Interfaces/batch-processing-command-line-tool.md)
 	+ [原始测试结果（Raw Test Results）](/Developer-Interfaces/raw-test-tesults.md)
 + [私有实例（Private Instances）](/Private-Instances/private-instances.md)
-	+ [Locations](/Private-Instances/locations.md)
+	+ [地点（Locations）](/Private-Instances/locations.md)
 	+ [Web Page Replay](/Private-Instances/web-page-replay.md)
 	+ [Node.js Agent](/Private-Instances/nodejs-agent.md)
 		+ [Agent Setup](/Private-Instances/agent-setup.md)
