@@ -1,11 +1,12 @@
 # 原始测试结果
 ## 一、页面数据字段
-这些是页面级（摘要）结果文件中，从“Raw Page data”链接导出的CSV文件中列。  
+这些是页面级（摘要）结果文件中，从“Raw Page data”链接导出的CSV文件中列。 
+1. Date 
+* Time
 
-    1. Date 
-    * Time  
-    * Event Name    
-    * URL
+* Time  
+* Event Name    
+* URL
 * Load Time (ms)
 * Time to First Byte (ms)
 unused
