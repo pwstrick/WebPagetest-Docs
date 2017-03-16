@@ -3,8 +3,8 @@
 这些是页面级（摘要）结果文件中，从“Raw Page data”链接导出的CSV文件中列。 
 
     1. Date  
-    *Time  
-    *Event Name    
+    *. Time  
+    *. Event Name    
 * URL
 * Load Time (ms)
 * Time to First Byte (ms)
