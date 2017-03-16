@@ -16,7 +16,7 @@
 + [私有实例（Private Instances）](/Private-Instances/private-instances.md)
 	+ [地点（Locations）](/Private-Instances/locations.md)
 	+ [Web Page Replay](/Private-Instances/web-page-replay.md)
-	+ [Node.js Agent](/Private-Instances/nodejs-agent.md)
+	+ [Node.js代理（Node.js Agent）](/Private-Instances/nodejs-agent.md)
 		+ [Agent Setup](/Private-Instances/agent-setup.md)
 + System Design
 	+ [Overview](/System-Design/overview.md)

@@ -135,7 +135,7 @@ Windows（Vista或更高版本）（如果使用64位，需要WebPagetest 2.9或
 
 现在当你重新启动服务器，它应该自动登录到“用户”帐户，然后RDP到本地实例与“管理员”帐户，测试将在RDP会话内部运行。
 ### 4.3 Mobile
-移动代理说明在[这里可用](/Private-Instances/agent-setup.md)。
+移动代理说明在[这里可用](/System-Design/mobile-testing.md)。
 
 ## 五、EC2测试代理
 我们为EC2准备了公共AMI，可以用作通过实例用户数据动态配置的WebPagetest测试器。这些映像具有安装和配置测试系统所需的所有软件（包括用于生成视频的`AVISynth`和用于进行流量整形的`dummynet`）。
