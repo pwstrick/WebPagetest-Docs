@@ -53,6 +53,19 @@ Windows（Vista或更高版本）（如果使用64位，需要WebPagetest 2.9或
         DocumentRoot /var/www/webpagetest
 </VirtualHost>
 ```
+2. 如果将使用代理，需要上传`.pcap`文件。在`php.ini`中将`upload_max_filesize`和`post_max_size`设置为大值（`10mb`应该足够）。  
+3. 如果要收集Chrome开发工具跟踪，请考虑将`memory_limit`设置为较大值或通过将其设置为-1来禁用内存限制。  
+4. 使用`PHP DSO`处理程序`mod_php`可以大幅减少CPU使用率。
+5. 重新启动Apache以使用新的配置设置。
+6. 将文件从归档中的`www`文件夹复制到DocumentRoot位置（例如`/var/www/webpagetest`）。
+7. 授予Apache用户对DocumentRoot下的以下文件夹的读/写权限：
+    + tmp
+    + dat
+    + results
+    + work/jobs
+    + work/video
+    + logs
+
 ### 4.2 Test Machine(s)
 #### 4.2.1 Headless Servers (including Google Compute Engine)
 ### 4.3 Mobile
