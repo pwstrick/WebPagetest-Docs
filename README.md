@@ -12,7 +12,7 @@
 	+ [RESTful API（RESTful APIs）](/Developer-Interfaces/restful-apis.md)
 	+ [批处理库（Batch Library）](/Developer-Interfaces/batch-library.md)
 	+ [批处理命令行工具（Batch Processing Command-line tool）](/Developer-Interfaces/batch-processing-command-line-tool.md)
-	+ [Raw Test Results](/Developer-Interfaces/raw-test-tesults.md)
+	+ [原始测试结果（Raw Test Results）](/Developer-Interfaces/raw-test-tesults.md)
 + Private Instances
 	+ [Locations](/Private-Instances/locations.md)
 	+ [Web Page Replay](/Private-Instances/web-page-replay.md)
