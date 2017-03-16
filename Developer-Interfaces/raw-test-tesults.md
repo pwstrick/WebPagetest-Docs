@@ -209,12 +209,12 @@
 > Std. Dev - 给定测试的所有运行中的给定度量的`值的标准偏差`  
 
 目前汇总的指标有：
-> Successful Tests - 成功测试的运行次数（聚合中包括数据点的数量）
-> Document Complete - 从导航（navigation）开始到onload事件触发的时间（由WebPagetest衡量，而不是导航计时）
-> Fully Loaded - 从导航开始到网络活动在onload事件后完成的时间
-> First Byte - 从导航开始到返回基页的第一个字节的时间（在执行任何重定向之后）
-> Start Render - 从导航开始到第一个非白色内容被绘到屏幕的时间
-> Bytes In (Doc) - 在文档完成（Document Complete）时间之前下载的字节数
-> Requests (Doc) - 文档完成时间之前的http（s）请求数
-> Load Event Start - 从W3C导航时序开始加载事件的报告时间（如果浏览器支持）
+> Successful Tests - 成功测试的运行次数（聚合中包括数据点的数量）  
+> Document Complete - 从导航（navigation）开始到onload事件触发的时间（由WebPagetest衡量，而不是导航计时）  
+> Fully Loaded - 从导航开始到网络活动在onload事件后完成的时间  
+> First Byte - 从导航开始到返回基页的第一个字节的时间（在执行任何重定向之后）  
+> Start Render - 从导航开始到第一个非白色内容被绘到屏幕的时间  
+> Bytes In (Doc) - 在文档完成（Document Complete）时间之前下载的字节数  
+> Requests (Doc) - 文档完成时间之前的http（s）请求数  
+> Load Event Start - 从W3C导航时序开始加载事件的报告时间（如果浏览器支持）  
 > Speed Index - 计算[速度指数](/Using-WebPagetest/metrics-speed-index.md)
