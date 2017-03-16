@@ -4,8 +4,8 @@
 
     1. Date 
     1. Time 
-    *. Event Name  
-    4. URL
+    *. Event Name 
+    4. URL 
     5. Load Time (ms)
     6. Time to First Byte (ms)
     7. unused
