@@ -1,6 +1,8 @@
 # 原始测试结果
 ## 一、页面数据字段
 这些是页面级（摘要）结果文件中，从“Raw Page data”链接导出的CSV文件中列。 
+1. 开闭原则 
+* 里氏转换原则
 
     1. Date  
     2. Time  
@@ -22,11 +24,11 @@
     18. Error Code
     19. Time to Start Render (ms)
     20. Segments Transmitted
-Segments Retransmitted
-Packet Loss (out)
-Activity Time(ms)
-Descriptor
-Lab ID
+    21. Segments Retransmitted
+    22. Packet Loss (out)
+    23. Activity Time(ms)
+    24. Descriptor
+    25. Lab ID
 Dialer ID
 Connection Type
 Cached
