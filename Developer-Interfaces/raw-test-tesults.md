@@ -7,9 +7,9 @@
     3. Event Name    
     4. URL
     5. Load Time (ms)
-* Time to First Byte (ms)
-unused
-Bytes Out - As of build 53 this will always contain the total for the test, regardless of measurement type
+    6. Time to First Byte (ms)
+    7. unused
+    8. Bytes Out - As of build 53 this will always contain the total for the test, regardless of measurement type
 Bytes In - As of build 53 this will always contain the total for the test, regardless of measurement type
 DNS Lookups - As of build 53 this will always contain the total for the test, regardless of measurement type
 Connections - As of build 53 this will always contain the total for the test, regardless of measurement type
