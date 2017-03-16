@@ -67,3 +67,24 @@ Options:
 ```
 此测试从`/foo/bar/urls.txt`加载网址。 所有测试重复3次，`384kbps`上传带宽，`1500kbps`下载带宽，100ms往返时间，丢包率1％。
 ### 3.3 使用用户指定的脚本进行帐户登录的测试
+```python
+./wpt_batch.py --urlfile=/foo/urls.txt --script=/foo/script.txt
+```
+
+`/foo/urls.txt`的内容：
+```python
+http://www.gmail.com/
+```
+
+`script.txt`的内容：
+```python
+logData 0
+// bring up the login screen
+navigate http://www.gmail.com
+logData 1
+// log in
+setValue name=Email latency.testing@gmail.com
+setValue name=Passwd tester123=
+submitForm id=gaia_loginform
+```
+这个脚本测试输入信息后登录gmail。
