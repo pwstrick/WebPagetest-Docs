@@ -157,7 +157,7 @@ Windows（Vista或更高版本）（如果使用64位，需要WebPagetest 2.9或
 #### 5.1.2 Example User Data string
 wpt_server=www.webpagetest.org wpt_loc=Test wpt_key=xxxxx
 
-![](/assets/img/using/private/ec2config.png)
+![](/assets/img/private/ec2config.png)
 
 #### 5.1.3 Sample locations.ini
 A sample locations.ini for the server is available that is configured with all of the available EC2 regions: [http://webpagetest.googlecode.com/svn/trunk/www/webpagetest/settings/locations.ini.EC2-sample](http://webpagetest.googlecode.com/svn/trunk/www/webpagetest/settings/locations.ini.EC2-sample)

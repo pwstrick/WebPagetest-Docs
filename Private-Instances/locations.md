@@ -9,4 +9,4 @@
 
 逻辑上配置将如下所示：
 
-![](/assets/img/using/private/locations.png)
+![](/assets/img/private/locations.png)
