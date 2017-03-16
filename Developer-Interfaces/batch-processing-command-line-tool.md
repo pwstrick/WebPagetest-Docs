@@ -60,12 +60,12 @@ Options:
 ```python
 ./wpt_batch.py
 ```
-此测试使用所有默认配置。该脚本读取`./urls.txt`文件，将所有文件提交到`http：// latencylab WPT服务器`并将结果（以XML格式）保存在目录`./result`中。用DSL连接，重复测试9次，并不丢包。
+此测试使用所有默认配置。该脚本读取`./urls.txt`文件，将所有文件提交到`http：// latencylab WPT服务器`并将结果（以XML格式）保存在目录`./result`中。用`DSL连接`，重复测试`9次`，并不丢包。
 ### 3.2 使用用户指定的输入文件，连接条件和运行次数进行批处理测试
 ```python
 ./wpt_batch.py --urlfile=/foo/bar/urls.txt --runs=3 --connectivity=custom --bwup=384 --bwdown=1500 --latency=100 --plr=1
 ```
-此测试从`/foo/bar/urls.txt`加载网址。 所有测试重复3次，`384kbps`上传带宽，`1500kbps`下载带宽，100ms往返时间，丢包率1％。
+此测试从`/foo/bar/urls.txt`加载网址。 所有测试重复3次，`384kbps`上传带宽，`1500kbps`下载带宽，`100ms`往返时间，丢包率`1％`。
 ### 3.3 使用用户指定的脚本进行帐户登录的测试
 ```python
 ./wpt_batch.py --urlfile=/foo/urls.txt --script=/foo/script.txt
