@@ -64,3 +64,7 @@ exe="C:\Program Files\Internet Explorer\iexplore.exe"
     2014-07-07 18:11:32,055 DEBUG Served: GET http://XXX.XXX.XXX.XXX/web-page-replay-command-replay [('cache-control', 'no-cache'), ('host', 'XXX.XXX.XXX.XXX')] (0ms)
 
 ## 五、FAQ
+1. Can multiple agents be used with one WPR server?
+2. Performance requirements for this server?
+3. Does WPR emulate the traffic of the recording?
+4. How can recordings be archived and reused?
