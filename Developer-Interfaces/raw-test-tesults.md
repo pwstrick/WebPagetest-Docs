@@ -202,9 +202,10 @@
 
 ## 三、聚合结果（批量测试）
 批量测试仅适用于私有实例。在批量测试结果的底部是一个链接来下载一个csv的聚合结果（假设多次运行，每个测试的平均值和中值）。聚合csv每行具有一个测试，并且各种不同的度量被聚合到各列中。csv中的第一行具有包括视图（第一个/重复）以及聚合方法的列描述：
-
 > FV - 第一个视图（缓存清除）  
 > RV - 重复查看（浏览器关闭，重新打开，页面再次测试）  
-> Median - 给定测试的所有运行中的给定度量（the given metric across all of the runs for the given test）的`中间值`  
+> Median - 给定测试的所有运行中的给定度量的`中间值`（The median value of the given metric across all of the runs for the given test）  
 > Average - 给定测试的所有运行中的给定度量的`平均值`  
 > Std. Dev - 给定测试的所有运行中的给定度量的`值的标准偏差`  
+
+目前汇总的指标有：
