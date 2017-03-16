@@ -6,3 +6,7 @@
 + 机器＃2 - 配置有位于弗吉尼亚州的IE 8和Chrome的PC
 + 机器＃3 - 在加利福尼亚州配置有IE 8的PC
 + 机器＃4 - 在加利福尼亚州配置有IE 9的PC
+
+逻辑上配置将如下所示：
+
+![](/assets/img/using/private/locations.png)
