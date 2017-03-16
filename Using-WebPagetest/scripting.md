@@ -44,6 +44,7 @@ submitForm	name=AOLLoginForm
 你不会得到很多关于脚本失败的反馈，所以请确保在桌面版本的WebPagetest（`File`->`Run Script`）中测试脚本，然后再上传它们进行托管测试。
 
 ## 二、命令参考（Command Reference）
+usage：用法，example：示例。  
 ### 2.1 导航/ DOM互动（Navigation/DOM Interaction）
 #### 2.1.1 navigate
 将浏览器导航到所提供的URL，并等待其完成。  
