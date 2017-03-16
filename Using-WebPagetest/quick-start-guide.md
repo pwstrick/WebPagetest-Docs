@@ -61,7 +61,7 @@ WebPagetest的核心是用于测量和分析网页的性能。有很多选项，
 >The metrics grouped together under the Document Complete heading are the metrics collected up until the browser considered the page loaded (onLoad event for those familiar with the javascript events).  This usually happens after all of the images content have loaded but may not include content that is triggered by javascript execution.
 
 #### 2.2.4 页面所有元素加载时间(Fully Loaded)
-从开始浏览页面，到Document Complete后，2秒内没有网络活动的时间，通常还会包括主页面加载完后等待载入事件，延迟加载其他不是特别重要的内容，`我理解的window.onload并不准确`。原文如下：
+从开始浏览页面，到Document Complete后，2秒内没有网络活动的时间，这包括在主网页加载后由JavaScript触发的任何活动。`我理解的window.onload并不准确`。原文如下：
 >The metrics grouped together under the Fully Loaded heading are the metrics collected up until there was 2 seconds of no network activity after Document Complete.  This will usually include any activity that is triggered by javascript after the main page loads.
 
 #### 2.2.5 整页加载时间(Load Time)
