@@ -4,10 +4,11 @@
 这些是为整个页面捕获并显示的顶级度量值。
 
 ### 2. 整页加载时间(Load Time)
-测量的时间是从开始浏览页面，到DOM加载事件（document.onload）执行的这段时间。
+测量的时间是从开始浏览页面，到开始执行`window.onload`事件。
+>The Load Time is measured as the time from the start of the initial navigation until the beginning of the window load event (onload).
 
 ### 3. 页面所有元素加载时间(Fully Loaded)
-从开始浏览页面，到Document Complete后，2秒内没有网络活动的时间，这通常包括在主网页加载后由JavaScript触发的任何活动。`我理解的window.onload并不准确`。
+从开始浏览页面，到Document Complete后，2秒内没有网络活动的时间，这通常包括在主网页加载后由JavaScript触发的任何活动。
 > The Fully Loaded time is measured as the time from the start of the initial navigation until there was 2 seconds of no network activity after Document Complete.  This will usually include any activity that is triggered by javascript after the main page loads.
 
 ### 4. 第一个字节加载时间(First Byte)
