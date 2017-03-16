@@ -2,9 +2,9 @@
 ## 一、页面数据字段
 这些是页面级（摘要）结果文件中，从“Raw Page data”链接导出的CSV文件中列。 
 
-1. Date 
-*. Time 
-*. Event Name 
+1. Date  
+*. Time  
+*. Event Name  
     4. URL
     5. Load Time (ms)
     6. Time to First Byte (ms)
