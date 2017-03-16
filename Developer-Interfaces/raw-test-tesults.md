@@ -9,19 +9,19 @@
     5. Load Time (ms)
     6. Time to First Byte (ms)
     7. unused
-    8. Bytes Out - As of build 53 this will always contain the total for the test, regardless of measurement type
-Bytes In - As of build 53 this will always contain the total for the test, regardless of measurement type
-DNS Lookups - As of build 53 this will always contain the total for the test, regardless of measurement type
-Connections - As of build 53 this will always contain the total for the test, regardless of measurement type
-Requests - As of build 53 this will always contain the total for the test, regardless of measurement type
-OK Responses - As of build 53 this will always contain the total for the test, regardless of measurement type
-Redirects - As of build 53 this will always contain the total for the test, regardless of measurement type
-Not Modified - As of build 53 this will always contain the total for the test, regardless of measurement type
-Not Found - As of build 53 this will always contain the total for the test, regardless of measurement type
-Other Responses - As of build 53 this will always contain the total for the test, regardless of measurement type
-Error Code
-Time to Start Render (ms)
-Segments Transmitted
+    8. Bytes Out - 从版本53起，这将总是包含测试的总和，而不考虑测量类型
+    9. Bytes In - As of build 53 this will always contain the total for the test, regardless of measurement type
+    10. DNS Lookups - 同上
+    11. Connections - 同上
+    12. Requests - 同上
+    13. OK Responses - 同上
+    14. Redirects - 同上
+    15. Not Modified - 同上
+    16. Not Found - 同上
+    17. Other Responses - 同上
+    18. Error Code
+    19. Time to Start Render (ms)
+    20. Segments Transmitted
 Segments Retransmitted
 Packet Loss (out)
 Activity Time(ms)
