@@ -113,7 +113,7 @@ Windows（Vista或更高版本）（如果使用64位，需要WebPagetest 2.9或
 + 配置位置键与`locations.ini`中的服务器匹配
 + 确保ini文件中的可用浏览器匹配位置的browsers = x，y，z条目中的locations.ini中定义的列表。
 15. 启动`wptdriver`，安装它需要安装的任何软件（退出，当出现“waiting for work”）。  
-16. 重新启动以确保一切正常启动  
+16. 重新启动以确保一切正常启动    
 如果将远程桌面连接到测试机，请确保在完成后重新启动机器，否则桌面将保持锁定，屏幕捕获将不起作用。
 #### 4.2.1 Headless Servers (including Google Compute Engine)
 ### 4.3 Mobile
