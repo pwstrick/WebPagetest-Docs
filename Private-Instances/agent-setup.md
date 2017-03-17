@@ -141,7 +141,31 @@ cd ~/wpt/agent/js
     I 0913Z22:06:45.073 wpt_client.js:293 Client.requestNextJob_ : \
     Get work: http://example.com/work/getwork.php?location= Example_Nexus4&pc=0088a434deadbeef&f=json
     .....
-    
+
+它将每10秒轮询上述URL。  
+要可选地保持代理运行，如果/当你注销，请包装上述命令为：
+```bash
+nohup ... &>0088a434deadbeef.log &
+```
+（可选）指定特定的Chrome浏览器包：
+```bash
+--chromePackage com.android.chrome
+```
+其他可用的命令行选项：
+```bash
+--alive <name>          // Touch a <name>.alive file while running (for integration with adbwatch.exe to auto-restart dead agents)
+--apiKey <key>                    // Use the specified api key when polling for work
+--checknet yes                    // Check for a valid assigned IP address before polling for work 
+--chromePackage com.android.chrome    // Specify an explicit browser package 
+--maxtemp <temp>                // Maximum allowed battery temp - i.e. --maxtemp 36.8
+--name <friendly name>  // Use the specified friendly device name for reporting instead of the device ID
+--processvideo yes      // Process video capture locally instead of on the server.  Requires python 2.7 in the path and visualmetrics.py in the agent directory (run "python visualmetrics.py -c" to validate config).
+--rotate <degrees>      // Rotate the screen shots (useful for landscape testing)
+--tcpdumpBinary <path>  // Path to an arm build of tcpdump to be installed on the agent dynamically
+--trafficShaper <info>  // See details below in "Traffic Shaping"
+--exitTests <test count> // Exits after running the specified number of tests (helpful to keep node's memory use under control)
+```
+
 ## 七、Advanced features:
 ### 7.1 WebDriver Scripts
 ### 7.2 Android tcpdump
