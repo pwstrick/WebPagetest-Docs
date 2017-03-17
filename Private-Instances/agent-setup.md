@@ -92,14 +92,35 @@ adb shell netcfg | grep wlan
 wlan0 UP 1.2.3.4/26  0x00001043 ac:47:e8:4b:3a:81
 
 adb shell ping yahoo.com
-```    
+```
 + 验证Chrome是否正常运行
 ```bash
 adb shell am start \
     -n com.android.chrome/com.google.android.apps.chrome.Main \
     -d http://yahoo.com
 ```
-## 五、Configure the locations.ini on the WPT server
+
+## 五、在WPT服务器上配置locations.ini
+修改WPT服务器设置以添加测试位置和浏览器，例如：
+```bash
+Test location: Example
+Browser: Nexus4 - Chrome
+```
+通过编辑`settings/locations.ini`：
+```bash
+[locations]
+1=Example
+
+[Example]
+1=Example_Nexus4
+label="Example"
+
+[Example_Nexus4]
+browser=Nexus4 - Chrome,Nexus4 - Chrome Beta
+label="Nexus 4"
+type=nodejs,mobile
+connectivity="WiFi"
+```
 ## 六、Start the agent
 ## 七、Advanced features:
 ### 7.1 WebDriver Scripts
