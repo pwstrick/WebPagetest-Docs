@@ -185,7 +185,7 @@ driver.wait(function() {
 + Gunzip并将二进制文件复制到`~/wpt/lib/tcpdump`
 + 重新运行wptdriver.sh与其他args：`--tcpdumpBinary ~/wpt/lib/tcpdump`
 + 当你提交作业时，通过以下方式启用tcpdump：
-+ Advanced Settings > Advanced > Capture network packet trace (tcpdump)
+    + Advanced Settings > Advanced > Capture network packet trace (tcpdump)
 + 验证代理是否上传pcap。
 
 ### 7.3 流量整形
