@@ -121,7 +121,27 @@ label="Nexus 4"
 type=nodejs,mobile
 connectivity="WiFi"
 ```
-## 六、Start the agent
+要使用Play商店中的Chrome和Chrome测试版，浏览器名称需要分别以“ - Chrome”和“ - Chrome测试版”结尾。
+
+## 六、启动代理
+启动代理：
+```bash
+cd ~/wpt/agent/js
+./wptdriver.sh \
+  -m debug \
+  --browser android:0088a434deadbeef \
+  --serverUrl example.com \
+  --location Example_Nexus4 \
+  --processvideo yes
+```
+它应该打印：
+
+    NODE_PATH=...
+    node src/agent_main ...
+    I 0913Z22:06:45.073 wpt_client.js:293 Client.requestNextJob_ : \
+    Get work: http://example.com/work/getwork.php?location= Example_Nexus4&pc=0088a434deadbeef&f=json
+    .....
+    
 ## 七、Advanced features:
 ### 7.1 WebDriver Scripts
 ### 7.2 Android tcpdump
