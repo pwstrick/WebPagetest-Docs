@@ -29,8 +29,41 @@
     + 打开设置
     + “合并标签页和应用程序” - 关闭
 ### 2.2 iOS (work in progress)
++ 越狱的设备（包括Cydia）
++ 安装OpenSSH
+    + 在绑定的主机上创建ssh密钥并另存为`~/.ssh/id_dsa_ios`
+    + 将ssh公钥添加到`~/.ssh/authorized_keys`
++ 安装tcpdump
++ 锁定设备旋转（如果需要）
++ 启用Web检查器（设置 - > Safari - >高级）
++ 用于设备管理的有用应用程序（来自cydia）：
+    + “veency” - VNC服务器远程触发滑动解锁，方便重新启动设备
+    + “核心实用程序（Core Utilities）” - 包括检查存储使用的
+    + “支持不支持的附件8” - 防止“此附件可能不支持”消息从间歇性出现（请确保在设置中启用它）
 
 ## 三、准备主机
+Raspberry Pi设备是运行Android设备的主机。[此处](https://github.com/WPO-Foundation/webpagetest/blob/master/docs/Private%20Instances/MobileAgentRaspberryPi.md)提供了描述如何配置它们的文档。
++ 安装NodeJS（`shell -v`从shell /命令行验证）
+    + Ubuntu：`sudo apt-get install nodejs`然后`sudo ln -s /usr/bin/nodejs /usr/sbin/node`
+    + Windows：安装Windows版本的node.js并将其添加到你的路径（作为安装选项或手动）
+    + OSX：`brew install node`
++ 安装ImageMagick（屏幕截图和视频处理所必需的，从shell /命令行`convert -version`验证）
+    + Ubuntu：`sudo apt-get install imagemagick`
+    + Windows：安装Windows版本的ImageMagick并将其添加到您的路径（作为安装选项或手动）
+    + OSX：`brew install imagemagick`
++ 安装ffmpeg与x264支持（视频处理所必需）
+    + OSX：`brew install ffmpeg`
++ 安装python 2.7和支持库
+    + 安装Pillow库：`pip install pillow`
+    + 安装ujson（用于更快的跟踪解析）：`pip install ujson`
++ 安装代理代码
+    + 直接使用git（假设在`~/wpt`，但可以安装在任何地方）：
+```bash
+cd ~
+git clone http://github.com/WPO-Foundation/webpagetest.git wpt
+```    
+    + 手动安装需要`agent/js`目录
++ 连接手机    
 ### 3.1 Android-specific Host Configuration
 ### 3.2 iOS-specific Host Configuration (work in progress)
 ## 四、Connect and Verify the configuration

@@ -18,7 +18,7 @@
 	+ [网页重播（Web Page Replay）](/Private-Instances/web-page-replay.md)
 	+ [Node.js代理（Node.js Agent）](/Private-Instances/nodejs-agent.md)
 		+ [代理安装（Agent Setup）](/Private-Instances/agent-setup.md)
-+ System Design
++ 系统设计（System Design）
 	+ [Overview](/System-Design/overview.md)
 	+ [WebPagetest Relay](/System-Design/webpagetest-relay.md)
 	+ [Mobile Testing](/System-Design/mobile-testing.md)
