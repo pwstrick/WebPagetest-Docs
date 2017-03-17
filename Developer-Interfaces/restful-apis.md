@@ -169,6 +169,7 @@ http://www.webpagetest.org/testStatus.php?f=xml&test=your_test_id
 
 ## 三、获取测试结果
 在正常使用（非xml）下，将被重定向到结果页面。当使用XML API时，应该使用响应测试请求时提供的xmlUrl。 XML url也可以采用一些可选参数：
+
 | 参数名        | 描述 |
 | :------------|:-------------|
 | r         | 请求ID将会在响应中显示 |
