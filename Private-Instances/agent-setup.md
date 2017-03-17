@@ -166,8 +166,19 @@ nohup ... &>0088a434deadbeef.log &
 --exitTests <test count> // Exits after running the specified number of tests (helpful to keep node's memory use under control)
 ```
 
-## 七、Advanced features:
-### 7.1 WebDriver Scripts
+## 七、高级功能
+### 7.1 WebDriver脚本
+在桌面浏览器上，将作业提交到http://example.com，例如：  
+    Advanced Settings > Script > Enter Script：
+```javascript
+driver = new webdriver.Builder().build();
+driver.get('http://www.google.com');
+driver.findElement(webdriver.By.name('q')).sendKeys('webdriver');
+driver.findElement(webdriver.By.name('btnG')).click();
+driver.wait(function() {
+    return driver.getTitle();
+})
+```
 ### 7.2 Android tcpdump
 ### 7.3 Traffic shaping
 ### 7.4 Video capture (non-android)
