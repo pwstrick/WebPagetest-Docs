@@ -59,7 +59,7 @@ Raspberry Pi设备是运行Android设备的主机。[此处](https://github.com/
 + 安装代理代码
     + 手动安装需要`agent/js`目录
     + 直接使用git（假设在`~/wpt`，但可以安装在任何地方）：
-```Shell
+```bash
 cd ~
 git clone http://github.com/WPO-Foundation/webpagetest.git wpt
 ``` 
@@ -85,7 +85,7 @@ git clone http://github.com/WPO-Foundation/webpagetest.git wpt
 + 授权并验证与设备的adb连接
     + `adb devices` - 确保列出了设备（出现提示时，单击设备屏幕上的授权）
 + 验证根
-    + adb shell su -c date
+    + `adb shell su -c date`
 + 验证网络是否已启动
 ```bash
 adb shell netcfg | grep wlan
