@@ -61,7 +61,7 @@ Raspberry Pi设备是运行Android设备的主机。[此处](https://github.com/
 ```bash
 cd ~
 git clone http://github.com/WPO-Foundation/webpagetest.git wpt
-```    
+```
     + 手动安装需要`agent/js`目录
 + 连接手机    
 ### 3.1 Android-specific Host Configuration
