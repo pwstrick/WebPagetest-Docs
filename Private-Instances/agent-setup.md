@@ -84,16 +84,16 @@ git clone http://github.com/WPO-Foundation/webpagetest.git wpt
 ### 4.1 Android
 + 授权并验证与设备的adb连接
     + `adb devices` - 确保列出了设备（出现提示时，单击设备屏幕上的授权）
-+ Verify root
++ 验证根
     + adb shell su -c date
-+ Verify that the network is up
++ 验证网络是否已启动
 ```bash
 adb shell netcfg | grep wlan
 wlan0 UP 1.2.3.4/26  0x00001043 ac:47:e8:4b:3a:81
 
 adb shell ping yahoo.com
 ```    
-+ Verify that Chrome works
++ 验证Chrome是否正常运行
 ```bash
 adb shell am start \
     -n com.android.chrome/com.google.android.apps.chrome.Main \
