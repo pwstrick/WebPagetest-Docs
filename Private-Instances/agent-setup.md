@@ -57,12 +57,12 @@ Raspberry Pi设备是运行Android设备的主机。[此处](https://github.com/
     + 安装Pillow库：`pip install pillow`
     + 安装ujson（用于更快的跟踪解析）：`pip install ujson`
 + 安装代理代码
+    + 手动安装需要`agent/js`目录
     + 直接使用git（假设在`~/wpt`，但可以安装在任何地方）：
 ```bash
 cd ~
 git clone http://github.com/WPO-Foundation/webpagetest.git wpt
-```
-    + 手动安装需要`agent/js`目录
+``` 
 + 连接手机    
 ### 3.1 Android-specific Host Configuration
 ### 3.2 iOS-specific Host Configuration (work in progress)
