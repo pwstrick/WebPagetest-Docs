@@ -55,12 +55,12 @@ WebPagetest的核心是用于测量和分析网页的性能。有很多选项，
 重复视图会在首次视图测试后立即执行，不会清除任何内容。浏览器窗口在`First View`测试后关闭，然后启动新浏览器以执行`Repeat View`测试。重复视图测试模拟的是用户离开页面后，马上再进入此页面的场景。
 
 #### 2.2.3 文档加载完毕(Document Complete)
-从开始浏览页面，到加载所有静态内容（图片、CSS、JavaScript等），但可能不包括由JavaScript执行触发的内容，可以理解为开始执行`window.onload`。原文如下：
+从初始化请求，到加载所有静态内容（图片、CSS、JavaScript等），但可能不包括由JavaScript执行触发的内容，可以理解为开始执行`window.onload`。原文如下：
 
 >The metrics grouped together under the Document Complete heading are the metrics collected up until the browser considered the page loaded (onLoad event for those familiar with the javascript events).  This usually happens after all of the images content have loaded but may not include content that is triggered by javascript execution.
 
 #### 2.2.4 页面所有元素加载时间(Fully Loaded)
-从开始浏览页面，到Document Complete后，2秒内没有网络活动的时间，这包括在主网页加载后由JavaScript触发的任何活动。原文如下：
+从初始化请求，到Document Complete后，2秒内没有网络活动的时间，这包括在主网页加载后由JavaScript触发的任何活动。原文如下：
 >The metrics grouped together under the Fully Loaded heading are the metrics collected up until there was 2 seconds of no network activity after Document Complete.  This will usually include any activity that is triggered by javascript after the main page loads.
 
 #### 2.2.5 整页加载时间(Load Time)
@@ -68,7 +68,7 @@ WebPagetest的核心是用于测量和分析网页的性能。有很多选项，
 >The Load Time is the time from when the user started navigating to the page until the Document Complete event (usually when all of the page content has loaded).
 
 #### 2.2.6 第一个字节加载时间(First Byte)
-这个时间表示浏览器发起请求到服务器响应后，接收到第一个字节的时间。此时的大部分时间通常称为“后端时间”，服务器为用户构建页面的时间量。原文如下：
+这个时间表示从初始化请求到服务器响应后，接收到第一个字节的时间。此时的大部分时间通常称为“后端时间”，服务器为用户构建页面的时间量。原文如下：
 >The First Byte time is the time from when the user started navigating to the page until the first bit of the server response arrived.  The bulk of this time is usually referred to the "back-end time" and is the amount of time the server spent building the page for the user.
 
 #### 2.2.7 页面渲染时间(Start Render)

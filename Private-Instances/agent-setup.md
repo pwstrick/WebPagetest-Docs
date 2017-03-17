@@ -29,6 +29,7 @@
     + 打开设置
     + “合并标签页和应用程序” - 关闭
 ### 2.2 iOS (work in progress)
+
 ## 三、准备主机
 ### 3.1 Android-specific Host Configuration
 ### 3.2 iOS-specific Host Configuration (work in progress)

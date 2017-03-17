@@ -4,18 +4,18 @@
 这些是为整个页面捕获并显示的顶级度量值。
 
 ### 2. 整页加载时间(Load Time)
-测量的时间是从开始浏览页面，到开始执行`window.onload`事件。
+测量的时间是从初始化请求，到开始执行`window.onload`事件。
 >The Load Time is measured as the time from the start of the initial navigation until the beginning of the window load event (onload).
 
 ### 3. 页面所有元素加载时间(Fully Loaded)
-从开始浏览页面，到Document Complete后，2秒内没有网络活动的时间，这通常包括在主网页加载后由JavaScript触发的任何活动。
+从初始化请求，到Document Complete后，2秒内（中间几百毫秒轮询）没有网络活动的时间，但这2秒是不包括在测量中的，所以会出现两个差值大于或小于2秒。
 > The Fully Loaded time is measured as the time from the start of the initial navigation until there was 2 seconds of no network activity after Document Complete.  This will usually include any activity that is triggered by javascript after the main page loads.
 
 ### 4. 第一个字节加载时间(First Byte)
 第一个字节时间（通常缩写为TTFB）被测量为从开始浏览页面，到服务器响应的第一个字节，被浏览器接收的时间。
 
 ### 5. 页面渲染时间(Start Render)
-测量的时间是从开始浏览页面，到第一个内容被绘制到浏览器显示的时间。在瀑布图中有两个参数指标`Start Render`和`msFirstPaint`。
+测量的时间是从初始化请求，到第一个内容被绘制到浏览器显示的时间。在瀑布图中有两个参数指标`Start Render`和`msFirstPaint`。
 + `Start Render`是通过捕获页面加载的视频，并在浏览器第一次显示除空白页之外的其他内容时查看每个帧来衡量的。它只能在实验室测量，通常是最准确的测量。
 + `msFirstPaint`（IE专用属性）是由浏览器本身报告的一个测量，它认为绘制的第一个内容。通常是相当准确，但有时它报告的时候，浏览器只画一个空白屏幕。
 

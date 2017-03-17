@@ -35,7 +35,7 @@
 	+ [Async JS](/Developer-Information/async-js.md)
 
 # 相关资料
-[Using WebPageTest](https://book.douban.com/subject/26588599/)专门介绍WebPageTest的书籍，有中文版，原版是彩色的，中文版是黑白的。
+[Using WebPageTest](https://book.douban.com/subject/26588599/)专门介绍WebPageTest的书籍，有中文版，原版是彩色的，中文版是黑白的。在这本书中不但列举了一些分析技巧，还展示了更多的参数说明，结合文档可以更好的运用Webpagetest。
 
 # 联系方式
 翻译错误、理解有误、或者探讨性能等，大家都可以在QQ群（156140744）中交流。
