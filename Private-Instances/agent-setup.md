@@ -168,7 +168,7 @@ nohup ... &>0088a434deadbeef.log &
 
 ## 七、高级功能
 ### 7.1 WebDriver脚本
-在桌面浏览器上，将作业提交到http://example.com，例如：  
+在桌面浏览器上，将作业提交到`http://example.com`，例如：  
     Advanced Settings > Script > Enter Script：
 ```javascript
 driver = new webdriver.Builder().build();
@@ -179,7 +179,76 @@ driver.wait(function() {
     return driver.getTitle();
 })
 ```
+
 ### 7.2 Android tcpdump
-### 7.3 Traffic shaping
-### 7.4 Video capture (non-android)
-### 7.5 Run as per-device user
++ 从[omappedia.org](http://omappedia.org/wiki/USB_Sniffing_with_tcpdump)下载一个预编译的tcpdump二进制文件。
++ Gunzip并将二进制文件复制到`~/wpt/lib/tcpdump`
++ 重新运行wptdriver.sh与其他args：`--tcpdumpBinary ~/wpt/lib/tcpdump`
++ 当你提交作业时，通过以下方式启用tcpdump：
++ Advanced Settings > Advanced > Capture network packet trace (tcpdump)
++ 验证代理是否上传pcap。
+
+### 7.3 流量整形
+On-device traffic shaping:
+    TODO Eg. Android [tc](https://www.cyberciti.biz/faq/linux-traffic-shaping-using-tc-to-control-http-traffic/) (requires on-device /proc/net/psched and /system/bin/tc).
+    Can likely implement via the below "trafficShaper" script approach.
+The easiest configuration is to assume that all traffic passes through the desktop, e.g:
+    Add a second ethernet card to your desktop.
+    Attach WiFi access point to this additional card.
+    Verify that Linux enabled IP forwarding ([how-to](http://www.ducea.com/2006/08/01/how-to-enable-ip-forwarding-in-linux/))
+    Configure your mobile device to use the WiFi access point.
+    Verify that your device's WiFi traffic is routed through your desktop (via tcpdump/wireshark?)
+If traffic is not routed through your desktop, create a local "trafficShaper" script that (e.g.) uses passwordless ssh to configure the remote switch.
+[issue/147](https://github.com/WPO-Foundation/webpagetest/issues/147) adds support for user-defined "trafficShaper" script:
+    Create a traffic shaper script, e.g. ~/wpt/shaper
+    Run ./wptdriver.sh with "--trafficShaper ~/wpt/shaper" and optional "--trafficShaperArg anyString" (e.g. foo1.2.3.4).
+    Modify the WPT Server's settings/locations.ini to remove the "connectivity=" line (to allow the job options).
+    Submit job with Advanced Settings > Connection set to (e.g.) "56K Dialup-up", which the server's connectivity.ini defines as:
+```bash
+label="56K Dial-Up (49/30 Kbps 120ms RTT)"
+bwIn=49000
+bwOut=30000
+latency=120
+plr=0
+```
+    Before each run, the agent should call:
+```bash
+~/wpt/shaper -s 0088a434deadbeef start --arg foo1.2.3.4 --bwIn 49 --bwOut 30 --latency 120
+```
+    where "0" values are not passed (e.g. the above plr=0)
+    The agent will check the script's stdout for an optional line matching "stop=VALUE" (e.g. "stop=bar42").
+    Verify that pages load slowly due to your traffic shaper.
+    After each run, the agent should call:
+```bash
+~/wpt/shaper -s 0088a434deadbeef stop --arg bar42
+```
+
+TODO rough ipfw notes:
+    Install ipfw3, sudo chmod 7755 /sbin/ipfw, verify that ipfw3 list prints "65535 allow ip from any to any"
+    Get the device IP from `adb shell netcfg | grep wlan" (e.g. 1.2.3.4), run ./wptdriver.sh with "--deviceAddr 1.2.3.4"
+    Modify the WPT Server's settings/locations.ini to remove the "connectivity=" line.
+    Submit job with Advanced Settings > Connection set to (e.g.) "56K Dialup-up".
+    Verify that the agent prints the expected ipfw commands (e.g. `ipfw add ...`, `ipfw pipe ...`)
+    Verify that pages load slowly due to traffic shaping.
+    
+### 7.4 视频捕获（非Android）
+TODO rough notes:
+    Create capture script, e.g. ~/wpt/video/capture
+    Run ./wptdriver.sh with "--captureDir ~/wpt/video" and optional "--videoCard anyString" (e.g. to pass the card name to the script).
+    Agent will call
+```bash
+~/wpt/video/capture -f pid_video.avi -s 0088a434deadbeef -t mako -d anyString -w
+```
+    where "mako" is the `adb shell getprop ro.product.device` codename for Nexus4.
+    When the agent wants to stop the capture, it'll kill the above process, then read the "pid_video.avi".
+    
+### 7.5 按每个设备用户运行
+Primarily used to kill any zombie processes, e.g. leftover video captures.
+Rough notes:
+    Create a user for this device, e.g. via:
+```bash
+sudo useradd -d /home/0088a434deadbeef -m 0088a434deadbeef
+```
+    Switch to this user (optionally via /etc/sudoers.d/wpt file and `sudo -u`)
+    Run ./wptdriver.sh with "--killall 1"
+    The agent will `killall -9` all pids owned by its user, except its own pid.  This `killall` ensures that there are no zombie processes between jobs, but note that it'll also kill any login shells, so make sure to run with nohup!
