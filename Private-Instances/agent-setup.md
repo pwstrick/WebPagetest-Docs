@@ -1,10 +1,10 @@
 # 代理安装
 
 ## 一、要求
-你需要一个主机来运行代理。我们为每个设备创建一个代理。主机可以运行多个代理。  
-任何支持NodeJS和adb的操作系统都应该可以正常工作，但是Linux和Windows是唯一可以进行定期测试的操作系统。 如果你的主机只有USB 3，你可能需要使用Windows（至少截至2014年2月，Linux上的USB 3驱动程序非常不稳定）。 如果你的主机作为USB 2.0端口，那么Linux或Windows是一个好的选择。  
-对于Android，您将需要一个运行KitKat（4.4）或更高版本的手机，可以植根（Nexus设备和Motorola G的工作良好）。  
-我们假设你使用的是Linux和Nexus4。
+&emsp;&emsp;你需要一个主机来运行代理。我们为每个设备创建一个代理。主机可以运行多个代理。  
+&emsp;&emsp;任何支持NodeJS和adb的操作系统都应该可以正常工作，但是Linux和Windows是唯一可以进行定期测试的操作系统。 如果你的主机只有USB 3，你可能需要使用Windows（至少截至2014年2月，Linux上的USB 3驱动程序非常不稳定）。 如果你的主机作为USB 2.0端口，那么Linux或Windows是一个好的选择。  
+&emsp;&emsp;对于Android，您将需要一个运行KitKat（4.4）或更高版本的手机，可以植根（Nexus设备和Motorola G的工作良好）。  
+&emsp;&emsp;我们假设你使用的是Linux和Nexus4。
 
 ## 二、准备设备
 ### 2.1 Android
