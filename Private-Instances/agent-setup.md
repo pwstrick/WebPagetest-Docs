@@ -63,11 +63,42 @@ Raspberry Pi设备是运行Android设备的主机。[此处](https://github.com/
 cd ~
 git clone http://github.com/WPO-Foundation/webpagetest.git wpt
 ``` 
-+ 连接手机    
-### 3.1 Android-specific Host Configuration
-### 3.2 iOS-specific Host Configuration (work in progress)
-## 四、Connect and Verify the configuration
++ 连接手机
+
+### 3.1 Android特定主机配置
++ 安装adb并确保它在你的路径（“adb设备”从shell /命令行来验证设备连接后）
+    + Ubuntu：`sudo apt-get install android-tools-adb`
+    + 否则，从[Android SDK](http://developer.android.com/sdk/index.html)
++ 配置[udev规则](https://developer.android.com/studio/run/device.html)（仅限Linux）
+
+### 3.2 iOS特定主机配置（工作进行中）
++ 需要OSX Yosemite（10.10）或更高版本进行视频捕获
+    + 截至目前，OSX只能从一个设备捕获视频。这就需要为每个iPhone使用专用的Mac，用于测试。
++ 需要在OSX上的XCode屏幕截图
+    + 复制`/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSupport` 到 `wpt/agent/js/lib/ios/DeviceSupport`
+    + 确保目录名称仅包含操作系统版本（无构建信息）
++ 安装`libimobiledevice` - `brew install libimobiledevice`
++ 安装`ios_webkit_debug_proxy` - `brew install ios_webkit_debug_proxy`
+
+## 四、连接并验证配置
 ### 4.1 Android
++ 授权并验证与设备的adb连接
+    + `adb devices` - 确保列出了设备（出现提示时，单击设备屏幕上的授权）
++ Verify root
+    + adb shell su -c date
++ Verify that the network is up
+```bash
+adb shell netcfg | grep wlan
+wlan0 UP 1.2.3.4/26  0x00001043 ac:47:e8:4b:3a:81
+
+adb shell ping yahoo.com
+```    
++ Verify that Chrome works
+```bash
+adb shell am start \
+    -n com.android.chrome/com.google.android.apps.chrome.Main \
+    -d http://yahoo.com
+```
 ## 五、Configure the locations.ini on the WPT server
 ## 六、Start the agent
 ## 七、Advanced features:
