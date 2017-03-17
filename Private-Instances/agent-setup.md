@@ -59,7 +59,7 @@ Raspberry Pi设备是运行Android设备的主机。[此处](https://github.com/
 + 安装代理代码
     + 手动安装需要`agent/js`目录
     + 直接使用git（假设在`~/wpt`，但可以安装在任何地方）：
-```bash
+```Shell
 cd ~
 git clone http://github.com/WPO-Foundation/webpagetest.git wpt
 ``` 
