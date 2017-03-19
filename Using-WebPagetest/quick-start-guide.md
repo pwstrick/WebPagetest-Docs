@@ -37,7 +37,8 @@ WebPagetest的核心是用于测量和分析网页的性能。有很多选项，
 
 #### 2.1.1 阻塞时间（First Byte Time）
 首字节时间是指浏览器收到HTML内容的第一个字节时间，包括DNS查找、TCP连接、SSL协商（如果是HTTPS请求）和TTFB（Time To First Byte）。  
-关于First Byte Time和TTFB的区别在[Metrics](/Using-WebPagetest/metrics.md)一节中做了简单分析。  
+关于First Byte Time和TTFB的区别在[Metrics](/Using-WebPagetest/metrics.md)一节中做了简单分析。
+
     预期首字节 = RTT * 3 + SSL
     比值 = 100 - (实际观测首字节 - 预期首字节) / 10
 其中`RTT`的指往返通信时间。更多网络术语可以参考整理的[网络协议](http://www.cnblogs.com/strick/p/6262284.html)
