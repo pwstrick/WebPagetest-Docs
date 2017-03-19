@@ -13,7 +13,7 @@
 
 ### 4. 第一个字节加载时间(First Byte)
 第一个字节时间（通常缩写为TTFB）被测量为从初始化请求，到服务器响应的第一个字节，被浏览器接收的时间（不包括DNS查询、TCP连接的时间）。  
-我理解TTFB的计算是从下图中RequestStart到ResponseStart这之间的时间。
+我理解TTFB的计算是从下图中requestStart到responseStart这之间的时间。
 
 ![](/assets/img/using/metrics/performance.png)
 
