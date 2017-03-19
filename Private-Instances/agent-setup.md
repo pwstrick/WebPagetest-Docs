@@ -193,17 +193,17 @@ driver.wait(function() {
 + 例如 Android [tc](https://www.cyberciti.biz/faq/linux-traffic-shaping-using-tc-to-control-http-traffic/)（需要在设备上`/proc/net/psched`和`/system/bin/tc`）。
 + 可能通过以下“trafficShaper”脚本方法实现。
 最简单的配置是假设所有流量都通过桌面，例如：
-+ Add a second ethernet card to your desktop.
-+ Attach WiFi access point to this additional card.
-+ Verify that Linux enabled IP forwarding ([how-to](http://www.ducea.com/2006/08/01/how-to-enable-ip-forwarding-in-linux/))
-+ Configure your mobile device to use the WiFi access point.
-+ Verify that your device's WiFi traffic is routed through your desktop (via tcpdump/wireshark?)
++ 将另一个以太网卡添加到您的桌面。
++ 将WiFi接入点连接到此附加卡。
++ 验证Linux启用IP转发（[操作方法](http://www.ducea.com/2006/08/01/how-to-enable-ip-forwarding-in-linux/)）
++ 将您的移动设备配置为使用WiFi接入点。
++ 验证你设备的WiFi流量是否通过您的桌面路由（通过tcpdump或wireshark）
 如果流量未通过你的桌面路由，请创建本地`trafficShaper`脚本（例如）使用无密码ssh配置远程交换机。
-[issue/147](https://github.com/WPO-Foundation/webpagetest/issues/147) adds support for user-defined "trafficShaper" script:
-+ Create a traffic shaper script, e.g. ~/wpt/shaper
-+ Run ./wptdriver.sh with "--trafficShaper ~/wpt/shaper" and optional "--trafficShaperArg anyString" (e.g. foo1.2.3.4).
-+ Modify the WPT Server's settings/locations.ini to remove the "connectivity=" line (to allow the job options).
-+ Submit job with Advanced Settings > Connection set to (e.g.) "56K Dialup-up", which the server's connectivity.ini defines as:
+[issue/147](https://github.com/WPO-Foundation/webpagetest/issues/147) 添加了对用户定义的`trafficShaper`脚本的支持：
++ 创建流量整形师脚本，例如 `~/wpt/shaper`
++ 运行`./wptdriver.sh`与`--trafficShaper ~/wpt/shaper`和可选的`--trafficShaperArg anyString`（例如foo1.2.3.4）。
++ 修改WPT服务器的设置`/locations.ini`以删除`connectivity =`行（允许作业选项）。
++ 提交作业，`Advanced Settings > Connection`设置为（例如）“56K拨号”，服务器的connectivity.ini定义为：
 ```bash
 label="56K Dial-Up (49/30 Kbps 120ms RTT)"
 bwIn=49000
@@ -223,13 +223,13 @@ plr=0
 ~/wpt/shaper -s 0088a434deadbeef stop --arg bar42
 ```
 
-TODO rough ipfw notes:
-+ Install ipfw3, sudo chmod 7755 /sbin/ipfw, verify that ipfw3 list prints "65535 allow ip from any to any"
-+ Get the device IP from `adb shell netcfg | grep wlan" (e.g. 1.2.3.4), run ./wptdriver.sh with "--deviceAddr 1.2.3.4"
-+ Modify the WPT Server's settings/locations.ini to remove the "connectivity=" line.
-+ Submit job with Advanced Settings > Connection set to (e.g.) "56K Dialup-up".
-+ Verify that the agent prints the expected ipfw commands (e.g. `ipfw add ...`, `ipfw pipe ...`)
-+ Verify that pages load slowly due to traffic shaping.
+粗糙ipfw注意：
++ 安装`ipfw3，sudo chmod 7755 /sbin/ipfw`，验证ipfw3列表打印`65535 allow ip from any to any`
++ 从`adb shell netcfg | grep wlan`（例如1.2.3.4），运行`./wptdriver.sh`与`--deviceAddr 1.2.3.4`
++ 修改WPT服务器的设置`/locations.ini`以删除`connectivity =`行。
++ 通过`Advanced Settings > Connection`设置为（例如）“56K拨号”提交作业。
++ 验证代理打印预期的ipfw命令（例如`ipfw add ...`，`ipfw pipe ...`）
++ 验证页面由于流量整形而缓慢加载。
     
 ### 7.4 视频捕获（非Android）
 粗糙笔记： 
