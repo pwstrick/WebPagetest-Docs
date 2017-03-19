@@ -12,7 +12,11 @@
 > The Fully Loaded time is measured as the time from the start of the initial navigation until there was 2 seconds of no network activity after Document Complete.  This will usually include any activity that is triggered by javascript after the main page loads.
 
 ### 4. 第一个字节加载时间(First Byte)
-第一个字节时间（通常缩写为TTFB）被测量为从开始浏览页面，到服务器响应的第一个字节，被浏览器接收的时间。
+第一个字节时间（通常缩写为TTFB）被测量为从初始化请求，到服务器响应的第一个字节，被浏览器接收的时间（不包括DNS查询、TCP连接的时间）。  
+我理解TTFB的计算是从下图中RequestStart到ResponseStart这之间的时间。
+
+![](/assets/img/using/guide/performance.png)
+
 
 ### 5. 页面渲染时间(Start Render)
 测量的时间是从初始化请求，到第一个内容被绘制到浏览器显示的时间。在瀑布图中有两个参数指标`Start Render`和`msFirstPaint`。
