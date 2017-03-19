@@ -25,6 +25,8 @@ WebPagetest的核心是用于测量和分析网页的性能。有很多选项，
 ### 2.1 优化等级(Optimization Grades)
 在结果页面的顶部是一组最关键的性能优化等级。涵盖了适用于所有网站的基本优化，任何不是A或B的都需要进行进一步的优化。
 
+![](/assets/img/using/guide/grades.png)
+
 | 字母等级 | 占比  |
 | ------------ |:---------------|
 | A     | 90%+ |
@@ -33,7 +35,13 @@ WebPagetest的核心是用于测量和分析网页的性能。有很多选项，
 | D     | 60% ~ 69%        |
 | F     | 0% ~ 59%        |
 
-![](/assets/img/using/guide/grades.png)
+#### 2.1.1 阻塞时间（First Byte Time）
+首字节时间是指浏览器收到HTML内容的第一个字节时间，包括DNS查找、TCP连接、SSL协商（如果是HTTPS请求）和TTFB（Time To First Byte）。  
+关于First Byte Time和TTFB的区别在[Metrics](/Using-WebPagetest/metrics.md)一节中做了简单分析。  
+    预期首字节 = RTT * 3 + SSL
+    比值 = 100 - (实际观测首字节 - 预期首字节) / 10
+其中`RTT`的指往返通信时间。更多网络术语可以参考整理的[网络协议](http://www.cnblogs.com/strick/p/6262284.html)
+
 #### 2.1.1 长连接已启动(Keep-alive Enabled)
 请求网页上的内容（图像、JavaScript、CSS、Flash等）需要与Web服务器建立连接。每次都重新连接会耗费一些时间，所以最好复用连接，`keep-alive`实现了这个方法。默认情况下，在配置中已启用，而且是HTTP 1.1标准的一部分，但有时它们将被破坏（可能是无意的）。启用`keep-alive`通常只是服务器上的配置更改，不需要对页面本身进行任何更改，通常可以将加载页面的时间减少40-50％。
 
