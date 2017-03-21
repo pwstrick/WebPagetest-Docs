@@ -1,6 +1,5 @@
 # 首屏展现平均值（速度指数）
-&emsp;&emsp;`Speed Index`是显示页面的可见部分的平均时间。它以毫秒为单位表示，会受视图端口大小的影响。
-
+&emsp;&emsp;`Speed Index`是显示页面的可见部分的平均时间。它以毫秒为单位表示，会受视图端口大小的影响。  
 &emsp;&emsp;`Speed Index`已于2012年4月添加到WebPagetest，衡量页面内容填充的速度（越低越好）。它特别适用于比较不同页面之间的差别（在优化之前/之后，我的网站与竞争对手等），与其它指标（`Load Time`，`Start Render`等）结合使用，可以更好地了解网站的性能 。
 
 ## 一、问题
@@ -21,7 +20,7 @@
 ![](/assets/img/using/metrics/chart-progress-a-small.png)
 ![](/assets/img/using/metrics/chart-progress-b-small.png)
 
-如果页面在达到视觉上完成后旋转10秒，分数将继续增加。下图中，涂色的是渲染部分，面积越小，页面载入速度越快。原文如下：
+&emsp;&emsp;如果页面在达到视觉上完成后旋转10秒，分数将继续增加。下图中，涂色的是渲染部分，面积越小，页面载入速度越快。原文如下：
 >This would be great except for one little detail, it is unbounded.  If a page spins for 10 seconds after reaching visually complete the score would keep increasing.  Using the "area above the graph" and calculating the unrendered portion of the page over time instead gives us a nicely bounded area that ends when the page is 100% complete and approaches 0 as the page gets faster:
 
 ![](/assets/img/using/metrics/chart-index-a-small.png)
@@ -45,10 +44,10 @@ Completeness是该帧的完成百分比，Interval是该视频帧以毫秒为单
 &emsp;&emsp;目前的技术是采取图像颜色的直方图（红色，绿色和蓝色各一个），只看一下页面上颜色的整体分布。计算起始直方图（对于第一个视频帧）和结束直方图（最后一个视频帧）之间的差异，并使用该差异作为基线。将视频中的每个帧的直方图与第一个直方图的差异和基线进行比较，以确定该视频帧“完成”了多少。在某些情况下，可能不准确，但大部分情况下，这种方法还是值得做的。  
 &emsp;&emsp;这是原始机制，用于计算`Speed Index`的视觉进度，但在某些情况下，它有问题（视频播放页面，幻灯片动画或大的插页式广告）。它对结束状态非常敏感，根据最终图像计算进度。它也只能在实验室中测量，并且依赖于视频捕获。
 
-### 2. 从绘画事件的可视进展(Visual Progress from Paint Events)
+### 2. 从绘画事件的可视进展(Visual Progress from Paint Events)  
 &emsp;&emsp;最近，我们（成功地）试验了Webkit开发者工具时间线（也可以通过扩展和远程调试协议）公开的Paint事件。它适用于所有最新的基于webkit的浏览器，包括桌面和移动和所有平台。它也非常轻量级，不需要捕获视频。它对给定浏览器中的渲染器实现有些敏感，因此它不能用于比较不同浏览器的性能。  
-为了获得有用的数据，它需要一个公平的过滤和加权。  
-我们使用的特定算法来计算从dev工具绘制rects的`Speed Index`：
+&emsp;&emsp;为了获得有用的数据，它需要一个公平的过滤和加权。  
+&emsp;&emsp;我们使用的特定算法来计算从dev工具绘制rects的`Speed Index`：
 + 在基于Webkit的浏览器的情况下，我们收集时间线数据，其中包括绘制矩形以及其他有用的事件。
 + 我们过滤掉在接收到第一个响应数据之后，第一个布局之前的任何绘制事件。
 	+ ResourceReceiveResponse -> Layout -> Paint事件.
