@@ -153,17 +153,17 @@ nohup ... &>0088a434deadbeef.log &
 ```
 其他可用的命令行选项：
 ```bash
---alive <name>          // Touch a <name>.alive file while running (for integration with adbwatch.exe to auto-restart dead agents)
---apiKey <key>                    // Use the specified api key when polling for work
---checknet yes                    // Check for a valid assigned IP address before polling for work 
---chromePackage com.android.chrome    // Specify an explicit browser package 
---maxtemp <temp>                // Maximum allowed battery temp - i.e. --maxtemp 36.8
---name <friendly name>  // Use the specified friendly device name for reporting instead of the device ID
---processvideo yes      // Process video capture locally instead of on the server.  Requires python 2.7 in the path and visualmetrics.py in the agent directory (run "python visualmetrics.py -c" to validate config).
---rotate <degrees>      // Rotate the screen shots (useful for landscape testing)
---tcpdumpBinary <path>  // Path to an arm build of tcpdump to be installed on the agent dynamically
---trafficShaper <info>  // See details below in "Traffic Shaping"
---exitTests <test count> // Exits after running the specified number of tests (helpful to keep node's memory use under control)
+--alive <name>          // Touch a <name>.alive file while running (集成 adbwatch.exe，用于重新启动死了的代理程序)
+--apiKey <key>                    // 轮询工作时使用指定的api key
+--checknet yes                    // 在轮询工作之前检查IP地址的有效性
+--chromePackage com.android.chrome    // 指定一个浏览器包
+--maxtemp <temp>                // 最大允许电池温度 - 即最大温度36.8
+--name <friendly name>  // 使用指定的友好的设备名称进行报告，而不是设备ID
+--processvideo yes      // 在本地进行视频捕获，而不是在服务器上进行。 需要python 2.7的路径和visualmetrics.py在代理目录（运行“python visualmetrics.py -c”来验证配置）
+--rotate <degrees>      // 旋转屏幕截图（适用于景观测试）
+--tcpdumpBinary <path>  // 要在代理上动态安装tcpdump的arm构建路径
+--trafficShaper <info>  // 请参阅“流量整形”
+--exitTests <test count> // 运行指定数量的测试后退出（有助于控制节点的内存使用）
 ```
 
 ## 七、高级功能
