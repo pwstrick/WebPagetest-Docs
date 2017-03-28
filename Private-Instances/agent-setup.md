@@ -49,7 +49,7 @@ Raspberry Pi设备是运行Android设备的主机。[此处](https://github.com/
     + OSX：`brew install node`
 + 安装ImageMagick（屏幕截图和视频处理所必需的，从shell /命令行`convert -version`验证）
     + Ubuntu：`sudo apt-get install imagemagick`
-    + Windows：安装Windows版本的ImageMagick并将其添加到您的路径（作为安装选项或手动）
+    + Windows：[安装Windows版本的ImageMagick](http://www.imagemagick.org/script/binary-releases.php#windows)并将其添加到您的路径（作为安装选项或手动）
     + OSX：`brew install imagemagick`
 + 安装ffmpeg与x264支持（视频处理所必需）
     + OSX：`brew install ffmpeg`
