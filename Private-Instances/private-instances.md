@@ -111,7 +111,7 @@ Windows（Vista或更高版本）（如果使用64位，需要WebPagetest 2.9或
 + 确保浏览器可执行文件的路径对于系统是正确的（如果正在自动安装Chrome和Firefox，他们只会在首次运行`wptdriver`后安装）
 + 将位置配置为与`locations.ini`中服务器上定义的位置匹配
 + 配置位置键与`locations.ini`中的服务器匹配
-+ 确保ini文件中的可用浏览器匹配位置的browsers = x，y，z条目中的locations.ini中定义的列表。
++ 确保location.ini文件中的browsers = x，y，z条目中的浏览器名，与ini文件中定义的名字对应。
 15. 启动`wptdriver`，安装它需要安装的任何软件（退出，当出现“waiting for work”）。  
 16. 重新启动以确保一切正常启动    
 
@@ -141,18 +141,18 @@ Windows（Vista或更高版本）（如果使用64位，需要WebPagetest 2.9或
 我们为EC2准备了公共AMI，可以用作通过实例用户数据动态配置的WebPagetest测试器。这些映像具有安装和配置测试系统所需的所有软件（包括用于生成视频的`AVISynth`和用于进行流量整形的`dummynet`）。
 
 ### 5.1 配置
-在启动实例时，通过用户数据字符串来配置测试代理。
+在启动实例时，通过用户数据字符串来配置测试代理，配置文件是"wptdriver.ini"。
 
-#### 5.1.1 参数
+#### 5.1.1 WebPagetest参数
 + wpt_server - WebPagetest正在运行的Web服务器（必需）
 + wpt_url - （仅限Linux代理）用于获取的工作目录的基本URL。即`https://www.webpagetest.org/work/`
 + wpt_loc - 要用于`wptdriver`的位置名称（可选 - 如果未指定，它将回退到`wpt_location`或从区域构建 - 例如`ec2-us-east`）
-+ wpt_location - The location name to use for URLBlast (optional - if not specified it will be built from the region and browser - ec2-us-east-IE8 for example).  wptdriver will append _wptdriver to this location ID if wpt_loc is not set.
-+ wpt_key - secret key for the specified location (optional)
-+ wpt_timeout - timeout setting for each test in seconds (optional, defaults to 60)
-+ wpt_username - username for basic authentication with WPT server. Ignored if wpt_password is not specified. (optional)
-+ wpt_password - password for basic authentication with WPT server. Ignored if wpt_username is not specified. (optional)
-+ wpt_validcertificate - Ignored unless the scheme of the wpt_server is 'https' If the value is '0', the hostname and expiry of the certificate are not checked. If the value is '1', the CN of the WPT server SSL certificate must match the hostname specified in the wpt_server parameter, and the certificate must be valid. (optional, defaults to '0')
++ wpt_location - 用于`URLBlast`的位置名称 (可选 - 如果没有指定，它将从区域和浏览器（例如ec2-us-east-IE8）构建)。如果wpt_loc未设置，wptdriver将附加_wptdriver到此位置ID。
++ wpt_key - 指定位置的秘密密钥（可选）
++ wpt_timeout - 每个测试的超时设置（以秒为单位）（可选，默认为60）
++ wpt_username - 使用WPT服务器进行基本认证的用户名。 如果未指定wpt_password，则忽略。 （可选的）
++ wpt_password - 使用WPT服务器进行基本认证的密码。 如果未指定wpt_username，则忽略。 （可选的）
++ wpt_validcertificate - 可如果wpt_server的方案不为“https”，就可忽略。如果值为“0”，则不会检查证书的主机名和到期时间。如果值为'1'，则WPT服务器SSL证书的CN必须与wpt_server参数中指定的主机名匹配，证书必须有效。 （可选，默认为'0'）
 
 #### 5.1.2 Example User Data string
 wpt_server=www.webpagetest.org wpt_loc=Test wpt_key=xxxxx
@@ -160,20 +160,20 @@ wpt_server=www.webpagetest.org wpt_loc=Test wpt_key=xxxxx
 ![](/assets/img/private/ec2config.png)
 
 #### 5.1.3 Sample locations.ini
-A sample locations.ini for the server is available that is configured with all of the available EC2 regions: [http://webpagetest.googlecode.com/svn/trunk/www/webpagetest/settings/locations.ini.EC2-sample](http://webpagetest.googlecode.com/svn/trunk/www/webpagetest/settings/locations.ini.EC2-sample)
+服务器的samples.ini示例可用于配置所有可用的EC2区域： [http://webpagetest.googlecode.com/svn/trunk/www/webpagetest/settings/locations.ini.EC2-sample](http://webpagetest.googlecode.com/svn/trunk/www/webpagetest/settings/locations.ini.EC2-sample)
 
 ### 5.2 AMI Images
-The wptdriver instances (IE 9, 10 and 11) must have a matching browser name in locations.ini for the version of IE in the AMI ("IE 9", "IE 10" or "IE 11").  
-The instances will automatically install the latest supported versions of Chrome and Firefox when they start up (and will automatically update while they are running)
+对于AMI（“IE 9”，“IE 10”或“IE 11”）中的IE版本，wptdriver实例（IE 9,10和11）必须在locations.ini中具有匹配的浏览器名称。 
+这些实例会在启动时自动安装最新支持的Chrome和Firefox版本（并在运行时自动更新）
 
-#### 5.2.1 Finding the Images (aka EC2 AMI search sucks)
-If you are having trouble finding the AMI's for manual launching, it's because EC2's AMI search is pretty broken.  I've found this path to work:
-+ Do NOT search for the AMI in the Images->AMIs interface
-+ Go to Instances->Instances (or spot instances)
-+ Launch Instance
-+ Select "Community AMIs"
-+ Check "Windows"
-+ Put the AMI ID in the search box and hit enter
+#### 5.2.1 查找图片（又名EC2 AMI search sucks）
+如果无法找到手动启动的AMI，那是因为EC2的AMI搜索功能非常糟糕。 我发现这条路可行：
++ 请勿在Images-> AMIs界面中搜索AMI
++ 转到Instances - >Instances（或spot instances）
++ 登录 Instance
++ 选择 "Community AMIs"
++ 选中 "Windows"
++ 将AMI ID放在搜索框中，然后按Enter键
 
 #### 5.2.2 us-east (Virginia)
     IE9/Chrome/Firefox/Safari - ami-83e4c5e9  
@@ -259,47 +259,47 @@ If you are having trouble finding the AMI's for manual launching, it's because E
     IE11/Chrome/Firefox/Safari - ami-203abb4c  
     Linux (Chrome Only) - ami-38eb8a54
     
-## 六、Updating Test Agents
-The test agents will automatically update their code from the server if there are update files in place (in /work/update on the server).  Each update consists of a zip file (the actual updata) and an ini file that contains some meta-data about the update (most importantly, the software version).  There are separate updates for the IE agent (update.zip/update.ini) and the Chrome/Firefox agent (wptupdate.zip/wptupdate.ini).
+## 六、更新测试代理
+如果存在更新文件（在服务器上的`/work/update`中），测试代理将自动从服务器更新其代码。 每个更新包括zip文件（实际updata）和包含有关更新的一些元数据（最重要的是软件版本）的ini文件。 IE代理（`update.zip/update.ini`）和Chrome/Firefox代理（`wptupdate.zip/wptupdate.ini`）有不同的更新。
 
-Each new release includes updated agent binaries but sometimes it is helpful or necessary to update the agents in between releases if you need a bug fix or functionality that has been made available on the public instance but that hasn't been packaged up in a new release yet.  In this case you can download the update from the public instance of WebPagetest and deploy it on your private instance (the agents are backwards compatible so you do not need to update the web code unless you need updated functionality there).  
+每个新版本都包含更新的代理二进制文件，但是如果需要在公用实例上提供，但尚未在新版本中打包的错误修复或功能，则有时更新代理之间的版本是有帮助。在这种情况下，可以从WebPagetest的公共实例下载更新，并将其部署在您的私有实例上（代理向后兼容，所以您不需要更新网页代码，除非您需要更新功能）。
 
-With WebPageTest 2.18 or later, the server can automatically update to the latest version as it is released.  In settings/settings.ini on the server, add:
+使用WebPageTest 2.18或更高版本，服务器可以在发布时自动更新到最新版本。 在服务器的`settings/settings.ini`中，添加：
 
     agentUpdate=http://cdn.webpagetest.org/
 
-To download and update manually:
-+ Download the agent updates:
+手动下载和更新：
++ 下载代理更新：
     + http://www.webpagetest.org/work/update/update.zip
     + http://www.webpagetest.org/work/update/wptupdate.zip
-+ Extract the ini file from within the zip files (update.ini and wptupdate.ini)
-+ Copy the zip files to the /work/update folder on your server (you may want to back up the existing agent updates so you can roll back if necessary)
-+ Copy the ini files to the /work/update folder on your server
++ 从zip文件中提取ini文件（`update.ini`和`wptupdate.ini`）
++ 将zip文件复制到服务器上的`/work/update`文件夹（可能需要备份现有的代理更新，以便在必要时回滚）
++ 将ini文件复制到服务器上的`/work/update`文件夹
 
-After uploading the updates, each agent will automatically download and install the update before running their next test so you can be guaranteed that the update will be deployed before any more testing occurs.
+上传更新后，每个代理程序将在运行下一个测试之前自动下载并安装更新，以确保在进行更多测试之前更新被部署。
 
-## 七、Troubleshooting
+## 七、故障排除
 ### 7.1 Web Server
-+ Waiting at the front of the queue
-    + Commonly the issue is in your locations.ini. Double check that your location settings match that of which your agent is pulling the server with. Also note if you're using a key, do they match. You can check your Apache access logs for incoming requests being made by your test agent. 
-+ The test completed but there were no successful results
-    + If you're using a 64-bit Windows client you will be unable to perform traffic shaping (using dummynet.) In your locations.ini, add connectivity=LAN to the test location.
-+ Waterfall charts are missing
-    + Check if the GD library is installed. The GD library is used for drawing the waterfalls and generating thumbnail images.
-    + Look to see if php-zip, php5-zip or a similar zip library is installed. With some default PHP distributions the library is not present.
-+ Screen captures are black
-    + When disconnecting from RDP, try rebooting the instance versus disconnecting from the RDP client. RDP locks up the desktop when you disconnect which will cause the screen shots and video to break.
-+ Error message like this in /var/log/apache2/error.log:
++ 等待在队列前面
+    + 通常的问题是在`location.ini`。仔细检查位置设置是否与代理正在拉动服务器的位置相匹配。还要注意，如果使用的是密钥，它们是否匹配。可以检查Apache访问日志，以便测试代理进行传入请求。
++ 测试完成，但没有成功
+    + 如果您使用的是64位Windows客户端，则无法执行流量整形（换为dummynet）。在`locations.ini`中，将`connectivity=LAN`添加到测试位置。
++ 瀑布图丢失
+    + 检查GD库是否安装。GD库用于绘制瀑布并生成缩略图。
+    + 看看是否安装了php-zip，php5-zip或类似的zip库。 使用某些默认的PHP发行版，图形库可能会不存在。
++ 屏幕截图为黑色
+    + 从RDP断开连接时，请尝试重新启动实例，而不是从RDP客户端断开连接。当您断开连接时，RDP会锁定桌面，这将导致屏幕截图和视频中断。
++ `/var/log/apache2/error.log`中的错误消息：
     + [Mon Apr 30 10:18:14 2012] [error] [client 1.2.3.4] PHP Warning: POST Content-Length of 22689689 bytes exceeds the limit of 8388608 bytes in Unknown on line 0
     + PHP enforces a limit on the size of uploaded files, and an agent is uploading something larger than this limit. Change upload_max_filesize and post_max_filesize to larger values in php.ini.
     
-#### 7.1.1 Test Agent
-Low disk space
-+ WebPagetest doesn't maintain any temporary files but sometimes Windows itself leaves stuff lying around and the disks can fill up. When that happens there are a few common things you can do to clean it up:
-    + You can delete everything in "C:\Windows\SoftwareDistribution\Download". Windows keeps the full installer for every software update it installs and it doesn't need them after the install.
-    + Try right-clicking on the c drive -> properties -> Disk Cleanup. There might be some crash reports it can cleanup
-+ If that doesn't free enough space there are a few more things you can do:
-    + Use windirstat to see what is taking up the disk space
-    + It's possible the IE temporary Internet files got corrupt and is growing out of control. CCleaner can help fix that sometimes
-    + Make sure hibernation is disabled (no hiberfile.sys on the c drive)
-    + Worst case, you can disable the swap file to get back a gig or two
+#### 7.1.1 测试代理
+磁盘空间不足
++ WebPagetest不会保留任何临时文件，但有时Windows本身会留下东西，磁盘可以填满。当发生这种情况时，可以执行以下几个常见的事情来清理它：
+    + 可以删除`C:\Windows\SoftwareDistribution\Download`中的所有内容。Windows将为其安装的每个软件更新保持完整的安装程序，并且在安装后不需要它们。
+    + 尝试 右键单击C盘 -> 属性 -> 磁盘清理。 可能会有一些崩溃报告可以清理
++ 如果没有足够的空间，还可以做更多的事情：
+    + 使用`windirstat`看看占用磁盘空间
+    + IE临时Internet文件可能被破坏，并且正在失去控制。`CCleaner`有时可以帮助修复
+    + 确保休眠已禁用（盘上没有·hiberfil.sys`）
+    + 最糟糕的情况是，可以禁用交换文件来恢复一两次
