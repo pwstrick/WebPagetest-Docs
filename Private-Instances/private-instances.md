@@ -141,7 +141,7 @@ Windows（Vista或更高版本）（如果使用64位，需要WebPagetest 2.9或
 我们为EC2准备了公共AMI，可以用作通过实例用户数据动态配置的WebPagetest测试器。这些映像具有安装和配置测试系统所需的所有软件（包括用于生成视频的`AVISynth`和用于进行流量整形的`dummynet`）。
 
 ### 5.1 配置
-在启动实例时，通过用户数据字符串来配置测试代理，配置文件是"wptdriver.ini"。
+在启动实例时，通过用户数据字符串来配置测试代理。
 
 #### 5.1.1 WebPagetest参数
 + wpt_server - WebPagetest正在运行的Web服务器（必需）
