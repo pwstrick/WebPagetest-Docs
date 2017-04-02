@@ -154,12 +154,12 @@ Windows（Vista或更高版本）（如果使用64位，需要WebPagetest 2.9或
 + wpt_password - 使用WPT服务器进行基本认证的密码。 如果未指定wpt_username，则忽略。 （可选的）
 + wpt_validcertificate - 可如果wpt_server的方案不为“https”，就可忽略。如果值为“0”，则不会检查证书的主机名和到期时间。如果值为'1'，则WPT服务器SSL证书的CN必须与wpt_server参数中指定的主机名匹配，证书必须有效。 （可选，默认为'0'）
 
-#### 5.1.2 Example User Data string
+#### 5.1.2 用户数据字符串示例
 wpt_server=www.webpagetest.org wpt_loc=Test wpt_key=xxxxx
 
 ![](/assets/img/private/ec2config.png)
 
-#### 5.1.3 Sample locations.ini
+#### 5.1.3 locations.ini示例
 服务器的samples.ini示例可用于配置所有可用的EC2区域： [http://webpagetest.googlecode.com/svn/trunk/www/webpagetest/settings/locations.ini.EC2-sample](http://webpagetest.googlecode.com/svn/trunk/www/webpagetest/settings/locations.ini.EC2-sample)
 
 ### 5.2 AMI Images
