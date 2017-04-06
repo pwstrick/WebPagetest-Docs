@@ -14,15 +14,14 @@
 不同的配置建立在彼此之上：
 
 ## 一、设备
-Testing with the new Node.js agent requires Android devices running 4.4 (Kit Kat) or later or iOS devices running a recent version of iOS (more iOS documentation and improved support coming soon).  In both cases the devices need to be rooted (jailbroken in the case of iOS) in order to be able to delete the browser cache.  For Android, Nexus and Motorola devices are known to work well and provide a wide range of capabilities.  Separate devices are required for testing portrait vs landscape (mostly an issue for tablet testing).
+&emsp;&emsp;使用新的Node.js代理进行测试需要运行4.4（Kit Kat）的Android设备或更高版本，iOS设备运行最新版本的iOS（更多的iOS文档和更新的支持即将推出）。在这两种情况下，设备需要刷机（在iOS的情况下越狱）才能删除浏览器缓存。对于Android，Nexus和Motorola设备的工作效果很好，并提供广泛的功能。需要单独的设备来测试人像与景观（主要是平板电脑测试的问题）。
 
 ## 二、实际移动网络具有实际载体
-
-The simplest set-up is running a device on a carrier network.  In this case you just need the phone(s) and a tethered host to control them.  Multiple devices can be controlled from a single host (as many as the OS will allow USB connections).  Any OS that supports adb and Node.js should work though Windows and Linux get the most testing.  
-If the host has USB 3 controllers and you want to use Linux you need to make sure it is a VERY recent kernel as USB 3 support in earlier releases was REALLY buggy.  
-For Windows there is also a support application [adbwatch](https://github.com/WPO-Foundation/adbwatch/releases) that watches adb and if it dies (stops responding as it sometimes does) it will automatically restart it allowing the system to run with no human intervention for extended periods.  
-The public instance currently has 10 devices connected to an Intel i5 NUC running Windows 7 with adbwatch managing the agent instances and keeping adb running.  One tip for running the NUC's as headless servers (for the newer haswell models that do not support AMT) is to use VNC and the Microsoft video drivers shipped with Windows, not the Intel ones.  If you use the Intel drivers the display will be disabled and VNC will not work.  
-The data flow for test results and agent <-> WebPagetest server communication all happen from the tethered host so the only use of the data connection will be the actual test data (and any software updates).
+&emsp;&emsp;最简单的设置是在运营商网络上运行设备。在这种情况下，您只需要手机和有线主机来控制它们。可以从单个主机控制多个设备（OS将允许USB连接）。任何支持adb和Node.js的操作系统都可以通过Windows和Linux进行测试。  
+&emsp;&emsp;如果主机有USB 3控制器，并且想要使用Linux，则需要确保它是一个比较新的内核，因为早期版本中的USB 3支持是非常差。  
+&emsp;&emsp;对于Windows，还有一个支持应用程序[adbwatch](https://github.com/WPO-Foundation/adbwatch/releases)来监视adb，如果它死机（有时会停止响应），它将自动重新启动，允许系统运行，而不需要人为干预。  
+&emsp;&emsp;公共实例目前有10台设备连接到运行Windows 7的英特尔i5 NUC，具有管理代理实例并保持adb运行的adbwatch。将NUC作为无头服务器（对于不支持AMT的较新的haswell型号）运行的一个提示是使用Windows附带的VNC和Microsoft视频驱动程序，而不是Intel。如果使用英特尔驱动程序，显示屏将被禁用，VNC将无法正常工作。  
+&emsp;&emsp;测试结果和代理服务器通信的数据流全部发生在系统主机上，因此唯一使用的数据连接将是实际的测试数据（以及任何软件更新）。
 
 ## 三、WiFi没有流量整形
 Testing over a WiFi connection gives you much more control over the stability of the results and usually produces much more consistent results than testing on a carrier network.  The main issues with running a stable WiFi test connection are:
