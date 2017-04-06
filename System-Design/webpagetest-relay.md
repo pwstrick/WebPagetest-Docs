@@ -24,18 +24,18 @@
 + `downloadtest.php` - 添加一个新界面来下载给定测试的zip存档（基本上与发布相同，但在`pull`模式中）
 + `deletetest.php` - 添加一个新的界面来显式删除测试（基于匹配的API键）
 
-WebPagetest Interface
-+ Any location in locations.ini can be configured to talk to a relay server with the following settings:
+WebPagetest接口
++ 可以将locations.ini中的任何位置配置为与中继服务器通信，具有以下设置：
     + Relay server URL (base URL)
-    + Relay location ID (relay server's location ID to use)
-    + Relay Key (API Key to use when interfacing with the relay server)
-+ When tests are submitted to the local server, instead of writing the test job to a local file it will post it to the relay server
-+ When checking the status of a test, if the test is not complete then WebPagetest will ask the relay server for the status
-+ If the relay server indicates that the test is complete, WebPagetest will download the result from the relay server as a zip and extract it locally
-    + After download/extract WPT will indicate that it is done with the test so the relay can delete it's copy
+    + Relay location ID (中继服务器的位置ID)
+    + Relay Key (API与中继服务器连接时使用的密钥)
++ 当测试提交到本地服务器时，不是将测试作业写入本地文件，而是将其发布到中继服务器
++ 检查测试状态时，如果测试不完整，则WebPagetest会询问中继服务器的状态
++ 如果中继服务器指示测试完成，则WebPagetest会将中继服务器的结果作为zip压缩并将其解压缩
+    + 下载/提取后，WPT将表明它已经完成了测试，所以中继服务器可以删除它的副本
 
-Agent Interface
-+ Agents will communicate with a relay exactly as if they are communicating with WebPagetest (work/getwork.php, work/resultimage.php, work/workdone.php)
+代理接口
++ 代理将与中继进行通信，就像他们正在与WebPagetest进行通信（`work/getwork.php`，`work/resultimage.php`，`work/workdone.php`）
 
-Relay Implementation
-+ A dedicated relay server will just be a subset of a full WPT install without the UI support (SVN will be used to place the selected files into a wptrelay directory in the dist release)
+中继服务器实施
++ 一个专用的中继服务器将只是一个完整WPT的一部分，不需要UI支持（SVN用于将选定的文件放在dist版本的wptrelay目录中）
