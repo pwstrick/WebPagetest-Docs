@@ -23,7 +23,7 @@
 	+ [WebPagetest中继（WebPagetest Relay）](/System-Design/webpagetest-relay.md)
 	+ [Mobile Testing](/System-Design/mobile-testing.md)
 + Other Resources
-	+ [Optimization Resources](/Other-Resources/optimization-resources.md)
+	+ [优化资源（Optimization Resources）](/Other-Resources/optimization-resources.md)
 	+ [Hosting a Test Location](/Other-Resources/hosting-a-test-location.md)
 	+ [2011 FCC Broadband Data](/Other-Resources/2011-fcc-broadband-data.md)
 + Developer Information
