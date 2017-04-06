@@ -20,7 +20,7 @@
 		+ [代理安装（Agent Setup）](/Private-Instances/agent-setup.md)
 + 系统设计（System Design）
 	+ [概述（Overview）](/System-Design/overview.md)
-	+ [WebPagetest Relay](/System-Design/webpagetest-relay.md)
+	+ [WebPagetest中继（WebPagetest Relay）](/System-Design/webpagetest-relay.md)
 	+ [Mobile Testing](/System-Design/mobile-testing.md)
 + Other Resources
 	+ [Optimization Resources](/Other-Resources/optimization-resources.md)
