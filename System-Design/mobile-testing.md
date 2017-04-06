@@ -11,12 +11,12 @@
 
 ![](/assets/img/system/WebPagetest_Mobile_Network.png)
 
-The different configuration build on top of each other:
+不同的配置建立在彼此之上：
 
-## 一、Devices
+## 一、设备
 Testing with the new Node.js agent requires Android devices running 4.4 (Kit Kat) or later or iOS devices running a recent version of iOS (more iOS documentation and improved support coming soon).  In both cases the devices need to be rooted (jailbroken in the case of iOS) in order to be able to delete the browser cache.  For Android, Nexus and Motorola devices are known to work well and provide a wide range of capabilities.  Separate devices are required for testing portrait vs landscape (mostly an issue for tablet testing).
 
-## 二、Real mobile network with an actual carrier
+## 二、实际移动网络具有实际载体
 
 The simplest set-up is running a device on a carrier network.  In this case you just need the phone(s) and a tethered host to control them.  Multiple devices can be controlled from a single host (as many as the OS will allow USB connections).  Any OS that supports adb and Node.js should work though Windows and Linux get the most testing.  
 If the host has USB 3 controllers and you want to use Linux you need to make sure it is a VERY recent kernel as USB 3 support in earlier releases was REALLY buggy.  
@@ -24,7 +24,7 @@ For Windows there is also a support application [adbwatch](https://github.com/WP
 The public instance currently has 10 devices connected to an Intel i5 NUC running Windows 7 with adbwatch managing the agent instances and keeping adb running.  One tip for running the NUC's as headless servers (for the newer haswell models that do not support AMT) is to use VNC and the Microsoft video drivers shipped with Windows, not the Intel ones.  If you use the Intel drivers the display will be disabled and VNC will not work.  
 The data flow for test results and agent <-> WebPagetest server communication all happen from the tethered host so the only use of the data connection will be the actual test data (and any software updates).
 
-## 三、WiFi with no traffic shaping
+## 三、WiFi没有流量整形
 Testing over a WiFi connection gives you much more control over the stability of the results and usually produces much more consistent results than testing on a carrier network.  The main issues with running a stable WiFi test connection are:
 + **Using a stable access point**: Most consumer WiFi devices are horrible, crash consistently and can't maintain connections for long periods.  Business devices tend to be more reliable but I have found that the Apple Air Port devices work incredibly well and use them exclusively.  They are rock-solid and never freeze/hang/reboot, allow for running in access point mode and support both 2.4 and 5GHz bands simultaneously.
 + **Using a clear WiFi Frequency**: In an office or urban environment this is probably going to be the most difficult issue to work through.  I use inssider to find a clear non-overlapping frequency band to use for the test network.  For the public instance I am lucky in that there are no neighbor networks that interfere so I have my pick of the full spectrum.
@@ -32,7 +32,7 @@ Testing over a WiFi connection gives you much more control over the stability of
 
 The main downside of testing an unshaped WiFi connection is that you are running at the full connection speed of your ISP and it may not match your end-user's experience.
 
-## 四、WiFi with a fixed traffic shaping profile
+## 四、WiFi具有固定的流量整形配置文件
 Adding traffic shaping to the WiFi test configuration allows you to test with end-user connection characteristics but maintain the consistency of regular WiFi testing.  The traffic shaping has to be done on the far side of the access point and is best done with a FreeBSD machine that bridges the network connection from the access point to the rest of the wired network (there is also a linux port of dummynet but the FreeBSD implementation has been a lot more consistent in our testing).  
 With a fixed traffic shaping profile you have to pick one profile and use that for all of the traffic for a given device (or all devices).  When setting up the dummynet configuration it is important to remember to give each device it's own "pipe" so they are not sharing a virtual connection.  
 As far as hardware goes, any machine that supports FreeBSD and has 2+ network interfaces will work.  I like the Supermicro Atom servers because they are cheap, super low-power and support remote management.  
@@ -49,9 +49,9 @@ ipfw add pipe 1 ip from any to any out xmit em1
 ipfw add pipe 2 ip from any to any out recv em1
 ```
 
-## 五、WiFi with per-test traffic shaping
+## 五、WiFi具有每个测试流量整形
 Instead of using a fixed connection profile for all of the devices, it is possible to have the test agent configure them on a per-test basis.  The Node.js agent can call out to an ipfw shell script on the agent with information about which test agent to configure and the connection profiles.  There is [sample code in github](https://github.com/WPO-Foundation/webpagetest/blob/master/agent/js/ipfw_config) that creates a pipe dynamically and assigns the appropriate profile.  
 For the public instance the plan is to statically configure multiple pipes, a pair for each device and then when the script configures the shaping it will just set the parameters for pipes associated with that device.  This is how the desktop agents work and avoids any edge-cases where rules are left in the configuration if something dies.  Once things are set up and working I will provide the script and configuration that is implemented on the public instance.
 
-## 六、rndis tethering instead of WiFi
+## 六、rndis替代WiFi
 One of the more difficult issues with configuring a larger lab is managing the WiFi network(s).  It is possible to reverse-tether the devices so that their networking traffic is routed over the USB connection to the tethered host.  This can provide even more consistent results but you need to be careful to not overload the USB bus (which is also transferring videos and test results for the other tethered devices) and the reliability hasn't been as good as WiFi (devices tend to fall offline).

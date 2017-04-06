@@ -12,5 +12,5 @@
     + 自动化API
     + 代理API
 + 代理架构
-    + 遗产代理
-    + 新代理
+    + 旧代理（IE8以下使用的UrlBlast）
+    + 新代理（Chrome/Firefox等使用的WPTDriver）
