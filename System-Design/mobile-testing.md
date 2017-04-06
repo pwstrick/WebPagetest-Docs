@@ -24,12 +24,12 @@
 &emsp;&emsp;测试结果和代理服务器通信的数据流全部发生在系统主机上，因此唯一使用的数据连接将是实际的测试数据（以及任何软件更新）。
 
 ## 三、WiFi没有流量整形
-Testing over a WiFi connection gives you much more control over the stability of the results and usually produces much more consistent results than testing on a carrier network.  The main issues with running a stable WiFi test connection are:
-+ **Using a stable access point**: Most consumer WiFi devices are horrible, crash consistently and can't maintain connections for long periods.  Business devices tend to be more reliable but I have found that the Apple Air Port devices work incredibly well and use them exclusively.  They are rock-solid and never freeze/hang/reboot, allow for running in access point mode and support both 2.4 and 5GHz bands simultaneously.
-+ **Using a clear WiFi Frequency**: In an office or urban environment this is probably going to be the most difficult issue to work through.  I use inssider to find a clear non-overlapping frequency band to use for the test network.  For the public instance I am lucky in that there are no neighbor networks that interfere so I have my pick of the full spectrum.
-+ **Don't overload the WiFi network**: Putting too many devices on a single channel or using the same network for other traffic can cause contention and may limit your actual bandwidth.  With devices that can talk 802.11n or 802.11ac it becomes less of an issue but if you are deploying a LOT of devices it is worth keeping in mind.  The only way to deal with this is to split traffic across multiple networks, insulate segments of devices and access points (putting them in a Faraday cage) or using rndis wired networking instead of WiFi.
+通过WiFi连接进行测试可以更好地控制结果的稳定性，通常会产生比运营商网络上测试更加一致的结果。运行稳定WiFi测试连接的主要问题是：
++ **使用稳定的接入点**：大多数消费者WiFi设备是可怕的，一直存在，并且不能长时间保持连接。业务设备往往更加可靠，但我发现，苹果Air Port设备的工作非常好，只能使用它们。它们是坚如磐石的，永远不会`冻结/挂起/重新启动`，允许在接入点模式下运行，同时支持2.4和5GHz频段。
++ **使用清晰的WiFi频率**：在办公室或城市环境中，这可能是要解决的最困难的问题。我使用inssider找到一个清晰的非重叠频段用于测试网络。对于公共实例，我很幸运，因为没有邻居网络干扰，所以我选择了全方位。
++ **不要超载WiFi网络**: 将单个通道上的设备太多或使用相同的网络用于其他流量可能会导致争用，并可能限制实际带宽。使用可以与802.11n或802.11ac通话的设备变得不那么简单，但如果正在部署大量设备，那么值得牢记。解决这个问题的唯一方法是跨多个网络分流流量，将设备和接入点（将它们放在法拉第笼中）或使用rndis有线网络而不是WiFi绝缘。
 
-The main downside of testing an unshaped WiFi connection is that you are running at the full connection speed of your ISP and it may not match your end-user's experience.
+测试未定义的WiFi连接的主要缺点是以ISP的完全连接速度运行，并且可能与最终用户的体验不符。
 
 ## 四、WiFi具有固定的流量整形配置文件
 Adding traffic shaping to the WiFi test configuration allows you to test with end-user connection characteristics but maintain the consistency of regular WiFi testing.  The traffic shaping has to be done on the far side of the access point and is best done with a FreeBSD machine that bridges the network connection from the access point to the rest of the wired network (there is also a linux port of dummynet but the FreeBSD implementation has been a lot more consistent in our testing).  
