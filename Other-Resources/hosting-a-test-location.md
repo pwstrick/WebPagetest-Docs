@@ -1,39 +1,39 @@
-# Hosting a Test Location
+# 托管测试位置
 
-## 一、Security Considerations
-EXPECT TO BE HACKED!
+## 一、安全注意事项
+期待被黑！
 
-If you are going to run a test location for the public instance of WebPagetest you should treat the test system as if it will be hacked. You are running a machine where anyone on the Internet can direct your system to browse any page, even pages designed to exploit browser vulnerabilities. There are a lot of protections you can put in place to minimize the risk but you can never eliminate it so do not put the test system anywhere where it has privileged access to anything.  
-Some of the things to consider:
-+ If you can, put the test system into a DMZ where it doesn't have access to anything you care about
-+ The test system should be set to automatically install Windows Updates
-+ Because of how video recording is done, the test system also needs to stay logged in to an administrator account's desktop so physical security of the system should be considered.
+&emsp;&emsp;如果要为WebPagetest的公共实例运行测试位置，应该将测试系统视为被黑客入侵。你正在运行一台机器，Internet上的任何人都能浏览任何页面，甚至可以利用浏览器漏洞的页面。你可以采取很多保护措施来最大限度地降低风险，但是永远不能消除这种风险，所以不要将测试系统放在任何权限低的地方。
+有些事情要考虑：
++ 如果可以的话，将测试系统放入DMZ，隔离任何敏感内容
++ 将测试系统设置为自动安装Windows更新
++ 由于视频录像的完成方式，测试系统还需要保持登录到管理员帐户的桌面，因此应该考虑系统的物理安全性。
 
-## 二、System Requirements
-Since WebPagetest uses real browsers in it's testing, we need the test system to be running Windows.
-+ Windows (7 or later, Server 2003 R2 or later). 32 or 64-bit are both fine (OS needs to support the browser you want to offer)
-+ A dedicated PC (Pentium 4 or newer, 2GB RAM Minimum) or an equivalent VM (ESX/ESXi and Xen work well, KVM has been used but not tested much).
-+ An internet connection - the faster the better (and with minimal latency). Any connections will work but faster connections will be able to traffic shape to slower connections so they provide more possibilities for connection types. 
-+ Realistically, anything 5MBps (down) with <28ms RTT latency will work though 10Mb Ethernet would be preferred.
+## 二、系统要求
+由于WebPagetest在测试中使用真正的浏览器，所以我们需要测试系统运行Windows。
++ Windows（7或更高版本，Server 2003 R2或更高版本）。32或64位都很好（操作系统需要支持您想要提供的浏览器）
++ 专用PC（Pentium 4或更新版本，最低2GB RAM）或等效虚拟机（ESX / ESXi和Xen工作良好，KVM已被使用但未经过测试）。
++ 互联网连接 - 越快越好（延迟最小）。流量能够设置，从而为连接类型提供更多的可能性。
++ 实际上，任何具有<28ms RTT延迟的5MBps（向下）的任何功能都可以使用，因为10Mb以太网将是首选。
 
-## 三、What I need to configure a new location
-I need some basic information about the test location and system itself:
-+ Which version of IE will be supported
-+ City, Region (if applicable) and Country where the test system is running
-+ Connectivity information (up/down bandwidth and first hop RTT)
-+ Contact information (email address) for where to send notifications if the location appears to be having issues
+## 三、我需要配置一个新的位置
+我需要一些有关测试位置和系统本身的基本信息：
++ 将支持哪个版本的IE
++ 城市，区域（如果适用）和测试系统运行的国家
++ 连接信息（上/下带宽和第一跳RTT）
++ 如果位置有问题，请联系（电子邮件地址）发送通知的位置
 
-Additionally, by hosting a test location, you get promotional logos and banners displayed on the site:
-+ The main site banner will display your banner whenever someone is running a test or viewing results from your location (as well as being in rotation for display on the main landing page). The banner space is 728x90 (though smaller banners will also work)
-+ There is also a "Provided By" logo that needs to fit within a 180px x 40px area.
-+ I need the graphic files for the 2 logo spots as well as a location you would like them linked to (and alt text)
+此外，通过托管测试位置，将获得网站上显示的促销标志和横幅：
++ 当有人正在进行测试或从你的位置查看结果（以及在主要着陆页上显示的轮播）时，主站点横幅将显示你的横幅。横幅广告空间是728x90（虽然较小的横幅也可以使用）
++ 还有一个“提供的”标志需要适应180px x 40px的区域。
++ 我需要2个标志点的图形文件以及你希望它们链接的位置（和替代文本）
 
-## 四、Configuring the test system
-Once I have the necessary information I will configure the new location on the server and provide the testing software properly configured. Configuring the test system is fairly straightforward.  
-Follow the same steps as if you were configuring a private instance: [Private Instances](/Private-Instances/private-instances.md)  
-If you RDP into the system, reboot after you are done so the desktop does not remain locked.  
-If you provide me remote system access (RDP or VNC) I can take care of installing the software on the agent as well and also take care of maintaining it.
+## 四、配置测试系统
+一旦我有必要的信息，我将在服务器上配置新的位置，并提供正确配置的测试软件。配置测试系统是相当简单的。  
+按照与配置私有实例相同的步骤：[Private Instances](/Private-Instances/private-instances.md)  
+如果从RDP进入系统，则在完成操作后重新启动，以免桌面未保持锁定。  
+如果提供远程系统访问（RDP或VNC），我也可以在代理上安装软件，并且还要保养它。
 
-## 五、Ongoing support
-Aside from any unexpected outages the system should just run itself.  
-If you provide me remote access to the system I can triage any outages, otherwise I will need a point of contact.
+## 五、持续支持
+除了任何意外的中断，系统应该自己运行。  
+如果你提供我远程访问系统，我可以分流任何中断，否则我将需要一个联络点。

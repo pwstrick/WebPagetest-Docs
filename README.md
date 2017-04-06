@@ -24,8 +24,8 @@
 	+ [Mobile Testing](/System-Design/mobile-testing.md)
 + Other Resources
 	+ [优化资源（Optimization Resources）](/Other-Resources/optimization-resources.md)
-	+ [Hosting a Test Location](/Other-Resources/hosting-a-test-location.md)
-	+ [2011 FCC Broadband Data](/Other-Resources/2011-fcc-broadband-data.md)
+	+ [托管测试位置（Hosting a Test Location）](/Other-Resources/hosting-a-test-location.md)
+	+ [2011 FCC宽带数据（2011 FCC Broadband Data）](/Other-Resources/2011-fcc-broadband-data.md)
 + Developer Information
 	+ [Developer FAQ](/Developer-Information/developer-faq.md)
 	+ [Code Guidelines](/Developer-Information/code-guidelines.md)
