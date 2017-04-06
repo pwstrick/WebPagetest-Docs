@@ -21,7 +21,7 @@
 + 系统设计（System Design）
 	+ [概述（Overview）](/System-Design/overview.md)
 	+ [WebPagetest中继（WebPagetest Relay）](/System-Design/webpagetest-relay.md)
-	+ [Mobile Testing](/System-Design/mobile-testing.md)
+	+ [移动测试（Mobile Testing）](/System-Design/mobile-testing.md)
 + Other Resources
 	+ [优化资源（Optimization Resources）](/Other-Resources/optimization-resources.md)
 	+ [托管测试位置（Hosting a Test Location）](/Other-Resources/hosting-a-test-location.md)

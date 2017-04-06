@@ -1,14 +1,15 @@
-# Mobile Testing
+# 移动测试
 
-For mobile testing you have a few options for network connectivity:
-+ Real mobile network with an actual carrier
-+ WiFi with no traffic shaping
-+ WiFi with a fixed traffic shaping profile
-+ WiFi with per-test traffic shaping
+对于移动测试，有几个网络连接选项：
++ 实际移动网络具有实际载体
++ WiFi没有流量整形
++ WiFi具有固定的流量整形配置文件
++ WiFi具有每个测试流量整形
 
-This is what the mobile testing network looks like for the public instance of WebPagetest (at least as of this writing in 2014):
+[流量整形](http://baike.baidu.com/link?url=tl7WeKr3B-0Vr0NkUUNY1iqky_R1lsFOYRb2WwGq3dY6VMrkOecrrhKL3-fw4gP8SgMNQqgLm8x8XUU-ZtElqNHJshaVCndxJYQJLcy03epoEDFZvIx6zwHnjeAmm9gF)(traffic shaping)典型作用是限制流出某一网络的某一连接的流量与突发，使这类报文以比较均匀的速度向外发送。  
+移动测试网络对于WebPagetest的公共实例来说是至关重要的（至少在2014年的这篇文章中）：
 
-![](/assets/img/system/WebPagetest Mobile Network.png)
+![](/assets/img/system/WebPagetest_Mobile_Network.png)
 
 The different configuration build on top of each other:
 
