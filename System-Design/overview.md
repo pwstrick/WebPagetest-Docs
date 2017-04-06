@@ -2,7 +2,7 @@
 
 以下是WebPagetest的整体系统设计：
 
-![](/assets/img/using/system/overview.png)
+![](/assets/img/system/overview.png)
 
 所有通信均通过HTTP完成，箭头方向表示HTTP请求的方向。  
 测试代理人轮询找到工作的服务器，并在测试完成后将结果发回服务器。
