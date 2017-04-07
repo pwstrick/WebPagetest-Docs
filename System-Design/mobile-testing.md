@@ -32,25 +32,25 @@
 测试未定义的WiFi连接的主要缺点是以ISP的完全连接速度运行，并且可能与最终用户的体验不符。
 
 ## 四、WiFi具有固定的流量整形配置文件
-Adding traffic shaping to the WiFi test configuration allows you to test with end-user connection characteristics but maintain the consistency of regular WiFi testing.  The traffic shaping has to be done on the far side of the access point and is best done with a FreeBSD machine that bridges the network connection from the access point to the rest of the wired network (there is also a linux port of dummynet but the FreeBSD implementation has been a lot more consistent in our testing).  
-With a fixed traffic shaping profile you have to pick one profile and use that for all of the traffic for a given device (or all devices).  When setting up the dummynet configuration it is important to remember to give each device it's own "pipe" so they are not sharing a virtual connection.  
-As far as hardware goes, any machine that supports FreeBSD and has 2+ network interfaces will work.  I like the Supermicro Atom servers because they are cheap, super low-power and support remote management.  
-Here is the ipfw configuration that the public instance uses:
+&emsp;&emsp;将流量整形添加到WiFi测试配置，允许测试用户连接特性，保持常规WiFi测试的一致性。流量整形必须在接入点的远端完成，最好使用将网络连接从接入点桥接到有线网络的其余部分的FreeBSD机器（还有一个dummynet的linux端口，但FreeBSD的实现在我们的测试中已经更加一致了）。  
+&emsp;&emsp;使用固定流量整形配置文件，必须选择一个配置文件，并将其用于给定设备（或所有设备）的所有流量。设置dummynet配置时，务必记住给每个设备自己的“管道”，以使它们不共享虚拟连接。  
+&emsp;&emsp;就硬件而言，任何支持FreeBSD并具有2+网络接口的机器都可以工作。我喜欢Supermicro Atom服务器，因为它们便宜，超低功耗，支持远程管理。  
+以下是公共实例使用的ipfw配置：
 ```bash
-# 3G profile - 1.6Mbps down, 768Kbps up, 300ms RTT
-# The src-ip and dst-ip masks ensure that each client gets it's own pipe
+# 3G配置文件 - 1.6Mbps下行，768Kbps上行，300ms RTT
+# src-ip和dst-ip掩码确保每个客户端都获得自己的管道
 ipfw pipe 1 config bw 1600Kbit/s delay 150ms noerror mask dst-ip 0xffffffff
 ipfw pipe 2 config bw 768Kbit/s delay 150ms noerror mask src-ip 0xffffffff
 
-# em1 is the network interface that is connected to the access point.
-# Data "transmitted" to the access point is the "in" data on the devices.
+# em1是连接到接入点的网络接口。
+# 数据“transmitted”到接入点是设备上的“in”数据。
 ipfw add pipe 1 ip from any to any out xmit em1
 ipfw add pipe 2 ip from any to any out recv em1
 ```
 
 ## 五、WiFi具有每个测试流量整形
-Instead of using a fixed connection profile for all of the devices, it is possible to have the test agent configure them on a per-test basis.  The Node.js agent can call out to an ipfw shell script on the agent with information about which test agent to configure and the connection profiles.  There is [sample code in github](https://github.com/WPO-Foundation/webpagetest/blob/master/agent/js/ipfw_config) that creates a pipe dynamically and assigns the appropriate profile.  
-For the public instance the plan is to statically configure multiple pipes, a pair for each device and then when the script configures the shaping it will just set the parameters for pipes associated with that device.  This is how the desktop agents work and avoids any edge-cases where rules are left in the configuration if something dies.  Once things are set up and working I will provide the script and configuration that is implemented on the public instance.
+&emsp;&emsp;不用为所有设备使用固定的连接配置文件，可以使测试代理程序在每个测试的基础上进行配置。Node.js代理可以调用代理上的ipfw shell脚本，其中包含要配置的测试代理和连接配置文件的信息。[github中有示例代码](https://github.com/WPO-Foundation/webpagetest/blob/master/agent/js/ipfw_config) 动态创建管道并分配相应的配置文件。  
+&emsp;&emsp;对于公共实例，静态配置多个管道，每个设备一对，然后当脚本配置整形时，它将只设置与该设备相关联的管道参数。这就是桌面代理的工作原理，并避免了任何边缘情况，如果某些事情死机，那么在配置中会留下规则。一旦设置和工作，我将提供在公共实例上实现的脚本和配置。
 
 ## 六、rndis替代WiFi
-One of the more difficult issues with configuring a larger lab is managing the WiFi network(s).  It is possible to reverse-tether the devices so that their networking traffic is routed over the USB connection to the tethered host.  This can provide even more consistent results but you need to be careful to not overload the USB bus (which is also transferring videos and test results for the other tethered devices) and the reliability hasn't been as good as WiFi (devices tend to fall offline).
+&emsp;&emsp;配置更大的实验室的一个更困难的问题是管理WiFi网络。可以反转系统的设备，使其网络流量通过USB连接路由到有线主机。这可以提供更一致的结果，但是需要注意不要超载USB总线（这也会传输其他系留设备的视频和测试结果），并且可靠性还不如WiFi（设备往往脱机）。
