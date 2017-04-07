@@ -39,3 +39,11 @@ class activityController extends \library\controller\Web {
 | zebra stripes | are neat        |    $1 |
 
 ![](/assets/img/using/guide/url.png)
+
++ Developer Information
+	+ [Developer FAQ](/Developer-Information/developer-faq.md)
+	+ [Code Guidelines](/Developer-Information/code-guidelines.md)
+	+ [Code Review](/Developer-Information/code-review.md)
+	+ [Design Docs](/Developer-Information/design-docs.md)
+		+ [Benchmarks](/Developer-Information/benchmarks.md)
+	+ [Async JS](/Developer-Information/async-js.md)

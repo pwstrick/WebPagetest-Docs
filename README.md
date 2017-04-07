@@ -26,13 +26,7 @@
 	+ [优化资源（Optimization Resources）](/Other-Resources/optimization-resources.md)
 	+ [托管测试位置（Hosting a Test Location）](/Other-Resources/hosting-a-test-location.md)
 	+ [2011 FCC宽带数据（2011 FCC Broadband Data）](/Other-Resources/2011-fcc-broadband-data.md)
-+ Developer Information
-	+ [Developer FAQ](/Developer-Information/developer-faq.md)
-	+ [Code Guidelines](/Developer-Information/code-guidelines.md)
-	+ [Code Review](/Developer-Information/code-review.md)
-	+ [Design Docs](/Developer-Information/design-docs.md)
-		+ [Benchmarks](/Developer-Information/benchmarks.md)
-	+ [Async JS](/Developer-Information/async-js.md)
+
 
 # 相关资料
 [Using WebPageTest](https://book.douban.com/subject/26588599/)专门介绍WebPageTest的书籍，有中文版，原版是彩色的，中文版是黑白的。在这本书中不但列举了一些分析技巧，还展示了更多的参数说明，结合文档可以更好的运用Webpagetest。
